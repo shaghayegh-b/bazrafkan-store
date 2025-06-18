@@ -3,10 +3,10 @@
 * {
   box-sizing: border-box;
 }
-/* html,
+html,
 body {
   overflow-x: hidden;
-} */
+}
 body {
   background-color: rgb(183, 185, 187);
   font-size: 100%;
