@@ -1,7 +1,14 @@
 import { memo, useEffect, useState } from "react";
 import "./Meno.css";
 import imgporo from "../../assets/img/111.png";
+import { mymeno } from "../Navbar/Navbar";
+import { useContext } from "react";
+import { dataCategory } from "../Category/dataCategory";
 function Meno() {
+  const [grouping, setGrouping] = useState(false);
+  const meno = useContext(mymeno);
+  console.log(meno);
+
   const [isDark, setIsDark] = useState(() => {
     return (
       localStorage.getItem("theme") === "dark" ||
@@ -21,7 +28,11 @@ function Meno() {
   }, [isDark]);
   return (
     <>
-      <div className="Meno w-[85vw] fixed top-0 right-0 z-2  text-gray-200">
+      <div
+        className={`Meno h-[100vh]  overflow-y-scroll text-gray-200  transition-all duration-300 ease-in-out ${
+          meno ? "w-[85vw]" : "w-[0]"
+        } `}
+      >
         <div className="Meno1 bg-blue-500 w-[100%] text-white flex flex-row p-3 gap-3 items-center">
           <div className="w-[2rem] h-[2rem] bg-red-400 rounded-full">
             <img
@@ -35,46 +46,59 @@ function Meno() {
             <p>09399619640</p>
           </div>
           <span className="relative w-[33%] ">
-            <i className="absolute bottom-[-0.7rem] left-[-0.6rem] font-bold">
-              &gt;
-            </i>
+            <i className="fa fa-chevron-circle-left absolute bottom-[-0.7rem] left-[-0.6rem] font-bold"></i>
           </span>
         </div>
         <div className="Meno2 bg-gray-700">
           <ul>
             <li>
               <a href="">
-                <i className="fa fa-home"></i>همه محصولات
+                <i className="fa fa-home text-blue-300"></i>همه محصولات
+              </a>
+            </li>
+            <li className="relative" onClick={() => setGrouping(!grouping)}>
+              <button href="">
+                <i className="fas fa-store"></i>دسته بندی
+                <i
+                  className={`fa fa-chevron-up absolute left-0 top-[7px] transition-all duration-300 ease-in-out ${
+                    grouping ? "rotate-[180deg]" : ""
+                  }`}
+                ></i>
+              </button>
+              <div
+                className={`transition-all duration-1000 ease-in-out ${
+                  grouping ? "" : "hidden"
+                }`}
+              >
+                <ul className={`transition-all duration-1000 ease-in-out ${
+                  grouping ? "" : "h-0"
+                }`}>
+                  {dataCategory.map((oneCategory) => (
+                    <li>
+                      <a href="">{oneCategory.title}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a href="">
+                <i className="fa fa-star"></i>محصولات مورد علاقه
               </a>
             </li>
             <li>
               <a href="">
-                <i className=" fab fa-Category"></i>دسته بندی
+                <i className="fa fa-bookmark"></i>محصولات ذخیره شده
               </a>
             </li>
             <li>
               <a href="">
-                <i className=""></i>محصولات مورد علاقه
+                <i className="fas fa-comments"></i>چت های من
               </a>
             </li>
             <li>
               <a href="">
-                <i className=""></i>محصولات ذخیره شده
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <i className=""></i>چت های من
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <i className=""></i>پرداخت های من
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <i className=""></i>اعلانات
+                <i className="fa fa-bell"></i>اعلانات
               </a>
             </li>
           </ul>
@@ -96,12 +120,12 @@ function Meno() {
             </li>
             <li>
               <a href="">
-                <i className=""></i>تنظیمات
+                <i className="fa fa-link"></i>ارتباط با ما
               </a>
             </li>
             <li>
               <a href="">
-                <i className=""></i>پشتیبانی
+                <i className="fa fa-gear"></i>تنظیمات
               </a>
             </li>
           </ul>
@@ -109,7 +133,7 @@ function Meno() {
           <ul>
             <li>
               <a href="">
-                <i className=""></i>خروج از حساب کاربری
+                <i className="fa fa-share-square"></i>خروج از حساب کاربری
               </a>
             </li>
           </ul>

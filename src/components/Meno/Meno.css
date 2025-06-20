@@ -5,8 +5,12 @@
     padding-top: .2rem;
 }
 .Meno2 li{
-    padding: .09rem;
+    padding: .2rem;
 }
-.Meno2 li a i{
-    padding-left: .6rem;
+.Meno2 li:hover{
+    background-color:#48536869;
+}
+.Meno2 li  i{
+    width: 2rem;
+    text-align: center;
 }
