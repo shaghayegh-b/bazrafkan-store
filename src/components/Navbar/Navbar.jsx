@@ -39,7 +39,7 @@ function Navbar() {
                 </form>
                 <div className="w-32 py-1">
                   <h1 className="text-white text-center text-[120%] bg-indigo-900">
-                    شقایق
+                    بوتیک شقایق
                   </h1>
                 </div>
                 <a className=" p-1 px-2 flex">

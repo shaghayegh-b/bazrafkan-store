@@ -1,6 +1,5 @@
 import { memo, useEffect, useState } from "react";
 import "./Meno.css";
-import imgporo from "../../assets/img/111.png";
 import { mymeno } from "../Navbar/Navbar";
 import { useContext } from "react";
 import { dataCategory } from "../Category/dataCategory";
@@ -34,12 +33,8 @@ function Meno() {
         } `}
       >
         <div className="Meno1 bg-blue-500 w-[100%] text-white flex flex-row p-3 gap-3 items-center">
-          <div className="w-[2rem] h-[2rem] bg-red-400 rounded-full">
-            <img
-              src={imgporo}
-              alt="profile"
-              className="w-[2rem] h-[2rem] bg-red-400 rounded-full"
-            />
+          <div className="w-[2rem] h-[2rem] bg-gray-600 rounded-full flex justify-center items-center">
+            <i className="fa fa-user text-[120%]"></i>
           </div>
           <div className="">
             <p>نام کاربری</p>
@@ -70,9 +65,11 @@ function Meno() {
                   grouping ? "" : "hidden"
                 }`}
               >
-                <ul className={`transition-all duration-1000 ease-in-out ${
-                  grouping ? "" : "h-0"
-                }`}>
+                <ul
+                  className={`transition-all duration-1000 ease-in-out ${
+                    grouping ? "" : "h-0"
+                  }`}
+                >
                   {dataCategory.map((oneCategory) => (
                     <li>
                       <a href="">{oneCategory.title}</a>

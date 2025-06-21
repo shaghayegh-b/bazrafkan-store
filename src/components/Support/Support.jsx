@@ -5,17 +5,19 @@ function Support() {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 z-1 w-[100vw] h-[100vh] bg-gray-800 relative ${
+        className={`fixed top-0 left-0 z-1 w-[100vw] h-[100vh] bg-gray-800 ${
           supporting ? "" : "hidden"
         }`}
       >
-        <button
-          onClick={() => setSupporting(!supporting)}
-          type="button"
-          className="w-6.5 h-6  flex justify-center items-center absolute top-0 left-0 z-1"
-        >
-          <i className="fa fa-arrow-left"></i>
-        </button>
+        <div className="relative">
+          <button
+            onClick={() => setSupporting(!supporting)}
+            type="button"
+            className="w-6.5 h-6  flex justify-center items-center absolute top-0 left-0 z-1"
+          >
+            <i className="fa fa-arrow-left"></i>
+          </button>
+        </div>
         <p className="p-6">صفحه چت درحال ساخت...</p>
       </div>
       <button
