@@ -9,11 +9,11 @@ import Footer from "../../components/Footer/Footer";
 function Home() {
   return (
     <>
-      <div className="relative bg-gray-900 text-gray-100">
+      <div className="relative bg-gray-900 text-gray-50">
         <Navbar></Navbar>
         <Support></Support>
         <div className="h-12"></div>
-        <div className="grid grid-cols-3 grid-rows-2  rounded-2 mt-3">
+        <div className="grid grid-cols-3 grid-rows-2 gap-2 rounded-2 p-2">
           {dataCategory.map((oneCategory) => (
             <Category {...oneCategory}></Category>
           ))}

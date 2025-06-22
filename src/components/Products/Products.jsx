@@ -15,7 +15,7 @@ function Products({ title, remaining, score, price }) {
             </div>
           </div>
           <div className="px-2 relative w-[60%]">
-            <p className=" font-bold text-[107%]">{title}</p>
+            <p className=" font-bold text-[107%] w-[fit-content]">{title}</p>
             <div className="h-[1.5rem]"></div>
             <div className="flex justify-between items-center">
               <p className=" text-[80%]">{remaining}</p>

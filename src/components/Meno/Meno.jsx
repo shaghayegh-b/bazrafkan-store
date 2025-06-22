@@ -29,11 +29,11 @@ function Meno() {
   return (
     <>
       <div
-        className={`Meno h-[100vh]  overflow-y-scroll text-gray-200  transition-all duration-300 ease-in-out ${
+        className={`Meno h-[300vh] bg-gray-700 overflow-y-scroll  transition-all duration-300 ease-in-out ${
           meno ? "w-[85vw]" : "w-[0]"
         } `}
       >
-        <div className="Meno1 bg-blue-500 w-[100%] text-white flex flex-row p-3 gap-3 items-center">
+        <div className="Meno1 bg-blue-500 w-[100%] flex flex-row p-3 gap-3 items-center">
           <div className="w-[2rem] h-[2rem] bg-gray-600 rounded-full flex justify-center items-center">
             <i className="fa fa-user text-[120%]"></i>
           </div>
@@ -45,16 +45,17 @@ function Meno() {
             <i className="fa fa-chevron-circle-left absolute bottom-[-0.7rem] left-[-0.6rem] font-bold"></i>
           </span>
         </div>
-        <div className="Meno2 bg-gray-700">
+<div >
+<div className="Meno2 bg-gray-700 flex flex-col gap-2">
           <ul>
             <li>
               <NavLink to="/bazrafkan-store/">
-                <i className="fa fa-home text-blue-300"></i>همه محصولات
+                <i className="fa fa-home text-blue-300"></i><span className="font-[600]">همه محصولات</span>
               </NavLink>
             </li>
             <li className="relative" onClick={() => setGrouping(!grouping)}>
               <button href="">
-                <i className="fas fa-store"></i>دسته بندی
+                <i className="fas fa-store"></i><span className="font-[600]">دسته بندی</span>
                 <i
                   className={`fa fa-chevron-up absolute left-0 top-[7px] transition-all duration-300 ease-in-out ${
                     grouping ? "rotate-[180deg]" : ""
@@ -81,22 +82,22 @@ function Meno() {
             </li>
             <li>
               <a href="">
-                <i className="fa fa-star"></i>محصولات مورد علاقه
+                <i className="fa fa-star"></i><span className="font-[600]">محصولات مورد علاقه</span>
               </a>
             </li>
             <li>
               <a href="">
-                <i className="fa fa-bookmark"></i>محصولات ذخیره شده
+                <i className="fa fa-bookmark"></i><span className="font-[600]">محصولات ذخیره شده</span>
               </a>
             </li>
             <li>
               <a href="">
-                <i className="fas fa-comments"></i>سوالات متداول
+                <i className="fas fa-comments"></i><span className="font-[600]">سوالات متداول</span>
               </a>
             </li>
             <li>
               <a href="">
-                <i className="fa fa-bell"></i>اعلانات
+                <i className="fa fa-bell"></i><span className="font-[600]">اعلانات</span>
               </a>
             </li>
           </ul>
@@ -112,18 +113,17 @@ function Meno() {
                   className={`fas ${
                     isDark ? "fa-sun" : "fa-moon"
                   } text-[100%] transition-transform duration-500`}
-                ></i>
-                حالت شب
+                ></i><span className="font-[600]">حالت شب</span>
               </a>
             </li>
             <li>
               <NavLink to="/bazrafkan-store/ContactUs">
-                <i className="fa fa-link"></i>ارتباط با ما
+                <i className="fa fa-link"></i><span className="font-[600]">ارتباط با ما</span>
               </NavLink>
             </li>
             <li>
               <a href="">
-                <i className="fa fa-gear"></i>تنظیمات
+                <i className="fa fa-gear"></i><span className="font-[600]">تنظیمات</span>
               </a>
             </li>
           </ul>
@@ -131,14 +131,12 @@ function Meno() {
           <ul>
             <li>
               <a href="">
-                <i className="fa fa-share-square"></i>خروج از حساب کاربری
+                <i className="fa fa-share-square"></i><span className="font-[600]">خروج از حساب کاربری</span>
               </a>
             </li>
           </ul>
         </div>
-        <div className="Meno3 bg-gray-800 p-[.1rem] text-center">
-          app version 6.8.1
-        </div>
+</div>
       </div>
     </>
   );
