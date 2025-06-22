@@ -13,3 +13,6 @@ body {
   font-family: "Poppins", "Inter", sans-serif;
   color: #ebe6e7;
 }
+input:focus{
+    outline: unset;
+}

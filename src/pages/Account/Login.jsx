@@ -75,14 +75,14 @@ function Login() {
             className="flex flex-col  gap-2 justify-center items-center w-[100%] py-3 "
           >
             <input
-              className="placeholder:text-gray-300 text-[80%] w-[70%] bg-gray-500 rounded-sm p-1"
+              className="placeholder:text-gray-300 text-[80%] w-[70%] bg-gray-500 rounded-sm p-1 px-2"
               type="text"
               name="name"
               placeholder="نام کاربری"
               required
             />
             <input
-              class="placeholder:text-gray-300 text-[80%] w-[70%] bg-gray-500 rounded-sm p-1"
+              class="placeholder:text-gray-300 text-[80%] w-[70%] bg-gray-500 rounded-sm p-1 px-2"
               type="password"
               name="password"
               placeholder="رمز عبور"
