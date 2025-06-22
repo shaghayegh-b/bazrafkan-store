@@ -8,7 +8,7 @@ function Products({ img, title, remaining, score, price }) {
             <div className="w-[120px] h-auto bg-gray-600 rounded-md">
               <img
                 src={img}
-                alt=""
+                alt="محصول"
                 className="w-[120px] h-auto rounded-md"
               />
             </div>
