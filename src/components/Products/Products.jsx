@@ -1,5 +1,6 @@
+import img from '../../assets/img/daman.jpeg'
 import { memo } from "react";
-function Products({ img, title, remaining, score, price }) {
+function Products({ title, remaining, score, price }) {
   return (
     <>
       <div className="">

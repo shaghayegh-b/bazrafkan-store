@@ -3,6 +3,7 @@ import "./Meno.css";
 import { mymeno } from "../Navbar/Navbar";
 import { useContext } from "react";
 import { dataCategory } from "../Category/dataCategory";
+import { NavLink } from "react-router-dom";
 function Meno() {
   const [grouping, setGrouping] = useState(false);
   const meno = useContext(mymeno);
@@ -47,9 +48,9 @@ function Meno() {
         <div className="Meno2 bg-gray-700">
           <ul>
             <li>
-              <a href="">
+              <NavLink to="/bazrafkan-store/">
                 <i className="fa fa-home text-blue-300"></i>همه محصولات
-              </a>
+              </NavLink>
             </li>
             <li className="relative" onClick={() => setGrouping(!grouping)}>
               <button href="">
@@ -90,7 +91,7 @@ function Meno() {
             </li>
             <li>
               <a href="">
-                <i className="fas fa-comments"></i>چت های من
+                <i className="fas fa-comments"></i>سوالات متداول
               </a>
             </li>
             <li>
@@ -116,9 +117,9 @@ function Meno() {
               </a>
             </li>
             <li>
-              <a href="">
+              <NavLink to="/bazrafkan-store/ContactUs">
                 <i className="fa fa-link"></i>ارتباط با ما
-              </a>
+              </NavLink>
             </li>
             <li>
               <a href="">

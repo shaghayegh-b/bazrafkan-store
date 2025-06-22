@@ -1,10 +1,12 @@
 import { createContext, memo, useState } from "react";
 import "./Navbar.css";
 import Meno from "../Meno/Meno";
+import { NavLink } from "react-router-dom";
 export const mymeno = createContext();
 function Navbar() {
   const [fSearch, setFSearch] = useState(false);
   const [meno, setMeno] = useState(false);
+  const [account, setAccount] = useState(false);
   return (
     <>
       {/* نوبار */}
@@ -44,14 +46,22 @@ function Navbar() {
                 </div>
                 <a className=" p-1 px-2 flex">
                   <i className="fa fa-shopping-cart self-center px-1 relative">
-                    <span className=" absolute bottom-0 right-[-7px] py-[3px] px-[4px] rounded-full text-[45%] bg-blue-800 ">0</span>
+                    <span className=" absolute bottom-0 right-[-7px] py-[3px] px-[4px] rounded-full text-[45%] bg-blue-800 ">
+                      0
+                    </span>
                   </i>
                 </a>
               </div>
-            </div>
-            <div className="message p-1 flex  items-center">
-              <i className="fa fa-user"></i>
-            </div>
+            </div>{" "}
+            <NavLink
+              to={`${
+                account ? "/bazrafkan-store/Login" : "/bazrafkan-store/"
+              }`}
+              className={`flex  items-center p-1 `}
+              onClick={() => setAccount(!account)}
+            >
+              <i className="fa fa-user "></i>
+            </NavLink>
           </div>
           {/* اگه روی فرم سرچ کلیک شد تمام نوبار به فرم سرچ تبدیل میشه */}
           <div
