@@ -9,11 +9,11 @@ function Support() {
           supporting ? "" : "hidden"
         }`}
       >
-        <div className="relative">
+        <div className="relative ">
           <button
             onClick={() => setSupporting(!supporting)}
             type="button"
-            className="w-6.5 h-6  flex justify-center items-center absolute top-0 left-0 z-1"
+            className="w-6.5 h-6  flex justify-center items-center absolute top-0 left-0 z-1 "
           >
             <i className="fa fa-arrow-left"></i>
           </button>
@@ -22,7 +22,7 @@ function Support() {
       </div>
       <button
         onClick={() => setSupporting(!supporting)}
-        className="fixed bottom-2 left-2 z-1 rounded-full w-[2.4rem] h-[2.4rem] bg-gray-900 text-gray-300 flex justify-center items-center"
+        className="fixed bottom-2 left-2 z-1 rounded-full w-[2.4rem] h-[2.4rem] bg-gray-900 text-gray-300 flex justify-center items-center  border-1 border-solid border-gray-300"
       >
         <i className="fa fa-headset text-[135%] pt-[1px]"></i>
       </button>

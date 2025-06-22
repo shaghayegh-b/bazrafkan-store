@@ -8,6 +8,9 @@
     padding: .2rem;
 }
 .Meno2 li:hover{
+    background-color: #c3c0c9;
+}
+.dark .Meno2 li:hover{
     background-color:#48536869;
 }
 .Meno2 li  i{

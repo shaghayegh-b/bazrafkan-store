@@ -1,5 +1,5 @@
 import { memo } from "react";
-
+import './Footer.css'
 function Footer() {
   return (
     <>

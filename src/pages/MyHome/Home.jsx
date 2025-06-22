@@ -13,7 +13,7 @@ function Home() {
         <Navbar></Navbar>
         <Support></Support>
         <div className="h-12"></div>
-        <div className="grid grid-cols-3 grid-rows-2 gap-2 rounded-2 p-2">
+        <div className="grid grid-cols-3 grid-rows-2 gap-2 rounded-2 p-2 py-4">
           {dataCategory.map((oneCategory) => (
             <Category {...oneCategory}></Category>
           ))}
@@ -23,7 +23,9 @@ function Home() {
             <Products {...oneProducts}></Products>
           ))}
         </div>
-        <Footer></Footer>
+       <footer>
+       <Footer></Footer>
+       </footer>
       </div>
     </>
   );

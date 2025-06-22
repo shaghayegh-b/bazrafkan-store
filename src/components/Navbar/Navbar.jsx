@@ -11,7 +11,7 @@ function Navbar() {
     <>
       {/* نوبار */}
       <div className={`Navbar w-[100%] fixed top-0 z-1 h-9`}>
-        <div className="Navbarchild p-1.5 bg-gray-800 gap-0.5 text-gray-300 flex flex-row justify-center items-baseline w-[100%] ">
+        <div className="Navbarchild p-1.5 bg-gray-800 gap-0.5 flex flex-row justify-center items-baseline w-[100%] ">
           <div className={` justify-between w-[100%] ${fSearch ? "hidden" : "flex"} gap-1`}>
             <div className="taskbar w-[95%] bg-gray-700 rounded">
               <div className="w-[100%] gap-1 flex justify-evenly">
@@ -40,19 +40,19 @@ function Navbar() {
                   />
                 </form>
                 <div className="w-32 py-1">
-                  <h1 className="text-white text-center text-[120%] bg-indigo-900">
+                  <h1 className=" text-center font-bold text-[120%] text-black bg-indigo-300">
                     بوتیک شقایق
                   </h1>
                 </div>
                 <a className=" p-1 px-2 flex">
                   <i className="fa fa-shopping-cart self-center px-1 relative">
-                    <span className=" absolute bottom-0 right-[-7px] py-[3px] px-[4px] rounded-full text-[45%] bg-blue-800 ">
+                    <span className=" absolute bottom-0 right-[-7px] py-[3px] px-[4px] rounded-full text-[45%] bg-blue-500 ">
                       0
                     </span>
                   </i>
                 </a>
               </div>
-            </div>{" "}
+            </div>
             <NavLink
               to={`${
                 account ? "/bazrafkan-store/Login" : "/bazrafkan-store/"
