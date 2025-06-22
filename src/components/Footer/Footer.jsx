@@ -3,10 +3,10 @@ import { memo } from "react";
 function Footer() {
   return (
     <>
-      <div className="bg-gray-900 text-gray-300 p-3">
+      <div className=" p-3">
         <div className=" p-3 pb-4.5 ">
-          <h3 className="text-[120%] font-bold px-1 pt-3 text-gray-200">دسترسی سریع</h3>
-          <ul className="text-[90%]">
+          <h3 className="text-[120%] font-bold px-1 pt-3">دسترسی سریع</h3>
+          <ul className="text-[90%] text-gray-200">
             <li>
               <a href="">پیگیری سفارش</a>
             </li>
@@ -23,10 +23,10 @@ function Footer() {
               <a href="">شرایط قوانین فروشگاه</a>
             </li>
           </ul>
-          <h3 className="text-[120%] font-bold px-1 pt-3  text-gray-200">
+          <h3 className="text-[120%] font-bold px-1 pt-3 ">
             حساب کاربری
           </h3>
-          <ul className="text-[90%]">
+          <ul className="text-[90%] text-gray-200">
             <li>
               <a href="">سبد خرید</a>
             </li>
@@ -40,10 +40,10 @@ function Footer() {
               <a href="">حساب کاربری من</a>
             </li>
           </ul>
-          <h3 className="text-[120%] font-bold px-1 pt-3  text-gray-200">
+          <h3 className="text-[120%] font-bold px-1 pt-3 ">
             اطلاعات
           </h3>
-          <ul className="text-[90%]">
+          <ul className="text-[90%] text-gray-200">
             <li>
               <a href="">درباره ما</a>
             </li>

@@ -18,7 +18,7 @@ function Account() {
           <div className="grid grid-cols-2 grid-rows-2 gap-x-1.5 gap-y-1.5 p-1 ">
             <a
               href="#"
-              className="bg-gray-400 text-gray-900 rounded-sm flex justify-center items-center gap-1 px-5 py-.5"
+              className="bg-gray-400 text-gray-900 rounded-sm flex justify-center items-center gap-1 px-5 py-.5 font-[600]"
             >
               Google
               <span className="w-[20px] h-[20px]">
@@ -31,7 +31,7 @@ function Account() {
             </a>
             <a
               href="#"
-              className="bg-gray-400 text-gray-900 rounded-sm flex justify-center items-center gap-1 px-5 py-.5"
+              className="bg-gray-400 text-gray-900 rounded-sm flex justify-center items-center gap-1 px-5 py-.5 font-[600]"
             >
               Facebook
               <span className="w-[20px] h-[20px]">
@@ -44,7 +44,7 @@ function Account() {
             </a>
             <a
               href="#"
-              className="bg-gray-400 text-gray-900 rounded-sm flex justify-center items-center gap-1 px-5 py-.5"
+              className="bg-gray-400 text-gray-900 rounded-sm flex justify-center items-center gap-1 px-5 py-.5 font-[600]"
             >
               Github
               <span className="w-[20px] h-[20px]">
@@ -57,7 +57,7 @@ function Account() {
             </a>
             <a
               href="#"
-              className="bg-gray-400 text-gray-900 rounded-sm flex justify-center items-center gap-1 px-5 py-.5"
+              className="bg-gray-400 text-gray-900 rounded-sm flex justify-center items-center gap-1 px-5 py-.5 font-[600]"
             >
               X
               <span className="w-[20px] h-[20px]">
@@ -74,28 +74,28 @@ function Account() {
             className="flex flex-col  gap-2 justify-center items-center w-[100%] py-3 "
           >
             <input
-              className="placeholder:text-gray-300 text-[80%] w-[70%] bg-gray-500 rounded-sm p-1 px-2"
+              className="placeholder:text-gray-300 text-[80%] w-[70%] bg-gray-600 rounded-sm p-1 px-2"
               type="text"
               name="name"
               placeholder="نام کاربری"
               required
             />
             <input
-              class="placeholder:text-gray-300 text-[80%] w-[70%] bg-gray-500 rounded-sm p-1 px-2"
+              className="placeholder:text-gray-300 text-[80%] w-[70%] bg-gray-600 rounded-sm p-1 px-2"
               type="text"
               name="lastname"
               placeholder="شماره تماس"
               required
             />
             <input
-              class="placeholder:text-gray-300 text-[80%] w-[70%] bg-gray-500 rounded-sm p-1 px-2"
+              className="placeholder:text-gray-300 text-[80%] w-[70%] bg-gray-600 rounded-sm p-1 px-2"
               type="email"
               name="email"
               placeholder="ایمیل"
               required
             />
             <input
-              class="placeholder:text-gray-300 text-[80%] w-[70%] bg-gray-500 rounded-sm p-1 px-2"
+              className="placeholder:text-gray-300 text-[80%] w-[70%] bg-gray-600 rounded-sm p-1 px-2"
               type="password"
               name="password"
               placeholder="رمز عبور (با 8 کاراکتر)"
@@ -103,7 +103,7 @@ function Account() {
               maxlength="8"
               minlength="8"
             />
-            <button class="bg-blue-400 w-[30%] rounded-sm mt-1" type="submit">
+            <button class="bg-blue-400 w-[30%] text-gray-800 text-[120%] font-bold rounded-sm mt-1" type="submit">
               ثبت نام
             </button>
           </form>

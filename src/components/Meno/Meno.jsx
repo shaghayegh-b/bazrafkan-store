@@ -29,7 +29,7 @@ function Meno() {
   return (
     <>
       <div
-        className={`Meno h-[300vh] bg-gray-700 overflow-y-scroll  transition-all duration-300 ease-in-out ${
+        className={`Meno h-[100vh] bg-gray-700 overflow-y-scroll  transition-all duration-300 ease-in-out ${
           meno ? "w-[85vw]" : "w-[0]"
         } `}
       >
@@ -47,7 +47,7 @@ function Meno() {
         </div>
 <div >
 <div className="Meno2 bg-gray-700 flex flex-col gap-2">
-          <ul>
+          <ul className="flex flex-col gap-3">
             <li>
               <NavLink to="/bazrafkan-store/">
                 <i className="fa fa-home text-blue-300"></i><span className="font-[600]">همه محصولات</span>
@@ -102,7 +102,7 @@ function Meno() {
             </li>
           </ul>
           <hr className=" border-gray-500" />
-          <ul>
+          <ul className="flex flex-col gap-3">
             <li title="Change Theme Mode" onClick={() => setIsDark(!isDark)}>
               <a
                 href=""
@@ -128,7 +128,7 @@ function Meno() {
             </li>
           </ul>
           <hr className=" border-gray-500" />
-          <ul>
+          <ul className="flex flex-col gap-3">
             <li>
               <a href="">
                 <i className="fa fa-share-square"></i><span className="font-[600]">خروج از حساب کاربری</span>
