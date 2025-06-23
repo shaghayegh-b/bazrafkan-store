@@ -22,7 +22,7 @@ function Support() {
       </div>
       <button
         onClick={() => setSupporting(!supporting)}
-        className="fixed bottom-2 left-2 z-1 rounded-full w-[2.4rem] h-[2.4rem] bg-gray-900 text-gray-300 flex justify-center items-center  border-1 border-solid border-gray-300"
+        className="fixed bottom-4 left-2 z-1 rounded-full w-[3.3rem] h-[3.3rem] bg-gray-900 text-gray-300 flex justify-center items-center  border-1 border-solid border-gray-300"
       >
         <i className="fa fa-headset text-[135%] pt-[1px]"></i>
       </button>

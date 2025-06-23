@@ -57,7 +57,7 @@ function Navbar() {
               to={`${
                 account ? "/bazrafkan-store/Login" : "/bazrafkan-store/"
               }`}
-              className={`flex  items-center p-1 `}
+              className={`flex justify-center items-center p-1 w-[13%] `}
               onClick={() => setAccount(!account)}
             >
               <i className="fa fa-user "></i>
@@ -108,12 +108,13 @@ function Navbar() {
           <Meno></Meno>
         </mymeno.Provider>
         <div
-          className={`h-[100vh] fixed top-0 left-0 z-2  flex items-start justify-end
+          className={`h-[100vh] fixed top-0 left-0 z-2 w-[15vw] flex items-start justify-end
+            ${meno ? "" : "hidden"}
             `}
           onClick={() => setMeno(false)}
         >
           <button
-            className={`rounded-full w-6 h-6 m-1 shadow flex justify-center items-center
+            className={`rounded-full w-6 h-6 m-1 shadow flex justify-center items-center bg-gray-600
                         ${meno ? "" : "hidden"}`}
           >
             <i className="fa fa-times text-center"></i>

@@ -95,7 +95,7 @@ function Login() {
            <button class="bg-blue-400  text-[120%] font-bold w-[50%] rounded-sm" type="submit">
               ثبت نام
             </button>
-              <a href="" className=" text-center bg-blue-400 w-[50%] rounded-sm">
+              <a href="" className=" text-center flex justify-center items-center text-[95%] font-[500] bg-blue-400 w-[50%] rounded-sm">
                 فراموشی رمز عبور؟
               </a>
             </div>
@@ -106,7 +106,7 @@ function Login() {
             className="flex justify-center text-gray-200"
           >
             <p>قبلا حساب کاربری نداشته اید؟</p>
-            <span class="text-blue-400 text-[90%]">ورورد</span>
+            <span class="text-blue-800 text-[90%] px-1.5">ورورد</span>
           </NavLink>
         </div>
       </div>
