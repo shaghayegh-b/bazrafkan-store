@@ -16,7 +16,7 @@ function Products({ title, remaining, score, price }) {
           </div>
           <div className="px-2 relative w-[60%]">
             <p className=" font-bold text-[107%] w-[fit-content]">{title}</p>
-            <div className="h-[1.5rem]"></div>
+            <div className="h-[2.5rem]"></div>
             <div className="flex justify-between items-center">
               <p className=" text-[80%]">{remaining}</p>
               <p className="flex justify-center items-center text-[80%]">
@@ -25,9 +25,9 @@ function Products({ title, remaining, score, price }) {
               </p>
             </div>
             <div className=" absolute bottom-0 left-0 z-0">
-              <p className="relative">
+              <p className="relative font-[600]">
                 {price} توما
-                <span className="absolute top-[-10px] left-[2px] z-0">ن</span>
+                <span className="absolute top-[-12px] left-[4px] z-0">ن</span>
               </p>
             </div>
           </div>
