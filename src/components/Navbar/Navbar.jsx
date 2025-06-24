@@ -44,13 +44,13 @@ function Navbar() {
                     بوتیک شقایق
                   </h1>
                 </div>
-                <a className=" p-1 px-2 flex">
+                <NavLink to="/bazrafkan-store/ShoppingBag" className=" p-1 px-2 flex">
                   <i className="fa fa-shopping-cart self-center px-1 relative">
                     <span className=" absolute bottom-0 right-[-7px] py-[3px] px-[4px] rounded-full text-[45%] bg-blue-500 ">
                       0
                     </span>
                   </i>
-                </a>
+                </NavLink>
               </div>
             </div>
             <NavLink

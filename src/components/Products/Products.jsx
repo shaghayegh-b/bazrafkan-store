@@ -1,9 +1,11 @@
+import { NavLink } from 'react-router-dom';
 import img from '../../assets/img/daman.jpeg'
 import { memo } from "react";
 function Products({ title, remaining, score, price }) {
   return (
     <>
-      <div className="Products">
+    <div></div>
+      <NavLink to='/bazrafkan-store/OneProduct' className="Products" >
         <a href="" className="flex bg-gray-700  p-1 rounded-md m-1">
           <div className="w-[40%]">
             <div className="w-[120px] h-auto bg-gray-600 rounded-md">
@@ -32,7 +34,7 @@ function Products({ title, remaining, score, price }) {
             </div>
           </div>
         </a>
-      </div>
+      </NavLink>
     </>
   );
 }
