@@ -5,7 +5,7 @@ export const dataProducts = [
     title: "دامن ملودی کد der",
     remaining: "اتمام موجودی",
     score: "3",
-    price: "400,000",
+    price: 400000,
   },
 
   {
@@ -14,7 +14,7 @@ export const dataProducts = [
     title: "تیشرت بیسیک کد ssl",
     remaining: "تنها 3 عدد در انبار باقی مانده",
     score: "3",
-    price: "400,000,000",
+    price: 400000,
   },
   {
     id: 3,
@@ -22,7 +22,7 @@ export const dataProducts = [
     title: "تاپ یقه گرد کد af5",
     remaining: "تنها 1 عدد در انبار باقی مانده",
     score: "5",
-    price: "170,000",
+    price:170000 ,
   },
   {
     id: 4,
@@ -30,7 +30,7 @@ export const dataProducts = [
     title: "تونیک راه راه کد qr4",
     remaining: "تنها 3 عدد در انبار باقی مانده",
     score: "3.5",
-    price: "500,000",
+    price:500000,
   },
   {
     id: 5,
@@ -38,7 +38,7 @@ export const dataProducts = [
     title: "کت و شلوار صوفیا کد f14",
     remaining: "تنها 2 عدد در انبار باقی مانده",
     score: "4.3",
-    price: "900,000",
+    price: 900000,
   },
 
   {
@@ -47,6 +47,6 @@ export const dataProducts = [
     title: "شلوار جین  بگ کد qqw",
     remaining: "اتمام موجودی",
     score: "4.4",
-    price: "900,000",
+    price: 900000,
   },
 ];
