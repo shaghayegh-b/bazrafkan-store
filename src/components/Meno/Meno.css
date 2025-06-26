@@ -7,10 +7,10 @@
 .Meno2 li{
     padding: .2rem;
 }
-.Meno2 li:hover{
+.Meno2 .grouping{
     background-color: #c3c0c9;
 }
-.dark .Meno2 li:hover{
+.dark .Meno2 .grouping{
     background-color:#48536869;
 }
 .Meno2 li  i{

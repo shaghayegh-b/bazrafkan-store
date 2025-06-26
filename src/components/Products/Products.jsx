@@ -1,12 +1,11 @@
-import { NavLink } from 'react-router-dom';
-import img from '../../assets/img/daman.jpeg'
+import { NavLink } from "react-router-dom";
 import { memo } from "react";
-function Products({ title, remaining, score, price }) {
+function Products({ img , title, remaining, score, price }) {
   return (
     <>
-    <div></div>
-      <NavLink to='/bazrafkan-store/OneProduct' className="Products" >
-        <a href="" className="flex bg-gray-700  p-1 rounded-md m-1">
+      <div></div>
+      <NavLink to="/bazrafkan-store/OneProduct" className="Products">
+        <div className="flex bg-gray-700  p-1 rounded-md m-1">
           <div className="w-[40%]">
             <div className="w-[120px] h-auto bg-gray-600 rounded-md">
               <img
@@ -27,13 +26,17 @@ function Products({ title, remaining, score, price }) {
               </p>
             </div>
             <div className=" absolute bottom-0 left-0 z-0">
-              <p className="relative font-[600]">
-                {price} توما
-                <span className="absolute top-[-12px] left-[4px] z-0">ن</span>
-              </p>
+              {remaining == "اتمام موجودی" ? (
+                <p className="relative font-[600] opacity-70">اتمام موجودی</p>
+              ) : (
+                <p className="relative font-[600]">
+                  {price} توما
+                  <span className="absolute top-[-12px] left-[4px] z-0">ن</span>
+                </p>
+              )}
             </div>
           </div>
-        </a>
+        </div>
       </NavLink>
     </>
   );

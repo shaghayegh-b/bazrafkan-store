@@ -7,7 +7,6 @@ import { NavLink } from "react-router-dom";
 function Meno() {
   const [grouping, setGrouping] = useState(false);
   const meno = useContext(mymeno);
-  console.log(meno);
 
   const [isDark, setIsDark] = useState(() => {
     return (
@@ -55,8 +54,8 @@ function Meno() {
                     <span className="font-[600]">همه محصولات</span>
                   </NavLink>
                 </li>
-                <li className="relative" onClick={() => setGrouping(!grouping)}>
-                  <button href="">
+                <li className={`relative ${grouping?"grouping":""}`} onClick={() => setGrouping(!grouping)}>
+                  <button>
                     <i className="fas fa-store"></i>
                     <span className="font-[600]">دسته بندی</span>
                     <i
