@@ -1,9 +1,9 @@
 import { memo } from "react";
 import "./Account.css";
-import Google from "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/imag/1.webp";
-import Facebook from "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/imag/2.webp";
-import Github from "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/imag/3.webp";
-import x from "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/imag/4.webp";
+import Google from "../../assets/img/1.webp";
+import Facebook from "../../assets/img/2.webp";
+import Github from "../../assets/img/3.webp";
+import x from "../../assets/img/4.webp";
 import { NavLink } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Support from "../../components/Support/Support";

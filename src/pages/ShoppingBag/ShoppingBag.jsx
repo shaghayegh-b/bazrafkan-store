@@ -2,7 +2,7 @@ import { memo, useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Support from "../../components/Support/Support";
 import Footer from "../../components/Footer/Footer";
-import img from "../../assets/img/daman.jpeg";
+
 import { dataProducts } from "../../components/Products/dataProducts";
 import { NavLink } from "react-router-dom";
 function ShoppingBag() {
@@ -80,7 +80,7 @@ function ShoppingBag() {
             <div className="flex ">
               <div className="w-[120px] h-auto bg-gray-600 rounded-md ml-2">
                 <img
-                  src={img}
+                  src={dataProducts[1].img}
                   alt="محصول"
                   className="w-[120px] h-auto rounded-md "
                 />

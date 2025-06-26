@@ -1,7 +1,7 @@
 export const dataProducts = [
   {
     id: 1,
-    img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/imag/daman.webp",
+    img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/daman.webp",
     title: "دامن ملودی",
     code: "der",
     jens: "لینن",
@@ -14,7 +14,7 @@ export const dataProducts = [
 
   {
     id: 2,
-    img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/imag/shirt.webp",
+    img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/shirt.webp",
     title: "تیشرت بیسیک",
     code: "ssl",
     jens: "پنبه",
@@ -31,7 +31,7 @@ export const dataProducts = [
   },
   {
     id: 3,
-    img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/imag/tap.webp",
+    img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/tap.webp",
     title: "تاپ یقه گرد",
     code: "af5",
     jens: "نخی",
@@ -45,7 +45,7 @@ export const dataProducts = [
   },
   {
     id: 4,
-    img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/imag/rah.webp",
+    img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/rah.webp",
     title: "تونیک راه راه",
     code: "qr4",
     jens: "نخی",
@@ -63,8 +63,8 @@ export const dataProducts = [
   },
   {
     id: 5,
-    img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/imag/otsh.webp",
-    title: "کت و شلوار صوفیا",
+    img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/otsh.webp",
+    title: "کت و شلوار مازراتی",
     code: "f14",
     jens: "مازراتی",
     size: "مناسب سایز 36 الی 46",
@@ -82,7 +82,7 @@ export const dataProducts = [
 
   {
     id: 6,
-    img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/imag/jin.webp",
+    img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/jin.webp",
     title: "شلوار جین  بگ",
     code: "qqw",
     jens: "جین",
