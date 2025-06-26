@@ -78,7 +78,7 @@ function ShoppingBag() {
               ></i>
             </div>
             <div className="flex ">
-              <div className="w-[70px] h-auto bg-gray-600 rounded-md ml-2">
+              <div className="w-[120px] h-auto bg-gray-600 rounded-md ml-2">
                 <img
                   src={img}
                   alt="محصول"
