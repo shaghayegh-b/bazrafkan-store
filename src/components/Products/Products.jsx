@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { memo } from "react";
-function Products({ img , title, remaining, score, price }) {
+
+function Products({id, img , title, remaining, score, price }) {
   return (
     <>
       <div></div>
-      <NavLink to="/bazrafkan-store/OneProduct" className="Products">
-        <div className="flex bg-gray-700  p-1 rounded-md m-1">
+      <NavLink to={`/bazrafkan-store/OneProduct/${id}`} className="Products">
+      <div className="flex bg-gray-700  p-1 rounded-md m-1">
           <div className="w-[40%]">
             <div className="w-[120px] h-auto bg-gray-600 rounded-md">
               <img

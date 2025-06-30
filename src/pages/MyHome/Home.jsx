@@ -10,21 +10,21 @@ function Home() {
   return (
     <>
       <div className="relative bg-gray-900 text-gray-50">
-        <Navbar></Navbar>
-        <Support></Support>
+        <Navbar />
+        <Support />
         <div className="h-12"></div>
         <div className="grid grid-cols-3 grid-rows-2 gap-2 rounded-2 p-2 py-4">
           {dataCategory.map((oneCategory) => (
-            <Category {...oneCategory}></Category>
+            <Category key={oneCategory.id} {...oneCategory} />
           ))}
         </div>
         <div className="">
-          {dataProducts.map((oneProducts) => (
-            <Products {...oneProducts}></Products>
+          {dataProducts.map((oneProduct) => (
+            <Products key={oneProduct.id} {...oneProduct} />
           ))}
         </div>
        <footer>
-       <Footer></Footer>
+       <Footer />
        </footer>
       </div>
     </>

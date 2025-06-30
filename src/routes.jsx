@@ -10,6 +10,6 @@ export let router = [
    {path:'/bazrafkan-store/Account',element:<Account />},
    {path:'/bazrafkan-store/Login',element:<Login />},
    {path:'/bazrafkan-store/ContactUs',element:<ContactUs />},
-   {path:'/bazrafkan-store/OneProduct',element:<OneProduct />},
-   {path:'/bazrafkan-store/ShoppingBag',element:<ShoppingBag />},
+   { path: '/bazrafkan-store/OneProduct/:id', element: <OneProduct /> },
+    {path:'/bazrafkan-store/ShoppingBag',element:<ShoppingBag />},
 ]

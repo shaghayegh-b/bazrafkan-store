@@ -2,12 +2,16 @@ import { createContext, memo, useState } from "react";
 import "./Navbar.css";
 import Meno from "../Meno/Meno";
 import { NavLink } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 export const mymeno = createContext();
 function Navbar() {
   const [fSearch, setFSearch] = useState(false);
   const [meno, setMeno] = useState(false);
   const [account, setAccount] = useState(false);
+    const {cartItems}=useCart()
+    const totalQuantity=cartItems?.reduce((sum,item)=>sum +item.quantity,0)
   return (
+
     <>
       {/* نوبار */}
       <div className={`Navbar w-[100%] fixed top-0 z-1 h-9`}>
@@ -47,7 +51,7 @@ function Navbar() {
                 <NavLink to="/bazrafkan-store/ShoppingBag" className=" p-1 px-2 flex">
                   <i className="fa fa-shopping-cart self-center px-1 relative">
                     <span className=" absolute bottom-0 right-[-7px] py-[3px] px-[4px] rounded-full text-[45%] bg-blue-500 ">
-                      0
+                      {totalQuantity}
                     </span>
                   </i>
                 </NavLink>
