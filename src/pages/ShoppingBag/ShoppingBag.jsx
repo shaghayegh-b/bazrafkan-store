@@ -1,32 +1,19 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Support from "../../components/Support/Support";
 import Footer from "../../components/Footer/Footer";
-import {  useCart } from "../../context/CartContext";
-import { dataProducts } from "../../components/Products/dataProducts";
+import { useCart } from "../../context/CartContext";
 import { NavLink } from "react-router-dom";
 
 function ShoppingBag() {
-  const { cartItems, removeFromCart, clearCart, quantity ,decrease,
-    increase } =useCart()
+  const { cartItems, removeFromCart, clearCart, decrease, increase } =
+    useCart();
   const total = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
-  const [result, setResult] = useState("");
-  const [deleted, setDeleted] = useState(false);
-
-  useEffect(() => {
-    if (quantity === 0) {
-      const userConfirmed = confirm("میخوای کالارو از سبد خریدت حذف کنی؟");
-      setResult(userConfirmed);
-      setDeleted(true);
-      setTimeout(() => {
-        setDeleted(false);
-      }, 3000);
-    }
-  }, [quantity]);
-
+  const [deletedMessage, setDeletedMessage] = useState(false);
+// const [delete,setDelete]=usestate
   return (
     <>
       <Navbar></Navbar>
@@ -35,11 +22,15 @@ function ShoppingBag() {
 
       <div className="">
         <div className="ShoppingBag relative ">
+
+            <div className={`absolute top-1 left-1/2 -translate-x-1/2 z-10 w-[85%] p-3 bg-gray-700 border-t-2 border-solid border-green-700 text-sm rounded-sm shadow-md transition-all duration-300 ${deletedMessage?"":"hidden"}`}>
+              <i className="fa fa-check p-2"></i>
+              {deletedMessage}
+            </div>
+
           {cartItems.length === 0 ? (
             <div
-              className={`flex flex-col justify-center items-center mt-2 p-1 ${
-                result ? "" : "hidden"
-              }`}
+              className={`flex flex-col justify-center items-center mt-2 p-1 `}
             >
               <div className="w-[85%] p-3 bg-gray-700 border-t-2 border-solid border-red-600">
                 <p>
@@ -53,21 +44,18 @@ function ShoppingBag() {
               {cartItems.map((item) => (
                 <div
                   key={item.id}
-                  className={`one flex flex-col bg-gray-700  p-2 rounded-md m-1 ${
-                    result ? "hidden" : ""
-                  }`}
+                  className={`one flex flex-col bg-gray-700  p-2 rounded-md m-1 `}
                 >
                   <div>
                     <i
-                      onClick={() => (
-                        removeFromCart(item.id),
-                        setResult(true),
-                        setDeleted(true),
+                      onClick={() => {
+                        removeFromCart(item.id);
+                        setDeletedMessage(`"${item.title}" از سبد خرید حذف شد`);
                         setTimeout(() => {
-                          setDeleted(false);
-                        }, 3000)
-                      )}
-                      className="fa fa-times hover:text-red-700"
+                          setDeletedMessage(false);
+                        }, 3000);
+                      }}
+                      className="fa fa-times hover:text-red-700 cursor-pointer"
                     ></i>
                   </div>
                   <div className="flex ">
@@ -101,27 +89,26 @@ function ShoppingBag() {
                     </div>
                     <div className=" flex justify-center items-center border-[1px] border-solid border-black rounded-sm">
                       <button
-                          onClick={() => increase(item.id)}
+                        onClick={() => increase(item.id)}
                         className=" bg-gray-600 px-4 rounded-br-sm rounded-tr-sm"
                       >
                         <i className="fa fa-plus text-[60%]"></i>
                       </button>
                       <p className=" px-4">{item.quantity}</p>
                       <button
-                          onClick={() =>decrease(item.id)}
+                        onClick={() => decrease(item.id)}
                         className=" bg-gray-600 px-4 rounded-bl-sm rounded-tl-sm"
                       >
                         <i className="fa fa-minus text-[60%]"></i>
                       </button>
                     </div>
                   </div>
+
                 </div>
               ))}
 
               <div
-                className={`flex justify-between p-2 bg-gray-600 rounded-sm m-1 ${
-                  result ? "hidden" : ""
-                }`}
+                className={`flex justify-between p-2 bg-gray-600 rounded-sm m-1`}
               >
                 <p className="font-[600]">جمع کل سبد خرید : </p>
                 <p className="font-[600]">
@@ -129,34 +116,21 @@ function ShoppingBag() {
                   <span>تومان</span>
                 </p>
               </div>
-              <div>
-                <button onClick={clearCart}>پاک کردن سبد خرید</button>
+              <div className="flex justify-center">
+                <button
+                  onClick={() => clearCart()}
+                  className="bg-red-900 text-white rounded-sm p-1 px-2 mt-2"
+                >
+                  پاک کردن سبد خرید
+                </button>
               </div>
-              <div className={`flex justify-center ${result ? "hidden" : ""}`}>
+              <div className={`flex justify-center`}>
                 <button className="bg-blue-400 rounded-sm p-1 px-2 mt-2">
                   ادامه جهت تسویه حساب
                 </button>
               </div>
             </div>
           )}
-          <div
-            className={`absolute top-1 z-1 transition-all duration-500 ease-in-out w-[100%]  ${
-              deleted ? "h-auto" : "h-[0]"
-            }`}
-          >
-            <div className=" flex  justify-center items-center">
-              <div
-                className={`w-[85%] p-3 bg-gray-700 border-t-2 border-solid border-green-700  ${
-                  deleted ? "" : "hidden"
-                }`}
-              >
-                <p className={` ${deleted ? "" : "hidden"}`}>
-                  <i className=" fa fa-check text-green-700 font-[600] p-2"></i>
-                  "{dataProducts[1].title}" حذف شد
-                </p>
-              </div>
-            </div>
-          </div>
 
           <div className=" flex justify-end p-2">
             <NavLink
