@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -10,6 +10,10 @@ import { dataProducts } from "../../components/Products/dataProducts";
 
 import { useCart } from "../../context/CartContext";
 
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./OneProduct.css";
 
 function OneProduct() {
@@ -20,12 +24,38 @@ function OneProduct() {
   const { id } = useParams();
   const produkt = dataProducts.find((item) => item.id === parseInt(id));
 
+  const sliderRef = useRef(null);
+
+  // رنگ‌ها و تصاویر مربوطه (مثلا اینجا باید از محصول بگیری)
+  // فرض کردم هر رنگ یه عکس مربوط داره
+  const [selectedColorIndex, setSelectedColorIndex] = useState(0);
+  const colors = produkt.colors || [
+    { name: "پیش‌فرض", code: "#ccc", img: produkt.img },
+  ];
+
+  const handleColorChange = (index) => {
+    setSelectedColorIndex(index);
+    if (sliderRef.current) {
+      sliderRef.current.slickGoTo(index);
+    }
+  };
+
   if (!produkt) {
     return <p>محصولی یافت نشد</p>;
   }
   const itemInCart = cartItems.find((item) => item.id === produkt.id);
   const quantity = itemInCart ? itemInCart.quantity : 0;
   const isOutOfStock = produkt.remaining === "اتمام موجودی";
+
+  const settings = {
+    dots: true, // دایره‌های کوچک پایین اسلایدر (برای رفتن به اسلاید خاص)
+    infinite: false, // نذاره اسلایدر به ابتدای لیست برگرده (loop نداشته باشه)
+    speed: 400, // سرعت تغییر اسلاید (بر حسب میلی‌ثانیه)
+    slidesToShow: 1, // در هر بار نمایش، چند اسلاید دیده بشه (۱ یعنی فقط یکی)
+    slidesToScroll: 1, // با هر اسکرول چند اسلاید بره جلو
+    arrows: true, // دکمه‌های فلش چپ و راست نشون بده
+    adaptiveHeight: true, // اگر تصاویر ارتفاع متفاوت دارن، ارتفاع اسلایدر تغییر کنه
+  };
 
   // یا id مستقیم اگه stringه
   if (!produkt) {
@@ -43,28 +73,47 @@ function OneProduct() {
       <div className="h-12" />
 
       <div className="OneProduct p-2">
-        {/* تصویر محصول */}
+        {/* تصویر محصول با اسلایدر */}
         <div className="bg-gray-700 p-3">
-          <div className="flex flex-col justify-center items-center">
-            <img src={produkt.img} alt="" className="h-[25rem]" />
-          </div>
+          <Slider ref={sliderRef} {...settings}>
+            {colors.map((color, idx) => (
+              <div key={idx} className="flex justify-center items-center">
+                <img
+                  src={color.img}
+                  alt={`${produkt.title} - رنگ ${color.name}`}
+                  className="h-[25rem]"
+                />
+              </div>
+            ))}
+          </Slider>
 
           {/* انتخاب رنگ */}
-          <div className="flex justify-between items-baseline px-2 pt-3">
-            <p>تنوع رنگی:</p>
-            <form className="flex gap-2">
-              {["bg-blue-100", "bg-black", "bg-blue-900", "bg-amber-950"].map(
-                (color, idx) => (
-                  <input
-                    key={idx}
-                    type="radio"
-                    name="color"
-                    className={`${color} rounded-full w-[15px] h-[15px] focus:border-2 focus:border-solid focus:border-black focus:shadow-2xl`}
-                  />
-                )
-              )}
-            </form>
-          </div>
+          {colors.length > 1 && (
+            <div className="flex justify-between items-baseline px-2 pt-3">
+              <p>تنوع رنگی:</p>
+              <form className="flex gap-2">
+                {colors.map((color, idx) => (
+                  <label key={idx} className="cursor-pointer">
+                    <input
+                      type="radio"
+                      name="color"
+                      checked={selectedColorIndex === idx}
+                      onChange={() => handleColorChange(idx)}
+                      className="hidden"
+                    />
+                    <span
+                      className={`rounded-full w-[25px] h-[25px] inline-block border-2 ${
+                        selectedColorIndex === idx
+                          ? "border-black"
+                          : "border-transparent"
+                      }`}
+                      style={{ backgroundColor: color.code }}
+                    />
+                  </label>
+                ))}
+              </form>
+            </div>
+          )}
         </div>
 
         {/* اطلاعات محصول */}

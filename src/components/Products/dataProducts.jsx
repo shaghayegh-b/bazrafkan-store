@@ -10,6 +10,10 @@ export const dataProducts = [
     score: "3",
     price: 400000,
     dressLength: 95,
+    // محصولی که یک رنگ داره
+    colors: [
+        { name: "default", code: "#ffffff", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/daman.webp" }
+      ]
   },
 
   {
@@ -28,6 +32,11 @@ export const dataProducts = [
     wrist: "48",
     stans: "35",
     dressLength: "85",
+    // محصولی که چند رنگ داره
+    colors: [
+      { name: "blue", code: "#60a5fa", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/shirt.webp" },
+      { name: "green", code: "#4ade80", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/shirt.webp" },
+    ],
   },
   {
     id: 3,
@@ -39,9 +48,13 @@ export const dataProducts = [
     remaining: "تنها 1 عدد در انبار باقی مانده",
     score: "5",
     price: 170000,
-    shoulder:"30",
+    shoulder: "30",
     chest: "90 کشسانی دارد تا 110",
     dressLength: "36",
+        // محصولی که یک رنگ داره
+        colors: [
+            { name: "default", code: "#ffffff", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/tap.webp" }
+          ]
   },
   {
     id: 4,
@@ -60,6 +73,10 @@ export const dataProducts = [
     wrist: "35",
     stans: "85",
     dressLength: "85",
+        // محصولی که یک رنگ داره
+        colors: [
+            { name: "default", code: "#ffffff", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/rah.webp" }
+          ]
   },
   {
     id: 5,
@@ -78,6 +95,7 @@ export const dataProducts = [
     stans: "",
     dressLength: "",
     pantsLength: "",
+
   },
 
   {
