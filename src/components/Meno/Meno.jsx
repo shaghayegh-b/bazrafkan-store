@@ -33,7 +33,7 @@ function Meno() {
         } `}
       >
         <div className="overflow-y-scroll h-[inherit]">
-          <div className="Meno1 bg-blue-500 w-[100%] flex flex-row p-3 gap-3 items-center">
+          <div className="Meno1 bg-blue-500 w-[100%] flex flex-row p-3 py-8 gap-3 items-center">
             <div className="w-[2rem] h-[2rem] bg-gray-600 rounded-full flex justify-center items-center">
               <i className="fa fa-user text-[120%]"></i>
             </div>

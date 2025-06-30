@@ -17,7 +17,7 @@ function Navbar() {
       <div className={`Navbar w-[100%] fixed top-0 z-1 h-9`}>
         <div className="Navbarchild p-1.5 bg-gray-800 gap-0.5 flex flex-row justify-center items-baseline w-[100%] ">
           <div className={` justify-between w-[100%] ${fSearch ? "hidden" : "flex"} gap-1`}>
-            <div className="taskbar w-[95%] bg-gray-700 rounded">
+            <div className="taskbar w-[95%] bg-gray-600 rounded">
               <div className="w-[100%] gap-1 flex justify-evenly">
                 <button
                   onClick={() => setMeno(true)}
@@ -75,7 +75,7 @@ function Navbar() {
           >
             <form
               action="#"
-              className="p-1 flex  justify-between w-[100%]"
+              className="p-1 flex  justify-between w-[100%] bg-gray-600"
               dir="ltr"
             >
               <input
