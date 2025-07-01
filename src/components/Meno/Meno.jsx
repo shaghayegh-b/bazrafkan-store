@@ -50,7 +50,7 @@ function Meno() {
               <ul className="flex flex-col gap-3">
                 <li>
                   <NavLink to="/bazrafkan-store/">
-                    <i className="fa fa-home text-blue-300"></i>
+                    <i className="fa fa-home"></i>
                     <span className="font-[600]">همه محصولات</span>
                   </NavLink>
                 </li>
@@ -95,10 +95,10 @@ function Meno() {
                   </a>
                 </li>
                 <li>
-                  <a href="">
+                  <NavLink to="/bazrafkan-store/AskedQuestion">
                     <i className="fas fa-comments"></i>
                     <span className="font-[600]">سوالات متداول</span>
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
                   <a href="">

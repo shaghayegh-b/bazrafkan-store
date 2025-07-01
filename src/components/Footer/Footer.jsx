@@ -1,12 +1,13 @@
 import { memo } from "react";
 import './Footer.css'
+import { Link } from "react-router-dom";
 function Footer() {
   return (
     <>
-      <div className=" p-3">
-        <div className=" p-3 pb-4.5 ">
+      <div className="bg-[#090f1a] p-3 text-white">
+        <div className=" pb-7 ">
           <h3 className="text-[120%] font-bold px-1 pt-3">دسترسی سریع</h3>
-          <ul className="text-[90%] text-gray-200">
+          <ul className="text-[90%] text-gray-100">
             <li>
               <a href="">پیگیری سفارش</a>
             </li>
@@ -26,7 +27,7 @@ function Footer() {
           <h3 className="text-[120%] font-bold px-1 pt-3 ">
             حساب کاربری
           </h3>
-          <ul className="text-[90%] text-gray-200">
+          <ul className="text-[90%] text-gray-100">
             <li>
               <a href="">سبد خرید</a>
             </li>
@@ -43,12 +44,12 @@ function Footer() {
           <h3 className="text-[120%] font-bold px-1 pt-3 ">
             اطلاعات
           </h3>
-          <ul className="text-[90%] text-gray-200">
+          <ul className="text-[90%] text-gray-100">
             <li>
-              <a href="">درباره ما</a>
+              <Link to="/bazrafkan-store/AboutUs">درباره ما</Link>
             </li>
             <li>
-              <a href="">تماس با ما</a>
+              <Link to="/bazrafkan-store/ContactUs">ارتباط با ما</Link>
             </li>
           </ul>
         </div>
