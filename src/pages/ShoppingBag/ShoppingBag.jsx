@@ -13,7 +13,6 @@ function ShoppingBag() {
     0
   );
   const [deletedMessage, setDeletedMessage] = useState(false);
-// const [delete,setDelete]=usestate
   return (
     <>
       <Navbar></Navbar>

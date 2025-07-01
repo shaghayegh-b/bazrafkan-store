@@ -3,7 +3,7 @@ import "./Meno.css";
 import { mymeno } from "../Navbar/Navbar";
 import { useContext } from "react";
 import { dataCategory } from "../Category/dataCategory";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 function Meno() {
   const [grouping, setGrouping] = useState(false);
   const meno = useContext(mymeno);
@@ -83,10 +83,10 @@ function Meno() {
                   </div>
                 </li>
                 <li>
-                  <a href="">
+                  <Link to="/bazrafkan-store/FavProduct">
                     <i className="fa fa-star"></i>
                     <span className="font-[600]">محصولات مورد علاقه</span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <NavLink to="/bazrafkan-store/AskedQuestion">

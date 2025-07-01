@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -15,11 +15,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./OneProduct.css";
+import { useFav } from "../../context/FavProvider";
 
 function OneProduct() {
   const [desc, setDesc] = useState(false);
   const [sizing, setSizing] = useState(false);
-
+  const [fav, setFav] = useState(false);
+  const { addToFav, removeFromFav ,favoriteItems} = useFav();
   const { addToCart, increase, decrease, cartItems } = useCart();
   const { id } = useParams();
   const produkt = dataProducts.find((item) => item.id === parseInt(id));
@@ -40,9 +42,6 @@ function OneProduct() {
     }
   };
 
-  if (!produkt) {
-    return <p>محصولی یافت نشد</p>;
-  }
   const itemInCart = cartItems.find((item) => item.id === produkt.id);
   const quantity = itemInCart ? itemInCart.quantity : 0;
   const isOutOfStock = produkt.remaining === "اتمام موجودی";
@@ -57,6 +56,21 @@ function OneProduct() {
     adaptiveHeight: true, // اگر تصاویر ارتفاع متفاوت دارن، ارتفاع اسلایدر تغییر کنه
   };
 
+
+  // بررسی وجود محصول در علاقه‌مندی هنگام لود کامپوننت
+useEffect(() => {
+    const isFav = favoriteItems.some((item) => item.id === produkt.id);
+    setFav(isFav);
+  }, [favoriteItems, produkt.id]);
+  const favorite = () => {
+    if (fav) {
+      removeFromFav(produkt.id);
+    } else {
+      addToFav(produkt);
+    }
+
+  };
+
   // یا id مستقیم اگه stringه
   if (!produkt) {
     return (
@@ -65,7 +79,6 @@ function OneProduct() {
       </div>
     );
   }
-
   return (
     <>
       <Navbar />
@@ -118,7 +131,14 @@ function OneProduct() {
 
         {/* اطلاعات محصول */}
         <div className="bg-gray-700 p-3 my-2">
-          <p className="font-[600] text-[110%]">{produkt.title}</p>
+          <div className="flex justify-between items-baseline">
+            <p className="font-[600] text-[110%]">{produkt.title}</p>
+            <i
+              title={fav ? "حذف از علاقه‌مندی‌ها" : "افزودن به علاقه‌مندی‌ها"}
+              className={`fa fa-star ${fav ? "text-yellow-300" : "text-gray-50"}`}
+              onClick={favorite}
+            ></i>
+          </div>
           <div className="flex justify-between py-3 px-1">
             <p className="text-[90%] tracking-tight">{produkt.remaining}</p>
             <p className={isOutOfStock ? "text-gray-400" : ""}>

@@ -33,7 +33,7 @@ function Footer() {
               <a href="#">سفارشات من</a>
             </li>
             <li>
-              <a href="#">لیست علاقه مندی ها</a>
+              <Link to="/bazrafkan-store/FavProduct">لیست علاقه مندی ها</Link>
             </li>
             <li>
               <a href="#">حساب کاربری من</a>
