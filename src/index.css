@@ -49,6 +49,8 @@ a ,button{
 .text-blue-300 {
   color: rgb(43 127 255);
 }
+.text-blue-200{
+color:#1d5ea4}
 .bg-blue-400{
     background-color:#2b7fff ;
     color:#e9e7ef;
@@ -95,7 +97,8 @@ ul i {
 .dark .text-gray-50 {
   color: #fbf9fa;
 }
-
+.dark .text-blue-200{
+    color:#bedbff}
 .dark .text-blue-300 {
   color: #8ec5ff;
 }
