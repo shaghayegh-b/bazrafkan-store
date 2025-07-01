@@ -1,5 +1,5 @@
 import { memo } from "react";
-import './Footer.css'
+import "./Footer.css";
 import { Link } from "react-router-dom";
 function Footer() {
   return (
@@ -12,38 +12,34 @@ function Footer() {
               <a href="">پیگیری سفارش</a>
             </li>
             <li>
-              <a href="">سوالات متداول</a>
+              <Link to="/bazrafkan-store/AskedQuestion">سوالات متداول</Link>
             </li>
             <li>
-              <a href="">شرایط بازگشت کالا</a>
+              <a href="#">شرایط بازگشت کالا</a>
             </li>
             <li>
-              <a href="">پیگیری شکایات</a>
+              <a href="#">پیگیری شکایات</a>
             </li>
             <li>
-              <a href="">شرایط قوانین فروشگاه</a>
+              <a href="#">شرایط قوانین فروشگاه</a>
             </li>
           </ul>
-          <h3 className="text-[120%] font-bold px-1 pt-3 ">
-            حساب کاربری
-          </h3>
+          <h3 className="text-[120%] font-bold px-1 pt-3 ">حساب کاربری</h3>
           <ul className="text-[90%] text-gray-100">
             <li>
-              <a href="">سبد خرید</a>
+              <Link to="/bazrafkan-store/ShoppingBag">سبد خرید</Link>
             </li>
             <li>
-              <a href="">سفارشات من</a>
+              <a href="#">سفارشات من</a>
             </li>
             <li>
-              <a href="">لیست علاقه مندی ها</a>
+              <a href="#">لیست علاقه مندی ها</a>
             </li>
             <li>
-              <a href="">حساب کاربری من</a>
+              <a href="#">حساب کاربری من</a>
             </li>
           </ul>
-          <h3 className="text-[120%] font-bold px-1 pt-3 ">
-            اطلاعات
-          </h3>
+          <h3 className="text-[120%] font-bold px-1 pt-3 ">اطلاعات</h3>
           <ul className="text-[90%] text-gray-100">
             <li>
               <Link to="/bazrafkan-store/AboutUs">درباره ما</Link>

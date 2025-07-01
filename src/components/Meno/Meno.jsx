@@ -89,12 +89,6 @@ function Meno() {
                   </a>
                 </li>
                 <li>
-                  <a href="">
-                    <i className="fa fa-bookmark"></i>
-                    <span className="font-[600]">محصولات ذخیره شده</span>
-                  </a>
-                </li>
-                <li>
                   <NavLink to="/bazrafkan-store/AskedQuestion">
                     <i className="fas fa-comments"></i>
                     <span className="font-[600]">سوالات متداول</span>
@@ -125,12 +119,6 @@ function Meno() {
                     <i className="fa fa-link"></i>
                     <span className="font-[600]">ارتباط با ما</span>
                   </NavLink>
-                </li>
-                <li>
-                  <a href="">
-                    <i className="fa fa-gear"></i>
-                    <span className="font-[600]">تنظیمات</span>
-                  </a>
                 </li>
               </ul>
               <hr className=" border-gray-500" />
