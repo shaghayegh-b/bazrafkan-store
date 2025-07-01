@@ -30,7 +30,7 @@ function FavProduct() {
       <div className="">
         {favoriteItems.length === 0 ? (
           <div
-            className={`flex flex-col justify-center items-center mt-2 p-1 `}
+            className={`flex flex-col justify-center items-center mt-2 p-1 pb-4`}
           >
             <div className="w-[85%] p-3 bg-gray-700 border-t-2 border-solid border-red-600">
               <p>

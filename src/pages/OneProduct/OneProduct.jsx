@@ -1,5 +1,5 @@
 import { memo, useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 import Navbar from "../../components/Navbar/Navbar";
@@ -84,7 +84,11 @@ useEffect(() => {
       <Navbar />
       <Support />
       <div className="h-12" />
-
+      <p className="text-[85%]">
+      <Link to="/bazrafkan-store/">
+        <i className="fa fa-arrow-right p-1 pb-4"></i>برگشت به صفحه اصلی
+      </Link>
+      </p>
       <div className="OneProduct p-2">
         {/* تصویر محصول با اسلایدر */}
         <div className="bg-gray-700 p-3">

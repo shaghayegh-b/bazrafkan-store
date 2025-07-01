@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Support from "../../components/Support/Support";
 import Footer from "../../components/Footer/Footer";
 import { useCart } from "../../context/CartContext";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function ShoppingBag() {
   const { cartItems, removeFromCart, clearCart, decrease, increase } =
@@ -18,7 +18,11 @@ function ShoppingBag() {
       <Navbar></Navbar>
       <Support></Support>
       <div className="h-12"></div>
-
+      <p className="text-[85%]">
+      <Link to="/bazrafkan-store/">
+        <i className="fa fa-arrow-right p-1 pb-4"></i>برگشت به صفحه اصلی
+      </Link> / سبد خرید
+      </p>
       <div className="">
         <div className="ShoppingBag relative ">
 
@@ -128,10 +132,7 @@ function ShoppingBag() {
                   ادامه جهت تسویه حساب
                 </button>
               </div>
-            </div>
-          )}
-
-          <div className=" flex justify-end p-2">
+              <div className=" flex justify-end p-2">
             <NavLink
               to="/bazrafkan-store/"
               className="text-blue-700 p-2 rounded-sm"
@@ -140,6 +141,10 @@ function ShoppingBag() {
               <i className="fa fa-arrow-left pr-1 text-[78%]"></i>
             </NavLink>
           </div>
+            </div>
+          )}
+
+
         </div>
       </div>
       <Footer />
