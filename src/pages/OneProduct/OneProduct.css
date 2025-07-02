@@ -1,6 +1,27 @@
-.sizing{
-    background-color: #c3c0c9;
+.sizing {
+  background-color: #c3c0c9;
 }
-.dark .sizing{
-    background-color:#48536869;
+.dark .sizing {
+  background-color: #48536869;
 }
+/* محدود کردن دکمه‌ها داخل کادر اسلایدر */
+.OneProduct .slick-slider {
+    position: relative; /* اگر نبود اضافه کن */
+    overflow: visible; /* اجازه بده دکمه‌ها بیرون از محدوده هم باشن */
+  }
+/* دکمه‌ها رو بیشتر به داخل اسلایدر ببر */
+.OneProduct .slick-prev {
+  left: 16.95rem !important;
+  z-index: 10;
+}
+
+.OneProduct .slick-next {
+    right: 16.95rem !important;
+    left: auto !important;
+    z-index: 10 !important;
+  }
+  .OneProduct .slick-prev:before,
+  .OneProduct .slick-next:before {
+    font-size: 24px;
+    color: white;
+  }

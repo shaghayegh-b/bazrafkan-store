@@ -21,7 +21,7 @@ function OneProduct() {
   const [desc, setDesc] = useState(false);
   const [sizing, setSizing] = useState(false);
   const [fav, setFav] = useState(false);
-  const { addToFav, removeFromFav ,favoriteItems} = useFav();
+  const { addToFav, removeFromFav, favoriteItems } = useFav();
   const { addToCart, increase, decrease, cartItems } = useCart();
   const { id } = useParams();
   const produkt = dataProducts.find((item) => item.id === parseInt(id));
@@ -46,6 +46,26 @@ function OneProduct() {
   const quantity = itemInCart ? itemInCart.quantity : 0;
   const isOutOfStock = produkt.remaining === "اتمام موجودی";
 
+  const SampleNextArrow = (props) => {
+    const { onClick } = props;
+    return (
+      <div className="slick-arrow slick-next" onClick={onClick}>
+        <i className="fa fa-arrow-circle-left"></i>{" "}
+        {/* چون در RTL "next" به چپه */}
+      </div>
+    );
+  };
+
+  const SamplePrevArrow = (props) => {
+    const { onClick } = props;
+    return (
+      <div className="slick-arrow slick-prev" onClick={onClick}>
+        <i className="fa fa-arrow-circle-right"></i>{" "}
+        {/* چون در RTL "prev" به راسته */}
+      </div>
+    );
+  };
+
   const settings = {
     dots: true, // دایره‌های کوچک پایین اسلایدر (برای رفتن به اسلاید خاص)
     infinite: false, // نذاره اسلایدر به ابتدای لیست برگرده (loop نداشته باشه)
@@ -54,21 +74,35 @@ function OneProduct() {
     slidesToScroll: 1, // با هر اسکرول چند اسلاید بره جلو
     arrows: true, // دکمه‌های فلش چپ و راست نشون بده
     adaptiveHeight: true, // اگر تصاویر ارتفاع متفاوت دارن، ارتفاع اسلایدر تغییر کنه
+    rtl: true,
+    prevArrow: <SampleNextArrow />, // ← اینجا فلش‌ها برعکس تعریف شدن
+    nextArrow: <SamplePrevArrow />,
+    beforeChange: (current, next) => {
+      setSelectedColorIndex(next);
+    },
   };
 
-
   // بررسی وجود محصول در علاقه‌مندی هنگام لود کامپوننت
-useEffect(() => {
+  useEffect(() => {
     const isFav = favoriteItems.some((item) => item.id === produkt.id);
     setFav(isFav);
   }, [favoriteItems, produkt.id]);
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.slickGoTo(selectedColorIndex);
+    }
+  }, [selectedColorIndex]);
+  //   وقتی وارد صفحه محصول می‌شی، اگر صفحه پایین باشه، اسلایدر دیده نمی‌شه
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const favorite = () => {
     if (fav) {
       removeFromFav(produkt.id);
     } else {
       addToFav(produkt);
     }
-
   };
 
   // یا id مستقیم اگه stringه
@@ -85,25 +119,24 @@ useEffect(() => {
       <Support />
       <div className="h-12" />
       <p className="text-[85%]">
-      <Link to="/bazrafkan-store/">
-        <i className="fa fa-arrow-right p-1 pb-4"></i>برگشت به صفحه اصلی
-      </Link>
+        <Link to="/bazrafkan-store/">
+          <i className="fa fa-arrow-right p-1 pb-4"></i>برگشت به صفحه اصلی
+        </Link>
       </p>
       <div className="OneProduct p-2">
         {/* تصویر محصول با اسلایدر */}
-        <div className="bg-gray-700 p-3">
+        <div className="bg-gray-700  p-3">
           <Slider ref={sliderRef} {...settings}>
             {colors.map((color, idx) => (
               <div key={idx} className="flex justify-center items-center">
                 <img
                   src={color.img}
-                  alt={`${produkt.title} - رنگ ${color.name}`}
-                  className="h-[25rem]"
+                  alt={`${produkt.title} - رنگ ${color.name || "نامشخص"}`}
+                  className="max-h-[40rem] w-full object-contain"
                 />
               </div>
             ))}
           </Slider>
-
           {/* انتخاب رنگ */}
           {colors.length > 1 && (
             <div className="flex justify-between items-baseline px-2 pt-3">
@@ -119,9 +152,9 @@ useEffect(() => {
                       className="hidden"
                     />
                     <span
-                      className={`rounded-full w-[25px] h-[25px] inline-block border-2 ${
+                      className={`rounded-full w-[25px] h-[25px] inline-block border-2  transition-all duration-300  ${
                         selectedColorIndex === idx
-                          ? "border-black"
+                          ? "border-black shadow-md scale-110"
                           : "border-transparent"
                       }`}
                       style={{ backgroundColor: color.code }}
@@ -136,10 +169,12 @@ useEffect(() => {
         {/* اطلاعات محصول */}
         <div className="bg-gray-700 p-3 my-2">
           <div className="flex justify-between items-baseline">
-            <p className="font-[600] text-[110%]">{produkt.title}</p>
+            <h1 className="font-[600] text-[110%]">{produkt.title}</h1>
             <i
               title={fav ? "حذف از علاقه‌مندی‌ها" : "افزودن به علاقه‌مندی‌ها"}
-              className={`fa fa-star ${fav ? "text-yellow-300" : "text-gray-50"}`}
+              className={`fa fa-star ${
+                fav ? "text-yellow-300" : "text-gray-50"
+              }`}
               onClick={favorite}
             ></i>
           </div>
@@ -149,6 +184,10 @@ useEffect(() => {
               <span className="font-[600]">{produkt.price}</span>
               <span className="text-[95%] pr-1">تومان</span>
             </p>
+          </div>
+          <div className="flex justify-between font-[500] px-1 py-3">
+            <p className="">رنگ انتخابی:</p>{" "}
+            <span className="">{colors[selectedColorIndex].name}</span>
           </div>
 
           {/* تعداد و افزودن به سبد */}
@@ -189,7 +228,12 @@ useEffect(() => {
                 <button
                   onClick={() => addToCart({ ...produkt, quantity: 1 })}
                   disabled={isOutOfStock}
-                  className="rounded-sm bg-blue-400 px-2 py-1"
+                  className={`rounded-sm bg-blue-400 px-2 py-1
+                  ${
+                    isOutOfStock
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-blue-400"
+                  }`}
                 >
                   افزودن به سبد خرید
                 </button>
