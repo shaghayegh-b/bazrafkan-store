@@ -12,7 +12,7 @@ export const dataProducts = [
     dressLength: 95,
     // محصولی که یک رنگ داره
     colors: [
-        { name: "default", code: "#ffffff", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/daman.webp" }
+        { name: "تک رنگ", code: "#ffffff", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/daman.webp" }
       ]
   },
 
@@ -34,8 +34,8 @@ export const dataProducts = [
     dressLength: "85",
     // محصولی که چند رنگ داره
     colors: [
-      { name: "blue", code: "#60a5fa", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/shirt.webp" },
-      { name: "green", code: "#4ade80", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/shirt.webp" },
+      { name: "آبی", code: "#60a5fa", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/shirt.webp" },
+      { name: "سبز", code: "#4ade80", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/shirt.webp" },
     ],
   },
   {
@@ -53,7 +53,7 @@ export const dataProducts = [
     dressLength: "36",
         // محصولی که یک رنگ داره
         colors: [
-            { name: "default", code: "#ffffff", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/tap.webp" }
+            { name: "تک رنگ", code: "#ffffff", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/tap.webp" }
           ]
   },
   {
@@ -75,7 +75,7 @@ export const dataProducts = [
     dressLength: "85",
         // محصولی که یک رنگ داره
         colors: [
-            { name: "default", code: "#ffffff", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/rah.webp" }
+            { name: "تک رنگ", code: "#ffffff", img: "https://raw.githubusercontent.com/shaghayegh-b/bazrafkan-store/refs/heads/main/src/assets/img/rah.webp" }
           ]
   },
   {

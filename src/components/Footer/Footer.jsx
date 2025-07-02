@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <>
-      <div className="bg-[#090f1a] p-3 text-white">
+      <div className="Footer bg-[#090f1a] p-3 text-white">
         <div className=" pb-7 ">
           <h3 className="text-[120%] font-bold px-1 pt-3">دسترسی سریع</h3>
           <ul className="text-[90%] text-gray-100">

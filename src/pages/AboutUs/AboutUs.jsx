@@ -1,27 +1,25 @@
-import { memo } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import Support from "../../components/Support/Support";
-import { NavLink } from "react-router-dom";
+import { memo, useEffect } from "react";
+
 import img from "../../assets/img/11.jpg";
 import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
 
 function AboutUs() {
+        //   وقتی وارد صفحه محصول می‌شی، اگر صفحه پایین باشه، اسلایدر دیده نمی‌شه
+        useEffect(() => {
+            window.scrollTo(0, 0);
+          }, []);
   return (
     <>
-      <Navbar></Navbar>
-      <Support></Support>
-      <div className="h-12"></div>
-      <div className="p-3">
-        <NavLink to="/bazrafkan-store/">
-          <i className="fa fa-arrow-right p-1 pb-4"></i>برگشت به صفحه اصلی
-        </NavLink>
-        <div className="relative w-[100%] h-[10rem] ">
-          <img src={img} alt="" className="h-[10rem]" />
+<Header >درباره ما</Header>
+      <div className="AboutUs p-2">
+        <div className="relative w-[100%] ">
+          <img src={img} alt="" className="" />
           <h2 className="absolute text-[170%] font-extrabold text-white top-[35%] w-[100%] text-center ">
             درباره ما
           </h2>
         </div>
-        <h3 className="text-[130%] p-3 pt-4 w-[100%] text-center  font-bold text-blue-200">     خوش اومدی به فروشگاه شقایق 💙
+        <h3 className="text-[130%] p-3 pt-4 w-[100%] text-center  font-bold text-blue-200">خوش اومدی به فروشگاه شقایق 💙
         </h3>
      <p>
 ما اینجا دور هم جمع شدیم تا خرید پوشاک زنونه رو برات ساده‌تر، سریع‌تر و مهم‌تر از همه، لذت‌بخش‌تر کنیم.

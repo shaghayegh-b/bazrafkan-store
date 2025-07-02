@@ -1,39 +1,39 @@
-import { memo } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import Support from "../../components/Support/Support";
-import { NavLink } from "react-router-dom";
+import { memo, useEffect } from "react";
+import Header from "../../components/Header/Header";
 import img from "../../assets/img/11.jpg";
 import Footer from "../../components/Footer/Footer";
 
 function ContactUs() {
+  //   وقتی وارد صفحه محصول می‌شی، اگر صفحه پایین باشه، اسلایدر دیده نمی‌شه
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
-      <Navbar></Navbar>
-      <Support></Support>
-      <div className="h-12"></div>
-      <div className="p-3">
-        <NavLink to="/bazrafkan-store/">
-          <i className="fa fa-arrow-right p-1 pb-4"></i>برگشت به صفحه اصلی
-        </NavLink>
-        <div className="relative w-[100%] h-[10rem] ">
-          <img src={img} alt="" className="h-[10rem]" />
+<Header>ارتباط با ما</Header>
+      <div className="ContactUs px-2 py-1">
+        <div className="relative w-[100%] mt-2">
+          <img src={img} alt="" className="" />
           <h2 className=" absolute text-[170%] font-extrabold text-white top-[35%] w-[100%] text-center ">
-            پشتیبانی
+            ارتباط با ما
           </h2>
         </div>
         <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
-            پشتیبانی</h3>
-            <p className=" p-2 pb-6">
-            فقط از طریق پیام رسان های (تلگرام , واتس اپ , ایتا):
-            09399619640</p>
+          پشتیبانی
+        </h3>
+        <p className=" p-2 pb-6">
+          فقط از طریق پیام رسان های (تلگرام , واتس اپ , ایتا): 09399619640
+        </p>
         <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
-            کانال ها</h3>
-            <p className=" p-2 pb-6">
-            کانال ما در ایتا و تلگرام : @shaghayegh</p>
+          کانال ها
+        </h3>
+        <p className=" p-2 pb-6">کانال ما در ایتا و تلگرام : @shaghayegh</p>
         <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
-            ادمین ثبت سفارش</h3>
-            <p className=" p-2 pb-6">
-            در پیام رسان تلگرام و ایتا : 09399619640 , @shaghayegh</p>
+          ادمین ثبت سفارش
+        </h3>
+        <p className=" p-2 pb-6">
+          در پیام رسان تلگرام و ایتا : 09399619640 , @shaghayegh
+        </p>
       </div>
       <Footer></Footer>
     </>

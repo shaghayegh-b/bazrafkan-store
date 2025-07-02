@@ -1,9 +1,8 @@
 import { memo, useEffect, useRef, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-import Navbar from "../../components/Navbar/Navbar";
-import Support from "../../components/Support/Support";
+
 import Footer from "../../components/Footer/Footer";
 
 import { dataProducts } from "../../components/Products/dataProducts";
@@ -11,15 +10,15 @@ import { dataProducts } from "../../components/Products/dataProducts";
 import { useCart } from "../../context/CartContext";
 
 import Slider from "react-slick";
-
+import Header from '../../components/Header/Header'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./OneProduct.css";
 import { useFav } from "../../context/FavProvider";
 
 function OneProduct() {
-  const [desc, setDesc] = useState(false);
-  const [sizing, setSizing] = useState(false);
+  const [desc, setDesc] = useState(true);
+  const [sizing, setSizing] = useState(true);
   const [fav, setFav] = useState(false);
   const { addToFav, removeFromFav, favoriteItems } = useFav();
   const { addToCart, increase, decrease, cartItems } = useCart();
@@ -32,7 +31,7 @@ function OneProduct() {
   // فرض کردم هر رنگ یه عکس مربوط داره
   const [selectedColorIndex, setSelectedColorIndex] = useState(0);
   const colors = produkt.colors || [
-    { name: "پیش‌فرض", code: "#ccc", img: produkt.img },
+    { name: "تک رنگ", code: "#ccc", img: produkt.img },
   ];
 
   const handleColorChange = (index) => {
@@ -115,14 +114,7 @@ function OneProduct() {
   }
   return (
     <>
-      <Navbar />
-      <Support />
-      <div className="h-12" />
-      <p className="text-[85%]">
-        <Link to="/bazrafkan-store/">
-          <i className="fa fa-arrow-right p-1 pb-4"></i>برگشت به صفحه اصلی
-        </Link>
-      </p>
+<Header>محصولات</Header>
       <div className="OneProduct p-2">
         {/* تصویر محصول با اسلایدر */}
         <div className="bg-gray-700  p-3">
@@ -166,7 +158,7 @@ function OneProduct() {
           )}
         </div>
 
-        {/* اطلاعات محصول */}
+        {/* مشخصات کلی محصول */}
         <div className="bg-gray-700 p-3 my-2">
           <div className="flex justify-between items-baseline">
             <h1 className="font-[600] text-[110%]">{produkt.title}</h1>

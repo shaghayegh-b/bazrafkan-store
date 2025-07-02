@@ -1,26 +1,23 @@
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import "./Account.css";
 import Google from "../../assets/img/1.webp";
 import Facebook from "../../assets/img/2.webp";
 import Github from "../../assets/img/3.webp";
 import x from "../../assets/img/4.webp";
-import { Link, NavLink } from "react-router-dom";
-import Navbar from "../../components/Navbar/Navbar";
-import Support from "../../components/Support/Support";
+import {  NavLink } from "react-router-dom";
 import Footer from "../../components/Footer/Footer"
+import Header from "../../components/Header/Header";
 
 function Account() {
+        //   وقتی وارد صفحه محصول می‌شی، اگر صفحه پایین باشه، اسلایدر دیده نمی‌شه
+        useEffect(() => {
+            window.scrollTo(0, 0);
+          }, []);
   return (
     <>
-    <Navbar></Navbar>
-    <Support></Support>
-     <div className="h-12"></div>
-     <p className="text-[85%]">
-      <Link to="/bazrafkan-store/">
-        <i className="fa fa-arrow-right p-1 pb-4"></i>برگشت به صفحه اصلی
-      </Link> / ساخت حساب کاربری
-      </p>
-      <div className=" flex justify-center items-center  ">
+<Header>حساب کاربری</Header>
+
+      <div className="Account flex justify-center items-center  ">
         <div className="flex flex-col items-center p-2 bg-gray-700">
           <div className="grid grid-cols-2 grid-rows-2 gap-x-1.5 gap-y-1.5 p-1 ">
             <a

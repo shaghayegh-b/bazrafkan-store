@@ -1,10 +1,9 @@
-import { memo, useState } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import Support from "../../components/Support/Support";
+import { memo, useEffect, useState } from "react";
+
 import Footer from "../../components/Footer/Footer";
 import { useCart } from "../../context/CartContext";
-import { Link, NavLink } from "react-router-dom";
-
+import {  NavLink } from "react-router-dom";
+import Header from '../../components/Header/Header'
 function ShoppingBag() {
   const { cartItems, removeFromCart, clearCart, decrease, increase } =
     useCart();
@@ -14,19 +13,14 @@ function ShoppingBag() {
   );
 
   const [deletedMessage, setDeletedMessage] = useState(false);
+    //   وقتی وارد صفحه محصول می‌شی، اگر صفحه پایین باشه، اسلایدر دیده نمی‌شه
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
   return (
     <>
-      <Navbar></Navbar>
-      <Support></Support>
-      <div className="h-12"></div>
-
+<Header>سبد خرید</Header>
       <div className="relative">
-        <p className="text-[85%]">
-          <Link to="/bazrafkan-store/">
-            <i className="fa fa-arrow-right p-1 pb-4"></i>برگشت به صفحه اصلی
-          </Link>
-          / سبد خرید
-        </p>
         <div className="ShoppingBag  ">
           <div
             className={`fixed top-14 left-1/2 -translate-x-1/2 z-10 w-[85%] p-3 bg-gray-700 border-t-2 border-solid border-green-700 text-sm rounded-sm shadow-md transition-all duration-300 ${

@@ -1,33 +1,20 @@
-import React, { memo } from "react";
+import React, { memo ,useEffect } from "react";
 import { useFav } from "../../context/FavProvider";
-import Navbar from "../../components/Navbar/Navbar";
-import Support from "../../components/Support/Support";
+import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 
 function FavProduct() {
   const { favoriteItems, removeFromFav, clearFav } = useFav();
-
-  // if () {
-  //   return (
-  //     <div className="p-4">
-  //       <h2 className="text-xl font-bold mb-4">علاقه‌مندی‌ها</h2>
-  //       <p>هیچ کالایی در لیست علاقه‌مندی نیست.</p>
-  //     </div>
-  //   );
-  // }
+    //   وقتی وارد صفحه محصول می‌شی، اگر صفحه پایین باشه، اسلایدر دیده نمی‌شه
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
   return (
     <>
-      <Navbar />
-      <Support />
-      <div className="h-12" />
-      <p className="text-[85%]">
-      <Link to="/bazrafkan-store/">
-        <i className="fa fa-arrow-right p-1 pb-4"></i>برگشت به صفحه اصلی
-      </Link> / علاقه مندی ها
-      </p>
-      <div className="">
+<Header>علاقه مندی ها</Header>
+      <div className="FavProduct">
         {favoriteItems.length === 0 ? (
           <div
             className={`flex flex-col justify-center items-center mt-2 p-1 pb-4`}

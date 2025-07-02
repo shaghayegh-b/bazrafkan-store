@@ -11,12 +11,12 @@
   }
 /* دکمه‌ها رو بیشتر به داخل اسلایدر ببر */
 .OneProduct .slick-prev {
-  left: 16.95rem !important;
+  left: 96% !important;
   z-index: 10;
 }
 
 .OneProduct .slick-next {
-    right: 16.95rem !important;
+    right:97% !important;
     left: auto !important;
     z-index: 10 !important;
   }

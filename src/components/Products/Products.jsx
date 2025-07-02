@@ -32,7 +32,7 @@ function Products({id, img , title, remaining, score, price }) {
               ) : (
                 <p className="relative font-[600]">
                   {price} توما
-                  <span className="absolute top-[-12px] left-[4px] z-0">ن</span>
+                  <span className="absolute top-[-47%] left-[5%] z-0">ن</span>
                 </p>
               )}
             </div>
