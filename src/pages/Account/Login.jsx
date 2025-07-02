@@ -4,18 +4,23 @@ import Google from "../../assets/img/1.webp";
 import Facebook from "../../assets/img/2.webp";
 import Github from "../../assets/img/3.webp";
 import x from "../../assets/img/4.webp";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Support from "../../components/Support/Support";
-
+import Footer from "../../components/Footer/Footer"
 function Login() {
   return (
     <>
         <Navbar></Navbar>
     <Support></Support>
      <div className="h-12"></div>
+     <p className="text-[85%]">
+      <Link to="/bazrafkan-store/">
+        <i className="fa fa-arrow-right p-1 pb-4"></i>برگشت به صفحه اصلی
+      </Link> / ورورد به حساب کاربری
+      </p>
       <div className=" flex justify-center items-center">
-        <div className="flex flex-col items-center  mt-3 p-2 bg-gray-700">
+        <div className="flex flex-col items-center  p-2 bg-gray-700">
           <div className="grid grid-cols-2 grid-rows-2 gap-x-1.5 gap-y-1.5 p-1 ">
             <a
               href="#"
@@ -106,10 +111,11 @@ function Login() {
             className="flex justify-center text-gray-200"
           >
             <p>قبلا حساب کاربری نداشته اید؟</p>
-            <span class="text-blue-800 text-[90%] px-1.5">ورورد</span>
+            <span class="text-blue-800 text-[90%] px-1.5">ساخت حساب</span>
           </NavLink>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 }

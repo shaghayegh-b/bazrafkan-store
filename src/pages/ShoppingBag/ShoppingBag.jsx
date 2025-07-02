@@ -12,28 +12,34 @@ function ShoppingBag() {
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+
   const [deletedMessage, setDeletedMessage] = useState(false);
   return (
     <>
       <Navbar></Navbar>
       <Support></Support>
       <div className="h-12"></div>
-      <p className="text-[85%]">
-      <Link to="/bazrafkan-store/">
-        <i className="fa fa-arrow-right p-1 pb-4"></i>برگشت به صفحه اصلی
-      </Link> / سبد خرید
-      </p>
-      <div className="">
-        <div className="ShoppingBag relative ">
 
-            <div className={`absolute top-1 left-1/2 -translate-x-1/2 z-10 w-[85%] p-3 bg-gray-700 border-t-2 border-solid border-green-700 text-sm rounded-sm shadow-md transition-all duration-300 ${deletedMessage?"":"hidden"}`}>
-              <i className="fa fa-check p-2"></i>
-              {deletedMessage}
-            </div>
+      <div className="relative">
+        <p className="text-[85%]">
+          <Link to="/bazrafkan-store/">
+            <i className="fa fa-arrow-right p-1 pb-4"></i>برگشت به صفحه اصلی
+          </Link>
+          / سبد خرید
+        </p>
+        <div className="ShoppingBag  ">
+          <div
+            className={`fixed top-14 left-1/2 -translate-x-1/2 z-10 w-[85%] p-3 bg-gray-700 border-t-2 border-solid border-green-700 text-sm rounded-sm shadow-md transition-all duration-300 ${
+              deletedMessage ? "" : "hidden"
+            }`}
+          >
+            <i className="fa fa-check p-2"></i>
+            {deletedMessage}
+          </div>
 
           {cartItems.length === 0 ? (
             <div
-              className={`flex flex-col justify-center items-center mt-2 p-1 `}
+              className={`flex flex-col justify-center items-center mt-1 mb-3 p-1 `}
             >
               <div className="w-[85%] p-3 bg-gray-700 border-t-2 border-solid border-red-600">
                 <p>
@@ -52,11 +58,18 @@ function ShoppingBag() {
                   <div>
                     <i
                       onClick={() => {
-                        removeFromCart(item.id);
-                        setDeletedMessage(`"${item.title}" از سبد خرید حذف شد`);
-                        setTimeout(() => {
-                          setDeletedMessage(false);
-                        }, 3000);
+                        let confirmm = confirm(
+                          "میخوای کالا رو از سبد خریدت حذف کنی؟"
+                        );
+                        if (confirmm) {
+                          removeFromCart(item.id);
+                          setDeletedMessage(
+                            `"${item.title}" از سبد خرید حذف شد`
+                          );
+                          setTimeout(() => {
+                            setDeletedMessage(false);
+                          }, 3000);
+                        }
                       }}
                       className="fa fa-times hover:text-red-700 cursor-pointer"
                     ></i>
@@ -99,14 +112,30 @@ function ShoppingBag() {
                       </button>
                       <p className=" px-4">{item.quantity}</p>
                       <button
-                        onClick={() => decrease(item.id)}
+                        onClick={() => {
+                          if (item.quantity === 1) {
+                            let confirmq = confirm(
+                              "میخوای کالا رو از سبد خریدت حذف کنی؟"
+                            );
+                            if (confirmq) {
+                              removeFromCart(item.id);
+                              setDeletedMessage(
+                                `"${item.title}" از سبد خرید حذف شد`
+                              );
+                              setTimeout(() => {
+                                setDeletedMessage(false);
+                              }, 3000);
+                            }
+                          } else {
+                            decrease(item.id);
+                          }
+                        }}
                         className=" bg-gray-600 px-4 rounded-bl-sm rounded-tl-sm"
                       >
                         <i className="fa fa-minus text-[60%]"></i>
                       </button>
                     </div>
                   </div>
-
                 </div>
               ))}
 
@@ -121,7 +150,21 @@ function ShoppingBag() {
               </div>
               <div className="flex justify-center">
                 <button
-                  onClick={() => clearCart()}
+                  onClick={() =>{
+                    let confirmp = confirm(
+                        "میخوای سبد خرید رو حذف کنی؟"
+                      );
+                      if (confirmp) {
+                        clearCart()
+                        setDeletedMessage(
+                          `سبد خرید خالی شد`
+                        );
+                        setTimeout(() => {
+                          setDeletedMessage(false);
+                        }, 3000);
+                      }
+
+                  }}
                   className="bg-red-900 text-white rounded-sm p-1 px-2 mt-2"
                 >
                   پاک کردن سبد خرید
@@ -133,18 +176,16 @@ function ShoppingBag() {
                 </button>
               </div>
               <div className=" flex justify-end p-2">
-            <NavLink
-              to="/bazrafkan-store/"
-              className="text-blue-700 p-2 rounded-sm"
-            >
-              بازگشت به فروشگاه
-              <i className="fa fa-arrow-left pr-1 text-[78%]"></i>
-            </NavLink>
-          </div>
+                <NavLink
+                  to="/bazrafkan-store/"
+                  className="text-blue-700 p-2 rounded-sm"
+                >
+                  بازگشت به فروشگاه
+                  <i className="fa fa-arrow-left pr-1 text-[78%]"></i>
+                </NavLink>
+              </div>
             </div>
           )}
-
-
         </div>
       </div>
       <Footer />
