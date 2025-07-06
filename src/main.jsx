@@ -5,6 +5,8 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import { FavProvider } from "./context/FavProvider";
+import { LoginProvider } from "./context/loginContext";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -12,7 +14,11 @@ root.render(
     <BrowserRouter>
       <CartProvider>
         <FavProvider>
-          <App></App>
+          <LoginProvider>
+            <GoogleOAuthProvider  clientId="885885580401-oh7ku9qnsg7ossanteh89l5ccrmi9mfe.apps.googleusercontent.com">
+              <App></App>
+            </GoogleOAuthProvider>
+          </LoginProvider>
         </FavProvider>
       </CartProvider>
     </BrowserRouter>

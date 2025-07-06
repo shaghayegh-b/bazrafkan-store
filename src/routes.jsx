@@ -7,11 +7,13 @@ import FavProduct from "./pages/FavProduct/FavProduct";
 import Home from "./pages/MyHome/Home";
 import OneProduct from "./pages/OneProduct/OneProduct";
 import ShoppingBag from "./pages/ShoppingBag/ShoppingBag";
+import UserInformation from "./pages/UserInformation/UserInformation";
 
 export let router = [
    {path:'/bazrafkan-store/',element:<Home />},
    {path:'/bazrafkan-store/Account',element:<Account />},
    {path:'/bazrafkan-store/Login',element:<Login />},
+   {path:'/bazrafkan-store/UserInformation',element:<UserInformation />},
    {path:'/bazrafkan-store/ContactUs',element:<ContactUs />},
    {path:'/bazrafkan-store/AboutUs',element:<AboutUs />},
    {path:'/bazrafkan-store/AskedQuestion',element:<AskedQuestion />},
