@@ -1,5 +1,4 @@
 import { createContext, memo, useState } from "react";
-import "./Navbar.css";
 import Meno from "../Meno/Meno";
 import { NavLink } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
