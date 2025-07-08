@@ -1,32 +1,47 @@
 import { memo, useEffect } from "react";
 import Category from "../../components/Category/Category";
 import Navbar from "../../components/Navbar/Navbar";
-import { dataProducts } from "../../components/Products/dataProducts";
-import { dataCategory } from "../../components/Category/dataCategory";
 import Products from "../../components/Products/Products";
 import Support from "../../components/Support/Support";
 import Footer from "../../components/Footer/Footer";
+import { useAxios } from "../../context/AxiosContaext";
 function Home() {
+  const { isAxios, funcAxios, loading } = useAxios();
   //   وقتی وارد صفحه محصول می‌شی، اگر صفحه پایین باشه، اسلایدر دیده نمی‌شه
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  useEffect(() => {
+    funcAxios(
+      "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products"
+    );
+  }, []);
+
   return (
     <>
-      {" "}
       <Navbar />
       <Support />
       <div className="relative bg-gray-900 text-gray-50">
         <div className="h-12"></div>
         <div className="grid grid-cols-3 grid-rows-2 gap-2 rounded-2 p-2 py-4">
-          {dataCategory.map((oneCategory) => (
-            <Category key={oneCategory.id} {...oneCategory} />
-          ))}
+          <Category></Category>
         </div>
         <div className="">
-          {dataProducts.map((oneProduct) => (
-            <Products key={oneProduct.id} {...oneProduct} />
-          ))}
+          {loading ? (
+            <div className="flex justify-center items-center h-40 ">
+              <div className="flex space-x-2">
+                <div className="w-4 h-4 bg-white rounded-full animate-bounce"></div>
+                <div className="w-4 h-4 bg-white rounded-full animate-bounce [animation-delay:-0.2s]"></div>
+                <div className="w-4 h-4 bg-white rounded-full animate-bounce [animation-delay:-0.4s]"></div>
+              </div>
+            </div>
+          ) : Array.isArray(isAxios) && isAxios.length > 0 ? (
+            isAxios.map((oneProduct) => (
+              <Products key={oneProduct.id} {...oneProduct} />
+            ))
+          ) : (
+            <p className="text-center py-10 text-gray-300">محصولی یافت نشد</p>
+          )}
         </div>
         <footer>
           <Footer />

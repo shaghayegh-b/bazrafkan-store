@@ -2,8 +2,8 @@ import { memo, useEffect, useState } from "react";
 import "./Meno.css";
 import { mymeno } from "../Navbar/Navbar";
 import { useContext } from "react";
-import { dataCategory } from "../Category/dataCategory";
 import { Link, NavLink } from "react-router-dom";
+import Category from "../Category/Category";
 function Meno() {
   const [grouping, setGrouping] = useState(false);
   const meno = useContext(mymeno);
@@ -74,11 +74,7 @@ function Meno() {
                         grouping ? "" : "h-0"
                       }`}
                     >
-                      {dataCategory.map((oneCategory) => (
-                        <li>
-                          <a href="">{oneCategory.title}</a>
-                        </li>
-                      ))}
+                      <Category />
                     </ul>
                   </div>
                 </li>

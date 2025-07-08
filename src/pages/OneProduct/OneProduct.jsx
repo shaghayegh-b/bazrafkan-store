@@ -2,28 +2,35 @@ import { memo, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-
 import Footer from "../../components/Footer/Footer";
-
-import { dataProducts } from "../../components/Products/dataProducts";
 
 import { useCart } from "../../context/CartContext";
 
 import Slider from "react-slick";
-import Header from '../../components/Header/Header'
+import Header from "../../components/Header/Header";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./OneProduct.css";
 import { useFav } from "../../context/FavProvider";
+import { useAxios } from "../../context/AxiosContaext";
 
 function OneProduct() {
+  const { isAxios, funcAxios, loading } = useAxios();
+  // حالت نمایش توضیحات محصول (باز یا بسته)
   const [desc, setDesc] = useState(true);
   const [sizing, setSizing] = useState(true);
   const [fav, setFav] = useState(false);
   const { addToFav, removeFromFav, favoriteItems } = useFav();
   const { addToCart, increase, decrease, cartItems } = useCart();
   const { id } = useParams();
-  const produkt = dataProducts.find((item) => item.id === parseInt(id));
+  const produkt = isAxios;
+
+  // وقتی کامپوننت لود شد، داده‌ها رو از API بگیر
+  useEffect(() => {
+    funcAxios(
+      `https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products/${id}`
+    );
+  }, []);
 
   const sliderRef = useRef(null);
 
@@ -114,134 +121,145 @@ function OneProduct() {
   }
   return (
     <>
-<Header>محصولات</Header>
-      <div className="OneProduct p-2">
-        {/* تصویر محصول با اسلایدر */}
-        <div className="bg-gray-700  p-3">
-          <Slider ref={sliderRef} {...settings}>
-            {colors.map((color, idx) => (
-              <div key={idx} className="flex justify-center items-center">
-                <img
-                  src={color.img}
-                  alt={`${produkt.title} - رنگ ${color.name || "نامشخص"}`}
-                  className="max-h-[40rem] w-full object-contain"
-                />
-              </div>
-            ))}
-          </Slider>
-          {/* انتخاب رنگ */}
-          {colors.length > 1 && (
-            <div className="flex justify-between items-baseline px-2 pt-3">
-              <p>تنوع رنگی:</p>
-              <form className="flex gap-2">
-                {colors.map((color, idx) => (
-                  <label key={idx} className="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="color"
-                      checked={selectedColorIndex === idx}
-                      onChange={() => handleColorChange(idx)}
-                      className="hidden"
-                    />
-                    <span
-                      className={`rounded-full w-[25px] h-[25px] inline-block border-2  transition-all duration-300  ${
-                        selectedColorIndex === idx
-                          ? "border-black shadow-md scale-110"
-                          : "border-transparent"
-                      }`}
-                      style={{ backgroundColor: color.code }}
-                    />
-                  </label>
-                ))}
-              </form>
-            </div>
-          )}
+      <Header>محصولات</Header>
+      {loading ? (
+        <div className="flex justify-center items-center h-40 ">
+          <div className="flex space-x-2">
+            <div className="w-4 h-4 bg-white rounded-full animate-bounce"></div>
+            <div className="w-4 h-4 bg-white rounded-full animate-bounce [animation-delay:-0.2s]"></div>
+            <div className="w-4 h-4 bg-white rounded-full animate-bounce [animation-delay:-0.4s]"></div>
+          </div>
         </div>
+      ) : (
+        <div className="OneProduct p-2">
+          {/* تصویر محصول با اسلایدر */}
+          <div className="bg-gray-700  p-3">
+            <Slider ref={sliderRef} {...settings}>
+              {colors.map((color, idx) => (
+                <div key={idx} className="flex justify-center items-center">
+                  <img
+                    src={color.img}
+                    alt={`${produkt.title} - رنگ ${color.name || "نامشخص"}`}
+                    className="max-h-[40rem] w-full object-contain"
+                  />
+                </div>
+              ))}
+            </Slider>
+            {/* انتخاب رنگ */}
+            {colors.length > 1 && (
+              <div className="flex justify-between items-baseline px-2 pt-3">
+                <p>تنوع رنگی:</p>
+                <form className="flex gap-2">
+                  {colors.map((color, idx) => (
+                    <label key={idx} className="cursor-pointer">
+                      <input
+                        type="radio"
+                        name="color"
+                        checked={selectedColorIndex === idx}
+                        onChange={() => handleColorChange(idx)}
+                        className="hidden"
+                      />
+                      <span
+                        className={`rounded-full w-[25px] h-[25px] inline-block border-2  transition-all duration-300  ${
+                          selectedColorIndex === idx
+                            ? "border-black shadow-md scale-110"
+                            : "border-transparent"
+                        }`}
+                        style={{ backgroundColor: color.code }}
+                      />
+                    </label>
+                  ))}
+                </form>
+              </div>
+            )}
+          </div>
 
-        {/* مشخصات کلی محصول */}
-        <div className="bg-gray-700 p-3 my-2">
-          <div className="flex justify-between items-baseline">
-            <h1 className="font-[600] text-[110%]">{produkt.title}</h1>
-            <i
-              title={fav ? "حذف از علاقه‌مندی‌ها" : "افزودن به علاقه‌مندی‌ها"}
-              className={`fa fa-star ${
-                fav ? "text-yellow-300" : "text-gray-50"
-              }`}
-              onClick={favorite}
-            ></i>
-          </div>
-          <div className="flex justify-between py-3 px-1">
-            <p className="text-[90%] tracking-tight">{produkt.remaining}</p>
-            <p className={isOutOfStock ? "text-gray-400" : ""}>
-              <span className="font-[600]">{produkt.price}</span>
-              <span className="text-[95%] pr-1">تومان</span>
-            </p>
-          </div>
-          <div className="flex justify-between font-[500] px-1 py-3">
-            <p className="">رنگ انتخابی:</p>{" "}
-            <span className="">{colors[selectedColorIndex].name}</span>
-          </div>
+          {/* مشخصات کلی محصول */}
+          <div className="bg-gray-700 p-3 my-2">
+            <div className="flex justify-between items-baseline">
+              <h1 className="font-[600] text-[110%]">{produkt.title}</h1>
+              <i
+                title={fav ? "حذف از علاقه‌مندی‌ها" : "افزودن به علاقه‌مندی‌ها"}
+                className={`fa fa-star ${
+                  fav ? "text-yellow-300" : "text-gray-50"
+                }`}
+                onClick={favorite}
+              ></i>
+            </div>
+            <div className="flex justify-between py-3 px-1">
+              <p className="text-[90%] tracking-tight">{produkt.remaining}</p>
+              <p className={isOutOfStock ? "text-gray-400" : ""}>
+                <span className="font-[600]">{produkt.price}</span>
+                <span className="text-[95%] pr-1">تومان</span>
+              </p>
+            </div>
+            <div className="flex justify-between font-[500] px-1 py-3">
+              <p className="">رنگ انتخابی:</p>{" "}
+              <span className="">{colors[selectedColorIndex].name}</span>
+            </div>
 
-          {/* تعداد و افزودن به سبد */}
-          <div
-            className={`flex justify-between items-center transition-all duration-300 ease-in-out ${
-              isOutOfStock ? "opacity-50 cursor-not-allowed" : ""
-            } ${quantity > 0 ? "" : "justify-center"}`}
-          >
-            {quantity > 0 ? (
-              <div className="w-[100%] flex justify-between ">
-                <div className="flex justify-center items-center border border-black rounded-sm">
-                  <button
-                    disabled={isOutOfStock}
-                    onClick={() => increase(produkt.id)}
-                    className="bg-gray-600 px-4 rounded-br-sm rounded-tr-sm"
-                  >
-                    <i className="fa fa-plus text-[60%]"></i>
-                  </button>
-                  <p className="px-4">{isOutOfStock ? 0 : quantity}</p>
-                  <button
-                    disabled={isOutOfStock || quantity === 0}
-                    onClick={() => {
-                      if (quantity === 1) {
-                        if (
-                          window.confirm("میخوای کالارو از سبد خریدت حذف کنی؟")
-                        ) {
+            {/* تعداد و افزودن به سبد */}
+            <div
+              className={`flex justify-between items-center transition-all duration-300 ease-in-out ${
+                isOutOfStock ? "opacity-50 cursor-not-allowed" : ""
+              } ${quantity > 0 ? "" : "justify-center"}`}
+            >
+              {quantity > 0 ? (
+                <div className="w-[100%] flex justify-between ">
+                  <div className="flex justify-center items-center border border-black rounded-sm">
+                    <button
+                      disabled={isOutOfStock}
+                      onClick={() => increase(produkt.id)}
+                      className="bg-gray-600 px-4 rounded-br-sm rounded-tr-sm"
+                    >
+                      <i className="fa fa-plus text-[60%]"></i>
+                    </button>
+                    <p className="px-4">{isOutOfStock ? 0 : quantity}</p>
+                    <button
+                      disabled={isOutOfStock || quantity === 0}
+                      onClick={() => {
+                        if (quantity === 1) {
+                          if (
+                            window.confirm(
+                              "میخوای کالارو از سبد خریدت حذف کنی؟"
+                            )
+                          ) {
+                            decrease(produkt.id);
+                          }
+                        } else {
                           decrease(produkt.id);
                         }
-                      } else {
-                        decrease(produkt.id);
-                      }
-                    }}
-                    className="bg-gray-600 px-4 rounded-bl-sm rounded-tl-sm"
-                  >
-                    <i className="fa fa-minus text-[60%]"></i>
-                  </button>
-                </div>
-                <button
-                  onClick={() => addToCart({ ...produkt, quantity: 1 })}
-                  disabled={isOutOfStock}
-                  className={`rounded-sm bg-blue-400 px-2 py-1
+                      }}
+                      className="bg-gray-600 px-4 rounded-bl-sm rounded-tl-sm"
+                    >
+                      <i className="fa fa-minus text-[60%]"></i>
+                    </button>
+                  </div>
+                  <button
+                    onClick={() => addToCart({ ...produkt, quantity: 1 })}
+                    disabled={isOutOfStock}
+                    className={`rounded-sm bg-blue-400 px-2 py-1
                   ${
                     isOutOfStock
                       ? "bg-gray-400 cursor-not-allowed"
                       : "bg-blue-400"
                   }`}
+                  >
+                    افزودن به سبد خرید
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => addToCart({ ...produkt, quantity: 1 })}
+                  disabled={isOutOfStock}
+                  className="rounded-sm bg-blue-400 px-2 py-1"
                 >
                   افزودن به سبد خرید
                 </button>
-              </div>
-            ) : (
-              <button
-                onClick={() => addToCart({ ...produkt, quantity: 1 })}
-                disabled={isOutOfStock}
-                className="rounded-sm bg-blue-400 px-2 py-1"
-              >
-                افزودن به سبد خرید
-              </button>
-            )}
-          </div>
+              )}
+            </div>
 
-          {/* <div
+            {/* <div
             className={`flex justify-between items-center transition-all duration-300 ease-in-out ${
               isOutOfStock ? "opacity-50 cursor-not-allowed" : ""
             }
@@ -305,106 +323,107 @@ function OneProduct() {
               افزودن به سبد خرید
             </button>
           </div> */}
-        </div>
-
-        {/* پیام پردازش */}
-        <p className="py-1 px-2 bg-gray-800 border-t-4 border-solid border-red-900 text-[85%] text-center">
-          پردازش محصولات<span className="font-[600]"> 7 الی 10 </span>روزکاری
-          زمان می‌برد!
-        </p>
-
-        {/* توضیحات محصول */}
-        <div className="bg-gray-700 p-1 py-2 my-2">
-          <div
-            className={`desc py-1 px-2 rounded-xl mb-1 transition-all duration-400 ${
-              desc ? "sizing" : ""
-            }`}
-          >
-            <div
-              onClick={() => setDesc(!desc)}
-              className="relative cursor-pointer"
-            >
-              <span className="font-[600]">توضیحات محصول</span>
-              <i
-                className={`fa fa-chevron-up absolute left-0 top-[7px] transition-transform ${
-                  desc ? "rotate-180" : ""
-                }`}
-              />
-            </div>
-
-            {desc && (
-              <ul>
-                <li>نام : {produkt.title}</li>
-                <li>کد : {produkt.code}</li>
-                <li>جنس پارچه : {produkt.jens}</li>
-                {produkt.dokme && <li>نحوه بسته شدن : {produkt.dokme}</li>}
-                <li>سایز : {produkt.size}</li>
-              </ul>
-            )}
           </div>
 
-          {/* جدول سایزبندی */}
-          {(produkt.shoulder ||
-            produkt.chest ||
-            produkt.arm ||
-            produkt.wrist ||
-            produkt.stans ||
-            produkt.dressLength) && (
+          {/* پیام پردازش */}
+          <p className="py-1 px-2 bg-gray-800 border-t-4 border-solid border-red-900 text-[85%] text-center">
+            پردازش محصولات<span className="font-[600]"> 7 الی 10 </span>روزکاری
+            زمان می‌برد!
+          </p>
+
+          {/* توضیحات محصول */}
+          <div className="bg-gray-700 p-1 py-2 my-2">
             <div
-              className={`size desc py-1 px-2 rounded-xl transition-all duration-400 ${
-                sizing ? "sizing" : ""
+              className={`desc py-1 px-2 rounded-xl mb-1 transition-all duration-400 ${
+                desc ? "sizing" : ""
               }`}
             >
               <div
-                onClick={() => setSizing(!sizing)}
+                onClick={() => setDesc(!desc)}
                 className="relative cursor-pointer"
               >
-                <span className="font-[600]">جدول سایز بندی</span>
+                <span className="font-[600]">توضیحات محصول</span>
                 <i
                   className={`fa fa-chevron-up absolute left-0 top-[7px] transition-transform ${
-                    sizing ? "rotate-180" : ""
+                    desc ? "rotate-180" : ""
                   }`}
                 />
               </div>
 
-              {sizing && (
+              {desc && (
                 <ul>
-                  {produkt.shoulder && (
-                    <li>
-                      عرض شانه : <span>{produkt.shoulder}</span>
-                    </li>
-                  )}
-                  {produkt.chest && (
-                    <li>
-                      دور سینه : <span>{produkt.chest}</span>
-                    </li>
-                  )}
-                  {produkt.arm && (
-                    <li>
-                      دور بازو : <span>{produkt.arm}</span>
-                    </li>
-                  )}
-                  {produkt.wrist && (
-                    <li>
-                      دور مچ : <span>{produkt.wrist}</span>
-                    </li>
-                  )}
-                  {produkt.stans && (
-                    <li>
-                      قد آستین : <span>{produkt.stans}</span>
-                    </li>
-                  )}
-                  {produkt.dressLength && (
-                    <li>
-                      قد کار : <span>{produkt.dressLength}</span>
-                    </li>
-                  )}
+                  <li>نام : {produkt.title}</li>
+                  <li>کد : {produkt.code}</li>
+                  <li>جنس پارچه : {produkt.jens}</li>
+                  {produkt.dokme && <li>نحوه بسته شدن : {produkt.dokme}</li>}
+                  <li>سایز : {produkt.size}</li>
                 </ul>
               )}
             </div>
-          )}
+
+            {/* جدول سایزبندی */}
+            {(produkt.shoulder ||
+              produkt.chest ||
+              produkt.arm ||
+              produkt.wrist ||
+              produkt.stans ||
+              produkt.dressLength) && (
+              <div
+                className={`size desc py-1 px-2 rounded-xl transition-all duration-400 ${
+                  sizing ? "sizing" : ""
+                }`}
+              >
+                <div
+                  onClick={() => setSizing(!sizing)}
+                  className="relative cursor-pointer"
+                >
+                  <span className="font-[600]">جدول سایز بندی</span>
+                  <i
+                    className={`fa fa-chevron-up absolute left-0 top-[7px] transition-transform ${
+                      sizing ? "rotate-180" : ""
+                    }`}
+                  />
+                </div>
+
+                {sizing && (
+                  <ul>
+                    {produkt.shoulder && (
+                      <li>
+                        عرض شانه : <span>{produkt.shoulder}</span>
+                      </li>
+                    )}
+                    {produkt.chest && (
+                      <li>
+                        دور سینه : <span>{produkt.chest}</span>
+                      </li>
+                    )}
+                    {produkt.arm && (
+                      <li>
+                        دور بازو : <span>{produkt.arm}</span>
+                      </li>
+                    )}
+                    {produkt.wrist && (
+                      <li>
+                        دور مچ : <span>{produkt.wrist}</span>
+                      </li>
+                    )}
+                    {produkt.stans && (
+                      <li>
+                        قد آستین : <span>{produkt.stans}</span>
+                      </li>
+                    )}
+                    {produkt.dressLength && (
+                      <li>
+                        قد کار : <span>{produkt.dressLength}</span>
+                      </li>
+                    )}
+                  </ul>
+                )}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="flex justify-end p-2">
         <NavLink

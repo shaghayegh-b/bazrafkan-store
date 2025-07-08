@@ -7,6 +7,7 @@ import { CartProvider } from "./context/CartContext";
 import { FavProvider } from "./context/FavProvider";
 import { LoginProvider } from "./context/loginContext";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { AxiosProvider } from "./context/AxiosContaext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,9 +16,11 @@ root.render(
       <CartProvider>
         <FavProvider>
           <LoginProvider>
+            <AxiosProvider>
             <GoogleOAuthProvider  clientId="885885580401-oh7ku9qnsg7ossanteh89l5ccrmi9mfe.apps.googleusercontent.com">
               <App></App>
             </GoogleOAuthProvider>
+            </AxiosProvider>
           </LoginProvider>
         </FavProvider>
       </CartProvider>

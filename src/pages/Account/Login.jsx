@@ -1,5 +1,4 @@
 import { memo, useEffect, useRef } from "react";
-import "./Account.css";
 import {  NavLink, useNavigate } from "react-router-dom";
 
 import Footer from "../../components/Footer/Footer";

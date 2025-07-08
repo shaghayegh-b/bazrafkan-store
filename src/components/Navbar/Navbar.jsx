@@ -13,7 +13,7 @@ function Navbar() {
 
     <>
       {/* نوبار */}
-      <div className={`Navbar w-[100%] fixed top-0 z-1 h-9`}>
+      <div className={`Navbar w-[100%] fixed top-0 z-20 h-9`}>
         <div className="Navbarchild p-1.5 bg-gray-800 gap-0.5 flex flex-row justify-center items-baseline w-[100%] ">
           <div className={` justify-between w-[100%] ${fSearch ? "hidden" : "flex"} gap-1`}>
             <div className="taskbar w-[95%] bg-gray-600 rounded">
@@ -103,7 +103,7 @@ function Navbar() {
       </div>
       {/* منو باز بشه اگر روی ایکون منو کلیک بشه */}
       <div
-        className={`fixed z-2 top-0 h-[100vh] bg-[#0000005c]  ${
+        className={`fixed z-20 top-0 h-[100vh] bg-[#0000005c]  ${
           meno ? "w-[100vw]" : "w-[0]"
         }`}
       >
@@ -111,7 +111,7 @@ function Navbar() {
           <Meno></Meno>
         </mymeno.Provider>
         <div
-          className={`h-[100vh] fixed top-0 left-0 z-2 w-[15vw] flex items-start justify-end
+          className={`h-[100vh] fixed top-0 left-0 z-20 w-[15vw] flex items-start justify-end
             ${meno ? "" : "hidden"}
             `}
           onClick={() => setMeno(false)}

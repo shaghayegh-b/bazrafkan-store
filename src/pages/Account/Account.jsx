@@ -1,5 +1,4 @@
 import { memo, useEffect } from "react";
-import "./Account.css";
 import Google from "../../assets/img/1.webp";
 import Facebook from "../../assets/img/2.webp";
 import Github from "../../assets/img/3.webp";
