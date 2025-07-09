@@ -53,31 +53,6 @@ export function AxiosProvider({ children }) {
     setFilteredProducts(sorted);
   }
 
-//   function applyFilter(type) {
-//     let sorted = [...isAxios]; // کپی از دیتای اصلی
-
-//     switch (type) {
-//       case "cheapest":
-//         sorted.sort((a, b) => a.price - b.price);
-//         break;
-//       case "mostExpensive":
-//         sorted.sort((a, b) => b.price - a.price);
-//         break;
-//       case "newest":
-//         sorted.sort((a, b) => Number(b.date) - Number(a.date));
-//         break;
-//         // بیشترین تخفیف
-//     //   case "mostDiscount":
-//     //     sorted.sort((a, b) => (b.discount || 0) - (a.discount || 0));
-//     //     break;
-//         case "available":
-//             sorted = sorted.filter(item => item.remaining !== "اتمام موجودی");
-//             break;
-
-//     }
-
-//     setFilteredProducts(sorted); // خروجی مرتب‌شده رو ست می‌کنیم
-//   }
 
   return (
     <AxiosContext.Provider

@@ -14,7 +14,7 @@ function Home() {
   }, []);
   useEffect(() => {
     funcAxios(
-      "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products"
+      "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?fav=true"
     );
   }, []);
 
