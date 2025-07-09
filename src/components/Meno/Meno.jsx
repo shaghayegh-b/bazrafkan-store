@@ -3,10 +3,12 @@ import "./Meno.css";
 import { mymeno } from "../Navbar/Navbar";
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import Category from "../Category/Category";
+import { useAxios } from "../../context/AxiosContaext";
 function Meno() {
+  const { funcAxios } = useAxios();
+
   const [grouping, setGrouping] = useState(false);
-  const meno = useContext(mymeno);
+  const { meno, setMeno } = useContext(mymeno);
 
   const [isDark, setIsDark] = useState(() => {
     return (
@@ -54,7 +56,10 @@ function Meno() {
                     <span className="font-[600]">همه محصولات</span>
                   </NavLink>
                 </li>
-                <li className={`relative ${grouping?"grouping":""}`} onClick={() => setGrouping(!grouping)}>
+                <li
+                  className={`relative ${grouping ? "grouping" : ""}`}
+                  onClick={() => setGrouping(!grouping)}
+                >
                   <button>
                     <i className="fas fa-store"></i>
                     <span className="font-[600]">دسته بندی</span>
@@ -69,12 +74,91 @@ function Meno() {
                       grouping ? "" : "hidden"
                     }`}
                   >
-                    <ul
+                     <ul
                       className={`transition-all duration-1000 ease-in-out ${
                         grouping ? "" : "h-0"
                       }`}
                     >
-                      <Category />
+                      <li
+                        onClick={() => {
+                            setMeno(false)
+                          funcAxios(
+                            "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=مانتو"
+                        );
+                        }}
+                      >
+                        <p className=" tracking-tighter">مانتو</p>
+                      </li>
+                      <li
+                       onClick={() => {
+                            setMeno(false)
+                          funcAxios(
+                            "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=شلوار"
+                        );
+                        }}
+                      >
+                        <p className=" tracking-tighter">شلوار{"\u2009"}و{"\u2009"}دامن</p>
+                      </li>
+                      <li
+                       onClick={() => {
+                            setMeno(false)
+                          funcAxios(
+                            "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=ست"
+                        );
+                        }}
+                      >
+                        <p className=" tracking-tighter">ست</p>
+                      </li>
+                      <li
+                       onClick={() => {
+                            setMeno(false)
+                          funcAxios(
+                            "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=خونگی"
+                        );
+                        }}
+                      >
+                        <p className=" tracking-tighter"> تو{"\u2009"}خونه{"\u200A"}ای</p>
+                      </li>
+                      <li
+                       onClick={() => {
+                            setMeno(false)
+                          funcAxios(
+                            "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=ارایشی"
+                        );
+                        }}
+                      >
+                        <p className=" tracking-tighter">ارایشی{"\u2009"}بهداشتی</p>
+                      </li>
+                      <li
+                       onClick={() => {
+                            setMeno(false)
+                          funcAxios(
+                            "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=زمستونه"
+                        );
+                        }}
+                      >
+                        <p className=" tracking-tighter">لباس{"\u200A"}گرم</p>
+                      </li>
+                      <li
+                       onClick={() => {
+                            setMeno(false)
+                          funcAxios(
+                            "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=کیف"
+                        );
+                        }}
+                      >
+                        <p className=" tracking-tighter">کیف{"\u2009"}و{"\u2009"}کفش</p>
+                      </li>
+                      <li
+                       onClick={() => {
+                            setMeno(false)
+                          funcAxios(
+                            "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=اکسسوری"
+                        );
+                        }}
+                      >
+                        <p className=" tracking-tighter">اکسسوری</p>
+                      </li>
                     </ul>
                   </div>
                 </li>

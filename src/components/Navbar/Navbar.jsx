@@ -26,7 +26,7 @@ function Navbar() {
                 </button>
                 <form
                   action="#"
-                  className="p-1 flex w-19 "
+                  className="p-1 flex w-19 text-[85%]"
                   onFocus={() => setFSearch(true)}
                 >
                   <label
@@ -107,7 +107,7 @@ function Navbar() {
           meno ? "w-[100vw]" : "w-[0]"
         }`}
       >
-        <mymeno.Provider value={meno}>
+        <mymeno.Provider value={{ meno, setMeno }}>
           <Meno></Meno>
         </mymeno.Provider>
         <div
