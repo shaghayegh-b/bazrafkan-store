@@ -58,7 +58,7 @@ function ShoppingBag() {
                         if (confirmm) {
                           removeFromCart(item.id);
                           setDeletedMessage(
-                            `"${item.title}" از سبد خرید حذف شد`
+                            `"${item.title}" با رنگ "${item.selectedColor?.name}" از سبد خرید حذف شد`
                           );
                           setTimeout(() => {
                             setDeletedMessage(false);
@@ -81,9 +81,13 @@ function ShoppingBag() {
                         <span className="font-[600]">محصول : </span>
                         {item.title}
                       </p>
+                      <p className="">
+                        <span className="font-[600]">رنگ انتخابی : </span>
+                        {item.selectedColor?.name}
+                      </p>
                       <p>
                         <span className="font-[600]">قیمت : </span>
-                        {item.price.toLocaleString()} تومان
+                        {item.price} تومان
                       </p>
                     </div>
                   </div>
@@ -99,7 +103,7 @@ function ShoppingBag() {
                     </div>
                     <div className=" flex justify-center items-center border-[1px] border-solid border-black rounded-sm">
                       <button
-                        onClick={() => increase(item.id)}
+                        onClick={() => increase(item.id, item.selectedColor?.code)}
                         className=" bg-gray-600 px-4 rounded-br-sm rounded-tr-sm"
                       >
                         <i className="fa fa-plus text-[60%]"></i>
@@ -107,22 +111,22 @@ function ShoppingBag() {
                       <p className=" px-4">{item.quantity}</p>
                       <button
                         onClick={() => {
-                          if (item.quantity === 1) {
-                            let confirmq = confirm(
-                              "میخوای کالا رو از سبد خریدت حذف کنی؟"
-                            );
-                            if (confirmq) {
-                              removeFromCart(item.id);
-                              setDeletedMessage(
-                                `"${item.title}" از سبد خرید حذف شد`
-                              );
-                              setTimeout(() => {
-                                setDeletedMessage(false);
-                              }, 3000);
-                            }
-                          } else {
-                            decrease(item.id);
-                          }
+                            if (item.quantity === 1) {
+                                let confirmq = confirm(
+                                  "میخوای کالا رو از سبد خریدت حذف کنی؟"
+                                );
+                                if (confirmq) {
+                                  removeFromCart(item.id, item.selectedColor?.code);
+                                  setDeletedMessage(
+                                    `"${item.title}" از سبد خرید حذف شد`
+                                  );
+                                  setTimeout(() => {
+                                    setDeletedMessage(false);
+                                  }, 3000);
+                                }
+                              } else {
+                                decrease(item.id, item.selectedColor?.code);
+                              }
                         }}
                         className=" bg-gray-600 px-4 rounded-bl-sm rounded-tl-sm"
                       >

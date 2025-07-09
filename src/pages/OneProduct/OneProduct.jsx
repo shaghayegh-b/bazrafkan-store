@@ -40,6 +40,7 @@ function OneProduct() {
   const colors = produkt.colors || [
     { name: "تک رنگ", code: "#ccc", img: produkt.img },
   ];
+  const colorToSend = colors && colors.length > 0 ? colors[selectedColorIndex] : null;
 
   const handleColorChange = (index) => {
     setSelectedColorIndex(index);
@@ -48,7 +49,12 @@ function OneProduct() {
     }
   };
 
-  const itemInCart = cartItems.find((item) => item.id === produkt.id);
+  const selectedColor = produkt.colors?.[selectedColorIndex];
+  const itemInCart = cartItems.find(
+    (item) =>
+      item.id === produkt.id &&
+      item.selectedColor?.code === selectedColor?.code
+  );
   const quantity = itemInCart ? itemInCart.quantity : 0;
   const isOutOfStock = produkt.remaining === "اتمام موجودی";
 
@@ -205,11 +211,11 @@ function OneProduct() {
               } ${quantity > 0 ? "" : "justify-center"}`}
             >
               {quantity > 0 ? (
-                <div className="w-[100%] flex justify-between ">
+                <div className="w-[100%] flex justify-between items-center ">
                   <div className="flex justify-center items-center border border-black rounded-sm">
                     <button
                       disabled={isOutOfStock}
-                      onClick={() => increase(produkt.id)}
+                      onClick={() =>  increase(produkt.id, colors[selectedColorIndex]?.code)}
                       className="bg-gray-600 px-4 rounded-br-sm rounded-tr-sm"
                     >
                       <i className="fa fa-plus text-[60%]"></i>
@@ -224,10 +230,22 @@ function OneProduct() {
                               "میخوای کالارو از سبد خریدت حذف کنی؟"
                             )
                           ) {
-                            decrease(produkt.id);
+                            if (quantity === 1) {
+                                if (window.confirm("میخوای کالارو از سبد خریدت حذف کنی؟")) {
+                                  decrease(produkt.id, colors[selectedColorIndex]?.code);
+                                }
+                              } else {
+                                decrease(produkt.id, colors[selectedColorIndex]?.code);
+                              }
                           }
                         } else {
-                          decrease(produkt.id);
+                            if (quantity === 1) {
+                                if (window.confirm("میخوای کالارو از سبد خریدت حذف کنی؟")) {
+                                  decrease(produkt.id, colors[selectedColorIndex]?.code);
+                                }
+                              } else {
+                                decrease(produkt.id, colors[selectedColorIndex]?.code);
+                              }
                         }
                       }}
                       className="bg-gray-600 px-4 rounded-bl-sm rounded-tl-sm"
@@ -236,8 +254,7 @@ function OneProduct() {
                     </button>
                   </div>
                   <button
-                    onClick={() => addToCart({ ...produkt, quantity: 1 })}
-                    disabled={isOutOfStock}
+onClick={() => addToCart({ ...produkt, quantity: 1, selectedColor: colorToSend })}                    disabled={isOutOfStock}
                     className={`rounded-sm bg-blue-400 px-2 py-1
                   ${
                     isOutOfStock
@@ -250,7 +267,7 @@ function OneProduct() {
                 </div>
               ) : (
                 <button
-                  onClick={() => addToCart({ ...produkt, quantity: 1 })}
+                  onClick={() => addToCart({ ...produkt, quantity: 1 ,selectedColor: colors[selectedColorIndex] })}
                   disabled={isOutOfStock}
                   className="rounded-sm bg-blue-400 px-2 py-1"
                 >
@@ -259,70 +276,7 @@ function OneProduct() {
               )}
             </div>
 
-            {/* <div
-            className={`flex justify-between items-center transition-all duration-300 ease-in-out ${
-              isOutOfStock ? "opacity-50 cursor-not-allowed" : ""
-            }
-            ${add ? "" : "justify-center"}`}
-          >
-            <div className={`flex items-center border border-black rounded-sm ${quantity > 0 ? "" : "hidden"}`}>
-  <button
-    disabled={isOutOfStock}
-    onClick={() => increase(produkt.id)}
-    className="bg-gray-600 px-4 rounded-br-sm rounded-tr-sm"
-  >
-    <i className="fa fa-plus text-[60%]"></i>
-  </button>
-  <p className="px-4">{isOutOfStock ? 0 : quantity}</p>
-  <button
-    disabled={isOutOfStock || quantity === 0}
-    onClick={() => {
-      if (quantity === 1) {
-        if (window.confirm("میخوای کالارو از سبد خریدت حذف کنی؟")) {
-          decrease(produkt.id);
-        }
-      } else {
-        decrease(produkt.id);
-      }
-    }}
-    className="bg-gray-600 px-4 rounded-bl-sm rounded-tl-sm"
-  >
-    <i className="fa fa-minus text-[60%]"></i>
-  </button>
-</div>
 
-            <div
-              className={`flex items-center border border-black rounded-sm ${
-                add ? "" : "hidden"
-              }`}
-            >
-              <button
-                disabled={isOutOfStock}
-                onClick={() => setCount(count + 1)}
-                className="bg-gray-600 px-4 rounded-br-sm rounded-tr-sm"
-              >
-                <i className="fa fa-plus text-[60%]"></i>
-              </button>
-              <p className="px-4">{isOutOfStock ? 0 : count}</p>
-              <button
-                disabled={isOutOfStock}
-                onClick={handdecrea}
-                className="bg-gray-600 px-4 rounded-bl-sm rounded-tl-sm"
-              >
-                <i className="fa fa-minus text-[60%]"></i>
-              </button>
-            </div>
-
-            <button
-              onClick={() => (
-                addToCart({ ...produkt, quantity: count }), setAdd(true)
-              )}
-              disabled={isOutOfStock}
-              className={`rounded-sm bg-blue-400 px-2 py-1 `}
-            >
-              افزودن به سبد خرید
-            </button>
-          </div> */}
           </div>
 
           {/* پیام پردازش */}

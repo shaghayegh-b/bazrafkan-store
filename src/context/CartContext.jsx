@@ -18,48 +18,101 @@ export function CartProvider({ children }) {
   }, [cartItems]);
 
   // اضافه کردن کالا به سبد
-  function addToCart(product) {
-    setCartItems((prev) => {
-      // چک می‌کنیم کالا قبلا اضافه شده یا نه
-      const existing = prev.find((item) => item.id === product.id);
-      if (existing) {
-        // اگر بود، تعدادش رو زیاد کن
-        return prev.map((item) =>
-          item.id === product.id
+  const addToCart = (product) => {
+    setCartItems((prevItems) => {
+        const existingItem = prevItems.find((item) => {
+            if (item.id !== product.id) return false;
+
+            // هر دو selectedColor دارند، کد رنگ را مقایسه کن
+            if (item.selectedColor && product.selectedColor) {
+              return item.selectedColor.code === product.selectedColor.code;
+            }
+
+            // هر دو selectedColor ندارند (هر دو null یا undefined هستند)
+            if (!item.selectedColor && !product.selectedColor) {
+              return true;
+            }
+
+            return false;
+          });
+
+
+      if (existingItem) {
+        // اگر همین محصول با همین رنگ قبلاً توی سبد هست، فقط تعدادشو زیاد کن
+        return prevItems.map((item) =>
+          item.id === product.id &&
+          item.selectedColor?.code === product.selectedColor?.code
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       } else {
-        // اگر نبود، کالا جدید اضافه کن با quantity=1
-        return [...prev, { ...product, quantity: 1 }];
+        // محصول جدید با رنگ جدید
+        return [...prevItems, product];
       }
     });
-  }
+  };
 
   // حذف کالا از سبد بر اساس id
-  function removeFromCart(id) {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
-  }
-
-  // افزایش تعداد کالا
-  function increase(id) {
+  function removeFromCart(id, colorCode) {
     setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-      )
+      prev.filter((item) => {
+        if (colorCode) {
+          // حذف موردی که id و رنگ برابر باشه
+          return !(item.id === id && item.selectedColor?.code === colorCode);
+        } else {
+          // اگر رنگ مشخص نشده فقط بر اساس id حذف کن
+          return item.id !== id;
+        }
+      })
     );
   }
 
+
+  // افزایش تعداد کالا
+function increase(id, colorCode) {
+  setCartItems((prev) =>
+    prev.map((item) => {
+      if (item.id !== id) return item;
+
+      if (item.selectedColor && colorCode) {
+        return item.selectedColor.code === colorCode ? { ...item, quantity: item.quantity + 1 } : item;
+      }
+
+      if (!item.selectedColor && !colorCode) {
+        return { ...item, quantity: item.quantity + 1 };
+      }
+
+      return item;
+    })
+  );
+}
+
+
+
   // کاهش تعداد کالا (اگر به صفر رسید حذفش کن)
-  function decrease(id) {
+  function decrease(id, colorCode) {
     setCartItems((prev) =>
       prev
-        .map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity - 1 } : item
-        )
+        .map((item) => {
+          if (item.id !== id) return item;
+
+          if (item.selectedColor && colorCode) {
+            return item.selectedColor.code === colorCode
+              ? { ...item, quantity: item.quantity - 1 }
+              : item;
+          }
+
+          if (!item.selectedColor && !colorCode) {
+            return { ...item, quantity: item.quantity - 1 };
+          }
+
+          return item;
+        })
         .filter((item) => item.quantity > 0)
     );
   }
+
+
 
   // پاک کردن کل سبد خرید
   function clearCart() {
