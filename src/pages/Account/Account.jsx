@@ -3,7 +3,7 @@ import Google from "../../assets/img/1.webp";
 import Facebook from "../../assets/img/2.webp";
 import Github from "../../assets/img/3.webp";
 import x from "../../assets/img/4.webp";
-import {  NavLink } from "react-router-dom";
+import {  NavLink, useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer/Footer"
 import Header from "../../components/Header/Header";
 import { useGoogleLogin } from "@react-oauth/google";
@@ -12,6 +12,8 @@ import { useIsLogin } from "../../context/loginContext";
 
 function Account() {
     const {setIsLogin}=useIsLogin()
+    const navigate =useNavigate()
+
         //   وقتی وارد صفحه محصول می‌شی، اگر صفحه پایین باشه، اسلایدر دیده نمی‌شه
         useEffect(() => {
             window.scrollTo(0, 0);
@@ -27,6 +29,8 @@ function Account() {
                 },
               });
               setIsLogin(res.data)
+              navigate("/bazrafkan-store/UserInformation");
+
                  },
             onError: () => {
               console.log("ورود ناموفق!");
@@ -39,7 +43,6 @@ function Account() {
       <div className="Account flex justify-center items-center  ">
         <div className="flex flex-col items-center p-2 mb-4 bg-gray-700 w-[80%]">
         <div className="grid grid-cols-2 grid-rows-2 gap-x-1.5 gap-y-1.5 p-1 ">
-
 <button
  onClick={handleLogin}
    className="bg-gray-400 text-gray-900 rounded-sm flex justify-center items-center gap-1 px-5 py-.5 font-[600]"

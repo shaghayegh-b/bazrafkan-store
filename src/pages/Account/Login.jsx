@@ -1,10 +1,14 @@
 import { memo, useEffect, useRef } from "react";
 import {  NavLink, useNavigate } from "react-router-dom";
+import Google from "../../assets/img/1.webp";
 
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import {  useIsLogin } from "../../context/loginContext";
+import { useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 function Login() {
+    const {setIsLogin}=useIsLogin()
     const nameRef=useRef(null)
     const passwordRef=useRef(null)
     const navigate =useNavigate()
@@ -18,25 +22,43 @@ function Login() {
         navigate("/bazrafkan-store/UserInformation")
     }
   },[isLogin])
-
-  const handleLogin=()=>{
-
-    const nameValue = nameRef.current.value;
-    const passwordValue = passwordRef.current.value;
-
-    if (nameValue === isLogin.name && passwordValue === "12345678") {
+  const handleLogin = useGoogleLogin({
+    // ورود موفق جواب رو بصورتresponseبگیر
+    onSuccess: async (response) => {
+        // گرفتن اطلاعات کاربر
+      const res= await axios.get("https://www.googleapis.com/oauth2/v3/userinfo", {
+        headers: {
+          // اضافه کردن توکن به هدر برای احراز هویت
+          Authorization: `Bearer ${response.access_token}`,
+        },
+      });
+      setIsLogin(res.data)
       navigate("/bazrafkan-store/UserInformation");
-    } else {
-      alert("نام کاربری یا رمز عبور اشتباه است");
-    }
-  }
+
+         },
+    onError: () => {
+      console.log("ورود ناموفق!");
+    },
+  });
   return (
     <>
       <Header>حساب کاربری</Header>
 
         <div className="Login flex justify-center items-center">
           <div className="flex flex-col items-center  p-2 mb-4 bg-gray-700 w-[80%] ">
-
+          <button
+ onClick={handleLogin}
+   className="bg-gray-400 text-gray-900 rounded-sm flex justify-center items-center gap-1 px-5 py-.5 font-[600]"
+ >
+   Google
+   <span className="w-[20px] h-[20px]">
+     <img
+       src={Google}
+       alt="Google"
+       className="rounded-full w-[20px] h-[20px]"
+     />
+   </span>
+ </button>
             <form
               action="#"
               className="flex flex-col  gap-2 justify-center items-center w-[90%] py-3 "

@@ -4,9 +4,10 @@ import { mymeno } from "../Navbar/Navbar";
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAxios } from "../../context/AxiosContaext";
+import { useIsLogin } from "../../context/loginContext";
 function Meno() {
   const { funcAxios } = useAxios();
-
+  const { isLogin } = useIsLogin();
   const [grouping, setGrouping] = useState(false);
   const { meno, setMeno } = useContext(mymeno);
 
@@ -35,18 +36,29 @@ function Meno() {
         } `}
       >
         <div className="overflow-y-scroll h-[inherit]">
-          <div className="Meno1 bg-blue-500 w-[100%] flex flex-row p-3 py-8 gap-3 items-center">
+          <Link
+            to={`${
+              isLogin
+                ? "/bazrafkan-store/UserInformation"
+                : "/bazrafkan-store/Login"
+            }`}
+            className="Meno1 bg-blue-500 w-[100%] flex flex-row p-3 py-8 gap-3 items-center"
+          >
             <div className="w-[2rem] h-[2rem] bg-gray-600 rounded-full flex justify-center items-center">
               <i className="fa fa-user text-[120%]"></i>
             </div>
-            <div className="">
-              <p>نام کاربری</p>
-              <p>09399619640</p>
-            </div>
-            <span className="relative w-[33%] ">
+            {isLogin ? (
+              <div className="w-[70%]">
+                <p>{isLogin.given_name}</p>
+                <p dir="ltr" className="overflow-auto">{isLogin.email}</p>
+              </div>
+            ) : (
+              <p className="">ورود به حساب کاربری</p>
+            )}
+            <span className="relative w-[7%] ">
               <i className="fa fa-chevron-circle-left absolute bottom-[-0.7rem] left-[-0.6rem] font-bold text-icon text-[120%] "></i>
             </span>
-          </div>
+          </Link>
           <div>
             <div className="Meno2 bg-gray-700 flex flex-col gap-2">
               <ul className="flex flex-col gap-3">
@@ -74,90 +86,108 @@ function Meno() {
                       grouping ? "" : "hidden"
                     }`}
                   >
-                     <ul
+                    <ul
                       className={`transition-all duration-1000 ease-in-out ${
                         grouping ? "" : "h-0"
                       }`}
                     >
                       <li
+                        className="hover:bg-gray-800"
                         onClick={() => {
-                            setMeno(false)
+                          setMeno(false);
                           funcAxios(
                             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=مانتو"
-                        );
+                          );
                         }}
                       >
-                        <p className=" tracking-tighter">مانتو</p>
+                        <p className=" tracking-tighter  p-1 pr-2">مانتو</p>
                       </li>
                       <li
-                       onClick={() => {
-                            setMeno(false)
+                        className="hover:bg-gray-800"
+                        onClick={() => {
+                          setMeno(false);
                           funcAxios(
                             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=شلوار"
-                        );
+                          );
                         }}
                       >
-                        <p className=" tracking-tighter">شلوار{"\u2009"}و{"\u2009"}دامن</p>
+                        <p className=" tracking-tighter  p-1 pr-2">
+                          شلوار{"\u2009"}و{"\u2009"}دامن
+                        </p>
                       </li>
                       <li
-                       onClick={() => {
-                            setMeno(false)
+                        className="hover:bg-gray-800"
+                        onClick={() => {
+                          setMeno(false);
                           funcAxios(
                             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=ست"
-                        );
+                          );
                         }}
                       >
-                        <p className=" tracking-tighter">ست</p>
+                        <p className=" tracking-tighter  p-1 pr-2">ست</p>
                       </li>
                       <li
-                       onClick={() => {
-                            setMeno(false)
+                        className="hover:bg-gray-800"
+                        onClick={() => {
+                          setMeno(false);
                           funcAxios(
                             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=خونگی"
-                        );
+                          );
                         }}
                       >
-                        <p className=" tracking-tighter"> تو{"\u2009"}خونه{"\u200A"}ای</p>
+                        <p className=" tracking-tighter  p-1 pr-2">
+                          تو{"\u2009"}خونه{"\u200A"}ای
+                        </p>
                       </li>
                       <li
-                       onClick={() => {
-                            setMeno(false)
+                        className="hover:bg-gray-800"
+                        onClick={() => {
+                          setMeno(false);
                           funcAxios(
                             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=ارایشی"
-                        );
+                          );
                         }}
                       >
-                        <p className=" tracking-tighter">ارایشی{"\u2009"}بهداشتی</p>
+                        <p className=" tracking-tighter  p-1 pr-2">
+                          ارایشی{"\u2009"}بهداشتی
+                        </p>
                       </li>
                       <li
-                       onClick={() => {
-                            setMeno(false)
+                        className="hover:bg-gray-800"
+                        onClick={() => {
+                          setMeno(false);
                           funcAxios(
                             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=زمستونه"
-                        );
+                          );
                         }}
                       >
-                        <p className=" tracking-tighter">لباس{"\u200A"}گرم</p>
+                        <p className=" tracking-tighter  p-1 pr-2">
+                          لباس{"\u200A"}گرم
+                        </p>
                       </li>
                       <li
-                       onClick={() => {
-                            setMeno(false)
+                        className="hover:bg-gray-800"
+                        onClick={() => {
+                          setMeno(false);
                           funcAxios(
                             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=کیف"
-                        );
+                          );
                         }}
                       >
-                        <p className=" tracking-tighter">کیف{"\u2009"}و{"\u2009"}کفش</p>
+                        <p className=" tracking-tighter  p-1 pr-2">
+                          کیف{"\u2009"}و{"\u2009"}کفش
+                        </p>
                       </li>
                       <li
-                       onClick={() => {
-                            setMeno(false)
+                        className="hover:bg-gray-800"
+                        onClick={() => {
+                          setMeno(false);
                           funcAxios(
                             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=اکسسوری"
-                        );
+                          );
                         }}
                       >
-                        <p className=" tracking-tighter">اکسسوری</p>
+                        <p className=" tracking-tighter  p-1 pr-2">اکسسوری</p>
                       </li>
                     </ul>
                   </div>
@@ -174,13 +204,20 @@ function Meno() {
                     <span className="font-[600]">سوالات متداول</span>
                   </NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <a href="">
                     <i className="fa fa-bell"></i>
                     <span className="font-[600]">اعلانات</span>
                   </a>
+                </li> */}
+                <li>
+                  <NavLink to="/bazrafkan-store/ContactUs">
+                    <i className="fa fa-link"></i>
+                    <span className="font-[600]">ارتباط با ما</span>
+                  </NavLink>
                 </li>
               </ul>
+
               <hr className=" border-gray-500" />
               <ul className="flex flex-col gap-3">
                 <li
@@ -195,19 +232,17 @@ function Meno() {
                   </button>
                 </li>
                 <li>
-                  <NavLink to="/bazrafkan-store/ContactUs">
-                    <i className="fa fa-link"></i>
-                    <span className="font-[600]">ارتباط با ما</span>
-                  </NavLink>
-                </li>
-              </ul>
-              <hr className=" border-gray-500" />
-              <ul className="flex flex-col gap-3">
-                <li>
-                  <a href="">
-                    <i className="fa fa-share-square"></i>
-                    <span className="font-[600]">خروج از حساب کاربری</span>
-                  </a>
+                  <i
+                    className={`fa ${
+                      isLogin ? "fa-sign-out-alt" : "fa-user-plus"
+                    }`}
+                  ></i>
+                  <Link
+                    to={`${isLogin ? "" : "/bazrafkan-store/Login"}`}
+                    className="font-[600]"
+                  >
+                    {isLogin ? " خروج از حساب کاربری" : " ورود به حساب کاربری"}
+                  </Link>
                 </li>
               </ul>
             </div>

@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { memo } from "react";
 
-function Products({id, img , title, remaining, score, price }) {
+function Products({id , title, remaining, score, price ,colors}) {
+
   return (
     <>
       <div></div>
@@ -10,7 +11,7 @@ function Products({id, img , title, remaining, score, price }) {
           <div className="w-[40%]">
             <div className="w-[120px] h-auto bg-gray-600 rounded-md">
               <img
-                src={img}
+                src={colors[0].img}
                 alt="محصول"
                 className="w-[120px] h-auto rounded-md"
               />

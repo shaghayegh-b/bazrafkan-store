@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 import Footer from "../../components/Footer/Footer";
-
+import Loading from "../../components/Loading/Loading";
 import { useCart } from "../../context/CartContext";
 
 import Slider from "react-slick";
@@ -31,6 +31,14 @@ function OneProduct() {
       `https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products/${id}`
     );
   }, []);
+  useEffect(() => {
+    if (produkt && produkt.colors?.length > 0) {
+      setSelectedColorIndex(0); // رنگ اول رو ست کن
+      if (sliderRef.current) {
+        sliderRef.current.slickGoTo(0); // اسلایدر رو هم ببر روی عکس اول
+      }
+    }
+  }, [produkt]);
 
   const sliderRef = useRef(null);
 
@@ -40,7 +48,8 @@ function OneProduct() {
   const colors = produkt.colors || [
     { name: "تک رنگ", code: "#ccc", img: produkt.img },
   ];
-  const colorToSend = colors && colors.length > 0 ? colors[selectedColorIndex] : null;
+  const colorToSend =
+    colors && colors.length > 0 ? colors[selectedColorIndex] : null;
 
   const handleColorChange = (index) => {
     setSelectedColorIndex(index);
@@ -52,8 +61,7 @@ function OneProduct() {
   const selectedColor = produkt.colors?.[selectedColorIndex];
   const itemInCart = cartItems.find(
     (item) =>
-      item.id === produkt.id &&
-      item.selectedColor?.code === selectedColor?.code
+      item.id === produkt.id && item.selectedColor?.code === selectedColor?.code
   );
   const quantity = itemInCart ? itemInCart.quantity : 0;
   const isOutOfStock = produkt.remaining === "اتمام موجودی";
@@ -129,13 +137,9 @@ function OneProduct() {
     <>
       <Header>محصولات</Header>
       {loading ? (
-        <div className="flex justify-center items-center h-40 ">
-          <div className="flex space-x-2">
-            <div className="w-4 h-4 bg-white rounded-full animate-bounce"></div>
-            <div className="w-4 h-4 bg-white rounded-full animate-bounce [animation-delay:-0.2s]"></div>
-            <div className="w-4 h-4 bg-white rounded-full animate-bounce [animation-delay:-0.4s]"></div>
-          </div>
-        </div>
+        <Loading />
+      ) : !isAxios || !isAxios.id ? (
+        <p className="text-center py-10 text-gray-300">محصولی یافت نشد</p>
       ) : (
         <div className="OneProduct p-2">
           {/* تصویر محصول با اسلایدر */}
@@ -215,7 +219,9 @@ function OneProduct() {
                   <div className="flex justify-center items-center border border-black rounded-sm">
                     <button
                       disabled={isOutOfStock}
-                      onClick={() =>  increase(produkt.id, colors[selectedColorIndex]?.code)}
+                      onClick={() =>
+                        increase(produkt.id, colors[selectedColorIndex]?.code)
+                      }
                       className="bg-gray-600 px-4 rounded-br-sm rounded-tr-sm"
                     >
                       <i className="fa fa-plus text-[60%]"></i>
@@ -231,21 +237,41 @@ function OneProduct() {
                             )
                           ) {
                             if (quantity === 1) {
-                                if (window.confirm("میخوای کالارو از سبد خریدت حذف کنی؟")) {
-                                  decrease(produkt.id, colors[selectedColorIndex]?.code);
-                                }
-                              } else {
-                                decrease(produkt.id, colors[selectedColorIndex]?.code);
+                              if (
+                                window.confirm(
+                                  "میخوای کالارو از سبد خریدت حذف کنی؟"
+                                )
+                              ) {
+                                decrease(
+                                  produkt.id,
+                                  colors[selectedColorIndex]?.code
+                                );
                               }
+                            } else {
+                              decrease(
+                                produkt.id,
+                                colors[selectedColorIndex]?.code
+                              );
+                            }
                           }
                         } else {
-                            if (quantity === 1) {
-                                if (window.confirm("میخوای کالارو از سبد خریدت حذف کنی؟")) {
-                                  decrease(produkt.id, colors[selectedColorIndex]?.code);
-                                }
-                              } else {
-                                decrease(produkt.id, colors[selectedColorIndex]?.code);
-                              }
+                          if (quantity === 1) {
+                            if (
+                              window.confirm(
+                                "میخوای کالارو از سبد خریدت حذف کنی؟"
+                              )
+                            ) {
+                              decrease(
+                                produkt.id,
+                                colors[selectedColorIndex]?.code
+                              );
+                            }
+                          } else {
+                            decrease(
+                              produkt.id,
+                              colors[selectedColorIndex]?.code
+                            );
+                          }
                         }
                       }}
                       className="bg-gray-600 px-4 rounded-bl-sm rounded-tl-sm"
@@ -254,7 +280,14 @@ function OneProduct() {
                     </button>
                   </div>
                   <button
-onClick={() => addToCart({ ...produkt, quantity: 1, selectedColor: colorToSend })}                    disabled={isOutOfStock}
+                    onClick={() =>
+                      addToCart({
+                        ...produkt,
+                        quantity: 1,
+                        selectedColor: colorToSend,
+                      })
+                    }
+                    disabled={isOutOfStock}
                     className={`rounded-sm bg-blue-400 px-2 py-1
                   ${
                     isOutOfStock
@@ -267,7 +300,13 @@ onClick={() => addToCart({ ...produkt, quantity: 1, selectedColor: colorToSend }
                 </div>
               ) : (
                 <button
-                  onClick={() => addToCart({ ...produkt, quantity: 1 ,selectedColor: colors[selectedColorIndex] })}
+                  onClick={() =>
+                    addToCart({
+                      ...produkt,
+                      quantity: 1,
+                      selectedColor: colors[selectedColorIndex],
+                    })
+                  }
                   disabled={isOutOfStock}
                   className="rounded-sm bg-blue-400 px-2 py-1"
                 >
@@ -275,8 +314,6 @@ onClick={() => addToCart({ ...produkt, quantity: 1, selectedColor: colorToSend }
                 </button>
               )}
             </div>
-
-
           </div>
 
           {/* پیام پردازش */}

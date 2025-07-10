@@ -2,7 +2,7 @@ import { memo, useEffect, useState } from "react";
 
 import Footer from "../../components/Footer/Footer";
 import { useCart } from "../../context/CartContext";
-import {  NavLink } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import Header from '../../components/Header/Header'
 function ShoppingBag() {
   const { cartItems, removeFromCart, clearCart, decrease, increase } =
@@ -45,7 +45,8 @@ function ShoppingBag() {
           ) : (
             <div>
               {cartItems.map((item) => (
-                <div
+                <Link
+                to={`/bazrafkan-store/OneProduct/${item.id}`}
                   key={item.id}
                   className={`one flex flex-col bg-gray-700  p-2 rounded-md m-1 `}
                 >
@@ -134,7 +135,7 @@ function ShoppingBag() {
                       </button>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
 
               <div
@@ -169,18 +170,18 @@ function ShoppingBag() {
                 </button>
               </div>
               <div className={`flex justify-center`}>
-                <button className="bg-blue-400 rounded-sm p-1 px-2 mt-2">
+                <button  type="button" className="bg-blue-400 rounded-sm p-1 px-2 mt-2">
                   ادامه جهت تسویه حساب
                 </button>
               </div>
               <div className=" flex justify-end p-2">
-                <NavLink
+                <Link
                   to="/bazrafkan-store/"
                   className="text-blue-700 p-2 rounded-sm"
                 >
                   بازگشت به فروشگاه
                   <i className="fa fa-arrow-left pr-1 text-[78%]"></i>
-                </NavLink>
+                </Link>
               </div>
             </div>
           )}

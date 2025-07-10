@@ -9,7 +9,6 @@ export function AxiosProvider({ children }) {
   const [isAxios, setIsAxios] = useState([]); // دیتای اصلی
   const [filteredProducts, setFilteredProducts] = useState([]); // دیتای فیلتر شده
   const [loading, setLoading] = useState(false);
-
   // تابع دریافت داده از API
   async function funcAxios(url) {
     try {

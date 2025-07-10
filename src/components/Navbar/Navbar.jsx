@@ -7,15 +7,21 @@ function Navbar() {
   const [fSearch, setFSearch] = useState(false);
   const [meno, setMeno] = useState(false);
   const [account, setAccount] = useState(false);
-    const {cartItems}=useCart()
-    const totalQuantity=cartItems?.reduce((sum,item)=>sum +item.quantity,0)
+  const { cartItems } = useCart();
+  const totalQuantity = cartItems?.reduce(
+    (sum, item) => sum + item.quantity,
+    0
+  );
   return (
-
     <>
       {/* نوبار */}
       <div className={`Navbar w-[100%] fixed top-0 z-20 h-9`}>
         <div className="Navbarchild p-1.5 bg-gray-800 gap-0.5 flex flex-row justify-center items-baseline w-[100%] ">
-          <div className={` justify-between w-[100%] ${fSearch ? "hidden" : "flex"} gap-1`}>
+          <div
+            className={` justify-between w-[100%] ${
+              fSearch ? "hidden" : "flex"
+            } gap-1`}
+          >
             <div className="taskbar w-[95%] bg-gray-600 rounded">
               <div className="w-[100%] gap-1 flex justify-evenly">
                 <button
@@ -24,30 +30,22 @@ function Navbar() {
                 >
                   <i className="fas fa-bars px-1"></i>
                 </button>
-                <form
-                  action="#"
-                  className="p-1 flex w-19 text-[85%]"
+                <button
                   onFocus={() => setFSearch(true)}
+                  className="p-1 flex justify-center items-center"
                 >
-                  <label
-                    htmlFor="search"
-                    className="mx-1 flex justify-center items-center"
-                  >
-                    <i className="fa fa-search"></i>
-                  </label>
-                  <input
-                    name="search"
-                    className="w-[100%]"
-                    type="text"
-                    placeholder="جستجو"
-                  />
-                </form>
-                <div className="w-32 py-1">
+                  <i className="fa fa-search px-1"></i>
+                </button>
+
+                <div className="w-40 py-1">
                   <h1 className=" text-center font-bold text-[120%] text-black bg-indigo-300">
                     بوتیک شقایق
                   </h1>
                 </div>
-                <NavLink to="/bazrafkan-store/ShoppingBag" className=" p-1 px-2 flex">
+                <NavLink
+                  to="/bazrafkan-store/ShoppingBag"
+                  className=" p-1 px-2 flex"
+                >
                   <i className="fa fa-shopping-cart self-center px-1 relative">
                     <span className=" absolute bottom-0 right-[-7px] py-[3px] px-[4px] rounded-full text-[45%] bg-blue-500 ">
                       {totalQuantity}
@@ -57,9 +55,7 @@ function Navbar() {
               </div>
             </div>
             <NavLink
-              to={`${
-                account ? "/bazrafkan-store/Login" : "/bazrafkan-store/"
-              }`}
+              to={`${account ? "/bazrafkan-store/Login" : "/bazrafkan-store/"}`}
               className={`flex justify-center items-center p-1 w-[13%] `}
               onClick={() => setAccount(!account)}
             >

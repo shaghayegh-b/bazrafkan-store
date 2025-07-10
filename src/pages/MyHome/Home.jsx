@@ -6,6 +6,7 @@ import Support from "../../components/Support/Support";
 import Footer from "../../components/Footer/Footer";
 import { useAxios } from "../../context/AxiosContaext";
 import Filter from "../../components/Filter/Filter";
+import Loading from "../../components/Loading/Loading";
 function Home() {
   const { isAxios, funcAxios, loading ,filteredProducts} = useAxios();
   //   وقتی وارد صفحه محصول می‌شی، اگر صفحه پایین باشه، اسلایدر دیده نمی‌شه
@@ -32,13 +33,7 @@ function Home() {
         </div>
         <div className="">
           {loading ? (
-            <div className="flex justify-center items-center h-40 ">
-              <div className="flex space-x-2">
-                <div className="w-4 h-4 bg-white rounded-full animate-bounce"></div>
-                <div className="w-4 h-4 bg-white rounded-full animate-bounce [animation-delay:-0.2s]"></div>
-                <div className="w-4 h-4 bg-white rounded-full animate-bounce [animation-delay:-0.4s]"></div>
-              </div>
-            </div>
+          <Loading />
           ) : Array.isArray(isAxios) && isAxios.length > 0 ? (
             filteredProducts.map((oneProduct) => (
               <Products key={oneProduct.id} {...oneProduct} />

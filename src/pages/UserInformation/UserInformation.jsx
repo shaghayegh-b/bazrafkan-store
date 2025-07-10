@@ -8,16 +8,16 @@ function UserInformation() {
   return (
     <>
       <Header>حساب کاربری</Header>
-      <div className="flex">
-        <ul className="p-2 pt-3 pb-5 flex flex-col gap-2">
+      <div className="flex gap-2 pl-3 pr-5 py-3">
+        <ul className=" flex flex-col gap-3">
           <li>اسم</li>
           <li> فامیل</li>
           <li>ایمیل</li>
         </ul>
-        <div className="p-2 pt-3 pb-5 flex flex-col gap-2 w-[85%]">
-          <input placeholder={isLogin.given_name} className="px-2 bg-gray-700 rounded-sm w-auto"></input>
-          <input placeholder={isLogin.family_name} className="px-2 bg-gray-700 rounded-sm w-auto"></input>
-          <input placeholder={isLogin.email} className="px-2 bg-gray-700 rounded-sm w-auto"></input>
+        <div className="flex flex-col gap-3 w-[85%]">
+          <input value={isLogin.given_name} className="px-2 bg-gray-700 rounded-sm w-auto"></input>
+          <input value={isLogin.family_name} className="px-2 bg-gray-700 rounded-sm w-auto"></input>
+          <input value={isLogin.email} className="px-2 bg-gray-700 rounded-sm w-auto"></input>
         </div>
       </div>
       <Footer />
