@@ -56,16 +56,17 @@ export function CartProvider({ children }) {
   function removeFromCart(id, colorCode) {
     setCartItems((prev) =>
       prev.filter((item) => {
-        if (colorCode) {
+        if (colorCode === undefined) {
+          // وقتی رنگ مشخص نشده (undefined)، فقط آیتم‌هایی که رنگ ندارن رو حذف کن
+          return !(item.id === id && !item.selectedColor);
+        } else {
           // حذف موردی که id و رنگ برابر باشه
           return !(item.id === id && item.selectedColor?.code === colorCode);
-        } else {
-          // اگر رنگ مشخص نشده فقط بر اساس id حذف کن
-          return item.id !== id;
         }
       })
     );
   }
+
 
 
   // افزایش تعداد کالا

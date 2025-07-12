@@ -65,7 +65,7 @@ export function FavProvider({ children }) {
       {children}
     </FavContext.Provider>
   );
-}
+} 
 
 // 3. هوک آماده استفاده برای راحتی
 export function useFav() {
