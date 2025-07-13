@@ -11,8 +11,8 @@ function Filter() {
     applyFilter(id);
   };
   return (
-    <div className="my-filter  flex gap-1 px-2 items-center">
-      <div className="w-33">
+    <div className="my-filter  flex gap-1 px-2 items-center text-[95%]">
+      <div className="">
         <CustomSelect applyFilter={applyFilter} />
       </div>
       <div className="flex gap-1 overflow-auto">

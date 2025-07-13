@@ -21,11 +21,11 @@ function CustomSelect({ applyFilter }) {
   return (
     <Listbox value={selected} onChange={handleSelect}>
       {({ open }) => ( // 👈 این خط اضافه شده
-        <div className="relative w-33">
+        <div className="relative">
           <Listbox.Button className="flex justify-between items-center text-right w-full rounded-xl px-3 py-1 shadow transition bg-gray-800 focus:outline-none focus:ring-1 focus:ring-white">
-            <span>{selected.label}</span>
+            <span className={`w-[90%]`}>{selected.label}</span>
             <i
-              className={`fa fa-chevron-up ${
+              className={`fa fa-chevron-up px-[5px] ${
                 open ? 'rotate-[180deg]' : ''
               } transition-all duration-300 text-[85%]`}
             ></i>
