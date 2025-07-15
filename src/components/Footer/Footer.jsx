@@ -8,19 +8,14 @@ function Footer() {
           <h3 className="text-[120%] font-bold px-1 pt-3">دسترسی سریع</h3>
           <ul className="text-[90%] text-gray-100">
             <li>
-              <a href="">پیگیری سفارش</a>
+              <Link to="/bazrafkan-store/OrderTracking">پیگیری سفارش</Link>
             </li>
             <li>
               <Link to="/bazrafkan-store/AskedQuestion">سوالات متداول</Link>
             </li>
+
             <li>
-              <a href="#">شرایط بازگشت کالا</a>
-            </li>
-            <li>
-              <a href="#">پیگیری شکایات</a>
-            </li>
-            <li>
-              <a href="#">شرایط قوانین فروشگاه</a>
+              <Link to="/bazrafkan-store/Complaints">پیگیری شکایات</Link>
             </li>
           </ul>
           <h3 className="text-[120%] font-bold px-1 pt-3 ">حساب کاربری</h3>
@@ -29,13 +24,10 @@ function Footer() {
               <Link to="/bazrafkan-store/ShoppingBag">سبد خرید</Link>
             </li>
             <li>
-              <a href="#">سفارشات من</a>
-            </li>
-            <li>
               <Link to="/bazrafkan-store/FavProduct">لیست علاقه مندی ها</Link>
             </li>
             <li>
-              <a href="#">حساب کاربری من</a>
+              <Link  to="/bazrafkan-store/Login">حساب کاربری من</Link>
             </li>
           </ul>
           <h3 className="text-[120%] font-bold px-1 pt-3 ">اطلاعات</h3>
