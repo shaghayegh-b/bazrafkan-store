@@ -2,12 +2,13 @@ import { memo, useEffect, useState } from "react";
 import "./Meno.css";
 import { mymeno } from "../Navbar/Navbar";
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAxios } from "../../context/AxiosContaext";
 import { useIsLogin } from "../../context/loginContext";
 function Meno() {
   const { funcAxios } = useAxios();
-  const { isLogin } = useIsLogin();
+  const { isLogin, logout } = useIsLogin();
+  const navigate = useNavigate();
   const [grouping, setGrouping] = useState(false);
   const { meno, setMeno } = useContext(mymeno);
 
@@ -36,29 +37,25 @@ function Meno() {
         } `}
       >
         <div className="overflow-y-scroll h-[inherit]">
-          <Link
-            to={`${
-              isLogin
-                ? "/bazrafkan-store/UserInformation"
-                : "/bazrafkan-store/Login"
-            }`}
-            className="Meno1 bg-blue-500 w-[100%] flex flex-row p-3 py-8 gap-3 items-center"
-          >
-            <div className="w-[2rem] h-[2rem] bg-gray-600 rounded-full flex justify-center items-center">
-              <i className="fa fa-user text-[120%]"></i>
-            </div>
-            {isLogin ? (
+          {isLogin && (
+            <Link
+              to="/bazrafkan-store/Login"
+              className="Meno1 bg-blue-500 w-[100%] flex flex-row p-3 py-8 gap-3 items-center"
+            >
+              <div className="w-[2rem] h-[2rem] bg-gray-600 rounded-full flex justify-center items-center">
+                <i className="fa fa-user text-[120%]"></i>
+              </div>
               <div className="w-[70%]">
                 <p>{isLogin.given_name}</p>
-                <p dir="ltr" className="overflow-auto">{isLogin.email}</p>
+                <p dir="ltr" className="overflow-auto">
+                  {isLogin.email}
+                </p>
               </div>
-            ) : (
-              <p className="">ورود به حساب کاربری</p>
-            )}
-            <span className="relative w-[7%] ">
-              <i className="fa fa-chevron-circle-left absolute bottom-[-0.7rem] left-[-0.6rem] font-bold text-icon text-[120%] "></i>
-            </span>
-          </Link>
+              <span className="relative w-[7%] ">
+                <i className="fa fa-chevron-circle-left absolute bottom-[-0.7rem] left-[-0.6rem] font-bold text-icon text-[120%] "></i>
+              </span>
+            </Link>
+          )}
           <div>
             <div className="Meno2 bg-gray-700 flex flex-col gap-2">
               <ul className="flex flex-col gap-3">
@@ -231,8 +228,25 @@ function Meno() {
                     </span>
                   </button>
                 </li>
-                <li>
-                  <i
+
+                {isLogin ? (
+                  <li
+                    onClick={() => {
+                      logout(navigate);
+                    }}
+                  >
+                    <Link to="/bazrafkan-store/" className="font-[600]">
+                      <i className="fa fa-sign-out-alt"></i>
+                      خروج از حساب کاربری
+                    </Link>
+                  </li>
+                ) : (
+                  <li>
+                    <i className="fa fa-user-plus"></i>
+                    <Link to="/bazrafkan-store/Login">ساخت حساب کاربری</Link>
+                  </li>
+                )}
+                {/* <i
                     className={`fa ${
                       isLogin ? "fa-sign-out-alt" : "fa-user-plus"
                     }`}
@@ -242,8 +256,7 @@ function Meno() {
                     className="font-[600]"
                   >
                     {isLogin ? " خروج از حساب کاربری" : " ورود به حساب کاربری"}
-                  </Link>
-                </li>
+                  </Link> */}
               </ul>
             </div>
           </div>
