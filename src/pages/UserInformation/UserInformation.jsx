@@ -2,7 +2,7 @@ import { memo } from "react";
 import { useIsLogin } from "../../context/loginContext";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , Link} from "react-router-dom";
 
 function UserInformation() {
   const { isLogin, logout } = useIsLogin();
@@ -27,13 +27,13 @@ function UserInformation() {
           ></input>
           <input
             value={isLogin.email}
-            dir="ltr"
+            
             className="px-2 bg-gray-700 rounded-sm w-auto"
           ></input>
         </div>
       </div>
       <div className="flex justify-center mb-4">
-        <button
+        <Link to="/bazrafkan-store/"
           onClick={() => {
             logout(navigate);
           }}
@@ -41,7 +41,7 @@ function UserInformation() {
           type="button"
         >
           خروج از حساب کاربری
-        </button>
+        </Link>
       </div>
       <Footer />
     </>
