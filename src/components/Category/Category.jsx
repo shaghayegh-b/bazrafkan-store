@@ -12,9 +12,9 @@ function Category() {
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products"
           );
         }}
-        className=" Category flex flex-col justify-center items-center p-1 rounded-sm bg-gray-700 "
+        className=" Category"
       >
-        <p className=" tracking-tighter pb-1">همه‌محصولات</p>
+        <p  >همه‌محصولات</p>
       </button>
       <button
         type="button"
@@ -23,9 +23,9 @@ function Category() {
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=مانتو"
           );
         }}
-        className=" Category flex flex-col justify-center items-center p-1 rounded-sm bg-gray-700 "
+        className=" Category "
       >
-        <p className=" tracking-tighter pb-1">مانتو</p>
+        <p  >مانتو</p>
       </button>
       <button
         type="button"
@@ -34,9 +34,11 @@ function Category() {
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=شلوار"
           );
         }}
-        className=" Category flex flex-col justify-center items-center p-1 rounded-sm bg-gray-700 "
+        className=" Category "
       >
-        <p className=" tracking-tighter pb-1">شلوار{"\u2009"}و{"\u2009"}دامن</p>
+        <p  >
+          شلوار{"\u2009"}و{"\u2009"}دامن
+        </p>
       </button>
       <button
         type="button"
@@ -45,9 +47,9 @@ function Category() {
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=ست"
           );
         }}
-        className=" Category flex flex-col justify-center items-center p-1 rounded-sm bg-gray-700 "
+        className=" Category "
       >
-        <p className=" tracking-tighter pb-1">ست</p>
+        <p  >ست</p>
       </button>
       <button
         type="button"
@@ -56,9 +58,9 @@ function Category() {
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=خونگی"
           );
         }}
-        className=" Category flex flex-col justify-center items-center p-1 rounded-sm bg-gray-700 "
+        className=" Category "
       >
-        <p className=" tracking-tighter pb-1">
+        <p  >
           تو{"\u2009"}خونه{"\u200A"}ای
         </p>
       </button>
@@ -69,9 +71,9 @@ function Category() {
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=ارایشی"
           );
         }}
-        className=" Category flex flex-col justify-center items-center p-1 rounded-sm bg-gray-700 "
+        className=" Category "
       >
-        <p className=" tracking-tighter pb-1">ارایشی{"\u2009"}بهداشتی</p>
+        <p  >ارایشی{"\u2009"}بهداشتی</p>
       </button>
       <button
         type="button"
@@ -80,9 +82,9 @@ function Category() {
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=زمستونه"
           );
         }}
-        className=" Category flex flex-col justify-center items-center p-1 rounded-sm bg-gray-700 "
+        className=" Category "
       >
-        <p className=" tracking-tighter pb-1">لباس{"\u200A"}گرم</p>
+        <p  >لباس{"\u200A"}گرم</p>
       </button>
       <button
         type="button"
@@ -91,9 +93,11 @@ function Category() {
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=کیف"
           );
         }}
-        className=" Category flex flex-col justify-center items-center p-1 rounded-sm bg-gray-700 "
+        className=" Category "
       >
-        <p className=" tracking-tighter pb-1">کیف{"\u2009"}و{"\u2009"}کفش</p>
+        <p  >
+          کیف{"\u2009"}و{"\u2009"}کفش
+        </p>
       </button>
       <button
         type="button"
@@ -102,9 +106,9 @@ function Category() {
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=اکسسوری"
           );
         }}
-        className=" Category flex flex-col justify-center items-center p-1 rounded-sm bg-gray-700 "
+        className=" Category "
       >
-        <p className=" tracking-tighter pb-1">اکسسوری</p>
+        <p  >اکسسوری</p>
       </button>
     </>
   );

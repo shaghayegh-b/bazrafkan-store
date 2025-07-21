@@ -13,11 +13,11 @@ function OrderTracking() {
       <div className="OrderTracking px-2 py-1">
         <div className="relative w-[100%] mt-2">
           <img src={img} alt="" className="" />
-          <h2 className=" absolute text-[170%] font-extrabold text-white top-[35%] w-[100%] text-center ">
+          <h2 className=" absolute text-[170%] font-extrabold top-[35%] w-[100%] text-center ">
             پیگیری سفارشات
           </h2>
         </div>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold  px-1 pt-4">
           پیگیری سفارشات
         </h3>
 

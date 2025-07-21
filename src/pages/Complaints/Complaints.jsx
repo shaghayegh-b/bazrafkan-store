@@ -14,14 +14,14 @@ function Complaints() {
         <div className=" w-[100%] mt-2">
           <img src={img} alt="" className="" />
         </div>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold   px-1 pt-4">
           پیگیری شکایات
         </h3>
 
         <p className=" p-2 pb-6">
           برای پیگیری شکایات خود میتوانید با شماره{" "}
-          <span className="text-red-300">09399619640</span> و یا{" "}
-          <span className="text-red-300">09399619640</span>
+          <span className=" ">09399619640</span> و یا{" "}
+          <span className=" ">09399619640</span>
           تماس بگیرید
         </p>
       </div>

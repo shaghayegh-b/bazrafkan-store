@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <>
-      <div className="Footer bg-[#090f1a] p-3 text-white">
+      <div className="Footer bg-[#00182c] text-[white] p-3">
         <div className=" pb-7 ">
           <h3 className="text-[120%] font-bold px-1 pt-3">دسترسی سریع</h3>
-          <ul className="text-[90%] text-gray-100">
+          <ul className="text-[90%] text-[#e2f1fd]">
             <li>
               <Link to="/bazrafkan-store/OrderTracking">پیگیری سفارش</Link>
             </li>
@@ -19,7 +19,7 @@ function Footer() {
             </li>
           </ul>
           <h3 className="text-[120%] font-bold px-1 pt-3 ">حساب کاربری</h3>
-          <ul className="text-[90%] text-gray-100">
+          <ul className="text-[90%] text-[#e2f1fd]">
             <li>
               <Link to="/bazrafkan-store/ShoppingBag">سبد خرید</Link>
             </li>
@@ -27,11 +27,11 @@ function Footer() {
               <Link to="/bazrafkan-store/FavProduct">لیست علاقه مندی ها</Link>
             </li>
             <li>
-              <Link  to="/bazrafkan-store/Login">حساب کاربری من</Link>
+              <Link to="/bazrafkan-store/Login">حساب کاربری من</Link>
             </li>
           </ul>
           <h3 className="text-[120%] font-bold px-1 pt-3 ">اطلاعات</h3>
-          <ul className="text-[90%] text-gray-100">
+          <ul className="text-[90%] text-[#e2f1fd]">
             <li>
               <Link to="/bazrafkan-store/AboutUs">درباره ما</Link>
             </li>
@@ -40,7 +40,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className="grid grid-cols-3 grid-rows-1 text-[80%] text-center">
+        <div className="grid grid-cols-3 grid-rows-1 text-[80%] text-center text-[#acbac5]">
           <div>
             <p>
               تماس با فروشگاه
@@ -59,10 +59,10 @@ function Footer() {
           </div>
           <div>
             <p>هفت روز هفته پاسخگوی شما هستیم</p>
-          </div>{" "}
+          </div>
         </div>
 
-        <p className=" bg-gray-800 mt-3 text-center">بوتیک شقایق</p>
+        <p className="font-bold mt-3 text-center">بوتیک شقایق</p>
       </div>
     </>
   );

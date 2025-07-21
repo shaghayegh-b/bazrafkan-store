@@ -10,110 +10,49 @@ body {
 body {
   font-size: 100%;
   font-family: "Poppins", "Inter", sans-serif;
+  background-color: #ffffff;
+  color: #042144;
 }
 input:focus {
   outline: unset;
 }
+
+input::placeholder {
+  color: rgb(26, 26, 26);
+}
+a,
+button {
+  cursor: pointer;
+}
+/* #81bbf1 #e4f0fd #81bcf0 #4c83c3 #9ad0ff #5b9de4 #acd5f8*/
+
 /* light */
-body {
-  background-color: #e9e7ef;
-  color: black;
+.Navbarchild {
+  background-color: #acd5f8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
 }
-input::placeholder{
-    color: rgb(26, 26, 26);
+.taskbar {
+  background-color: #ffffff;
 }
-a ,button{
-    cursor: pointer;
+.user {
+  background-color: #81bcf0;
+  width: fit-content;
+  height: fit-content;
+  padding: 6px;
+  align-self: center;
 }
-.bg-gray-900 {
-  background-color: #e9e7ef;
+.Category {
+  background-color: #e4f0fd;
+  display: flex;
+  padding: calc(var(--spacing) * 1);
+  border-radius: var(--radius-sm);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.bg-gray-800 {
-  background-color:#c5c2c98c;
-}
-.bg-gray-700 {
-  background-color:#dbd8e0d6;
-}
-.bg-gray-600 {
-  background-color: #c3c1c6;
-}
-.text-gray-300 {
-  color: rgb(35, 35, 35);
-}
-.text-gray-200 {
-  color: rgb(35, 35, 35);
-}
-.text-gray-50 {
-  color: black;
-}
-.text-blue-300 {
-  color: rgb(43 127 255);
-}
-.text-blue-200{
-color:#1d5ea4}
-.bg-blue-400{
-    background-color:#2b7fff ;
-    color:#e9e7ef;
-}
-
-.border-gray-300 {
-  border-color: rgb(35, 35, 35);
-}
-ul i {
-  color: rgb(44, 44, 44);
-}
-.text-icon{
-    color:#c3c1c6;
-}
-
-/* dark */
-.dark body {
-  background-color: #1e2939;
-  color: #ebe6e7;
-}
-.dark input::placeholder {
-  color: #d1d5dcd6;
-}
-.dark .bg-gray-900 {
-  background-color: #101828;
-}
-.dark .bg-gray-800 {
-  background-color: #1e2939;
-}
-.dark .bg-gray-700 {
-  background-color: #364153;
-}
-
-.dark .bg-gray-600 {
-  background-color: #4a5565;
-} /*  */
-.dark .text-gray-300 {
-  color: #d1d5dc;
-}
-.dark .text-gray-200 {
-  color: #ebe6e7;
-}
-.dark ul i,
-.dark .text-gray-50 {
-  color: #fbf9fa;
-}
-.dark .text-blue-200{
-    color:#bedbff}
-.dark .text-blue-300 {
-  color: #8ec5ff;
-}
-.dark .text-blue-400{
-    color: #51a2ff;
-}
-.dark .bg-blue-400{
-    background-color:#51a2ff ;
-}
-.dark .border-gray-300 {
-  border-color: #d1d5dc;
-}
-.dark .text-icon{
-    color: white;
-}
-.dark .text-blue-800{
-    color: #51a2ff;
+.Category p {
+  padding-bottom: calc(var(--spacing) * 1);
+  --tw-tracking: var(--tracking-tighter);
+  letter-spacing: var(--tracking-tighter);
 }

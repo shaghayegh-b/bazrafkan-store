@@ -9,7 +9,7 @@ function Header(prop) {
       <Navbar></Navbar>
       <Support></Support>
       <div className="h-12"></div>
-      <div className="p-1">
+      <div className="p-1 pt-3">
         <p className="text-[86%]">
           <Link to="/bazrafkan-store/" className="">
             <i className="fa fa-arrow-right p-2 pr-3"></i>برگشت به صفحه اصلی

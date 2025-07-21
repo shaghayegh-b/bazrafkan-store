@@ -13,11 +13,11 @@ function AskedQuestion() {
     <div className="AskedQuestion p-2">
         <div className="relative w-[100%] ">
           <img src={img} alt="" className="" />
-          <h2 className=" absolute text-[170%] font-extrabold text-white top-[35%] w-[100%] text-center ">
+          <h2 className=" absolute text-[170%] font-extrabold   top-[35%] w-[100%] text-center ">
             سوالات متداول و پر تکرار
           </h2>
         </div>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold px-1 pt-4">
           شیوه ی خرید
         </h3>
         <p className=" p-2  px-3 pb-6">
@@ -26,7 +26,7 @@ function AskedQuestion() {
           همواره برای خرید اینترنتی از ما در هر ساعت از شبانه روز میتوانید از
           طریق سایت محصولات مورد نظر خود را انتخاب و سفارش خود را ثبت کنید.
         </p>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold px-1 pt-4">
           آیا بوتیک شقایق پشتیبانی دارد؟
         </h3>
         <p className=" p-2 pb-6 px-3">
@@ -43,7 +43,7 @@ function AskedQuestion() {
           <br />
           پنجشنبه 8 تا 14
         </p>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold px-1 pt-4">
           ارسال سفارشات چند روز طول میکشه؟
         </h3>
         <p className=" p-2 pb-6 px-3">
@@ -53,14 +53,14 @@ function AskedQuestion() {
           در صورتی که محصول پیش فروش را خریداری کنید زمان ارسال از تاریخ ذکر شده
           روی محصول مورد نظر محاسبه میشود.
         </p>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold px-1 pt-4">
           آیا سایزها دقیقاً مطابق با اندازه‌های من هستند؟
         </h3>
         <p className=" p-2 pb-6 px-3">
           ما یک راهنمای اندازه گیری دقیق در صفحه هر محصول داریم. لطفاً قبل از
           خرید، اندازه‌های خود را با این راهنما مقایسه کنید.
         </p>
-        {/* <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        {/* <h3 className="text-[130%] font-bold   px-1 pt-4">
           آیا می‌توانم کالای خریداری شده را بازگشت دهم؟
         </h3>
         <p className=" p-2 pb-6 px-3">
@@ -68,14 +68,14 @@ function AskedQuestion() {
           شرایط درج شده در فاکتور به ما بازگشت دهید. لطفاً قوانین بازگشت کالا را
           در صفحه “شرایط بازگشت کالا” مطالعه کنید.
         </p> */}
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold   px-1 pt-4">
           آیا امکان ارسال رایگان وجود دارد؟
         </h3>
         <p className=" p-2 pb-6 px-3">
           با خرید ۳ محصول به ارزش 900 هزار تومان و یا بیشتر از ارسال رایگان بهره
           مند شوید.
         </p>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold   px-1 pt-4">
           آیا می‌توانم وضعیت سفارش خود را پیگیری کنم؟
         </h3>
         <p className=" p-2 pb-6 px-3">
@@ -83,7 +83,7 @@ function AskedQuestion() {
           سفارشتان و روند آماده سازی مطلع میسازد.همچنین پس از تحویل به اداره ی
           پست و تیپاکس برایتان کد رهگیری مرسوله پیامک میگردد.
         </p>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold   px-1 pt-4">
           آیا امکان تغییر یا اصلاح سفارش وجود دارد؟
         </h3>
         <p className=" p-2 pb-6 px-3">
@@ -91,13 +91,13 @@ function AskedQuestion() {
           تغییرات مورد نظر خود را هماهنگ کنید.توجه بفرمایید که ویرایش مرسوله فقط
           از طریق تماس تلفنی انجام میشود و از طریق ارسال پیامک پیگیری نمیشود.
         </p>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold   px-1 pt-4">
           آیا تصاویر لباس‌ها واقعی هستند؟
         </h3>
         <p className=" p-2 pb-6 px-3">
           بله تمامی لباسهایی که مشاهده میکنید در مجموعه ی شقایق عکاسی میشود.
         </p>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold   px-1 pt-4">
           اگر هنگام تحویل کالا مشکلی وجود داشت، چه باید بکنم؟
         </h3>
         <p className=" p-2 pb-6 px-3">
@@ -105,21 +105,21 @@ function AskedQuestion() {
           روز با شماره ی پشتیبانی تماس بگیرید تا امکان مرجوعی و تعویض کالا
           برایتان فراهم شود.
         </p>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold   px-1 pt-4">
           هزینه ارسال بازگشت کالا بر عهده کیست؟
         </h3>
         <p className=" p-2 pb-6 px-3">
           اگر کالا به دلیل اشتباه ما ارسال شده باشد، هزینه بازگشت بر عهده ما
           است.
         </p>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold   px-1 pt-4">
           آیا می‌توانم کد تخفیف دریافت کنم؟
         </h3>
         <p className=" p-2 pb-6 px-3">
           با عضویت در <span className="text-red-500">باشگاه مشتریان</span>{" "}
           میتوانید از شرایط ویژه هنگام خرید بهره مند شوید.
         </p>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold   px-1 pt-4">
           چطور می‌توانم سفارش خود را لغو کنم؟
         </h3>
         <p className=" p-2 pb-6 px-3">

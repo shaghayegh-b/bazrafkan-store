@@ -14,25 +14,25 @@ function ContactUs() {
       <div className="ContactUs px-2 py-1">
         <div className="relative w-[100%] mt-2">
           <img src={img} alt="" className="" />
-          <h2 className=" absolute text-[170%] font-extrabold text-white top-[35%] w-[100%] text-center ">
+          <h2 className=" absolute text-[170%] font-extrabold  top-[35%] w-[100%] text-center ">
             ارتباط با ما
           </h2>
         </div>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold  px-1 pt-4">
           پشتیبانی
         </h3>
         <p className=" p-2 pb-6 px-3">
           فقط از طریق پیام رسان های (تلگرام , واتس اپ , ایتا):
           <a href="tel:09399619640">09399619640</a>
         </p>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold  px-1 pt-4">
           کانال ها
         </h3>
         <p className=" p-2 pb-6 px-3">
           کانال ما در ایتا و تلگرام : ,
           <a href="mailto:@bazrafkan">@bazrafkan</a>
         </p>
-        <h3 className="text-[130%] font-bold text-blue-200 px-1 pt-4">
+        <h3 className="text-[130%] font-bold  px-1 pt-4">
           ادمین ثبت سفارش
         </h3>
         <p className=" p-2 pb-6 px-3">

@@ -1,15 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { memo } from "react";
 
-function Products({id , title, remaining, score, price ,colors}) {
-
+function Products({ id, title, remaining, score, price, colors }) {
   return (
     <>
       <div></div>
       <NavLink to={`/bazrafkan-store/OneProduct/${id}`} className="Products">
-      <div className="flex bg-gray-700  p-1 rounded-md m-1">
+        <div className="flex bg-[#e4f0fd7a]    p-1 rounded-md m-1">
           <div className="w-[40%]">
-            <div className="w-[120px] h-auto bg-gray-600 rounded-md">
+            <div className="w-[120px] h-auto    rounded-md">
               <img
                 src={colors[0].img}
                 alt="محصول"

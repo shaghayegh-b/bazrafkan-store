@@ -15,11 +15,11 @@ function AboutUs() {
       <div className="AboutUs p-2">
         <div className="relative w-[100%] ">
           <img src={img} alt="" className="" />
-          <h2 className="absolute text-[170%] font-extrabold text-white top-[35%] w-[100%] text-center ">
+          <h2 className="absolute text-[170%] font-extrabold top-[35%] w-[100%] text-center ">
             درباره ما
           </h2>
         </div>
-        <h3 className="text-[130%] p-3 pt-4 w-[100%] text-center  font-bold text-blue-200">خوش اومدی به فروشگاه شقایق 💙
+        <h3 className="text-[130%] p-3 pt-4 w-[100%] text-center  font-bold">خوش اومدی به فروشگاه شقایق 💙
         </h3>
      <p className="px-2">
 ما اینجا دور هم جمع شدیم تا خرید پوشاک زنونه رو برات ساده‌تر، سریع‌تر و مهم‌تر از همه، لذت‌بخش‌تر کنیم.
@@ -38,7 +38,7 @@ function AboutUs() {
 </p>
 
 
-<p className="text-center text-[110%] font-[600] w-[100%] text-blue-200 py-2">اعتماد تو بزرگ‌ترین سرمایه‌ی ماست.
+<p className="text-center text-[110%] font-[600] w-[100%] py-2">اعتماد تو بزرگ‌ترین سرمایه‌ی ماست.
 </p>
 
 <p className="text-center">

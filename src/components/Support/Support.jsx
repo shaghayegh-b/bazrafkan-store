@@ -5,10 +5,11 @@ function Support() {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 z-1 w-[100vw] h-[100vh] bg-gray-800 ${
+        className={`Support  fixed top-0 left-0 z-1 bg-[#8bc7f9] w-[100vw] h-[100vh] ${
           supporting ? "" : "hidden"
         }`}
       >
+      <div className="h-15"></div>
         <div className="relative ">
           <button
             onClick={() => setSupporting(!supporting)}
@@ -22,9 +23,9 @@ function Support() {
       </div>
       <button
         onClick={() => setSupporting(!supporting)}
-        className="fixed bottom-4 left-2 z-1 rounded-full w-[3.3rem] h-[3.3rem] bg-gray-900 text-gray-300 flex justify-center items-center  border-1 border-solid border-gray-300"
+        className="fixed bottom-4 left-2 z-1 bg-[#81bcf0] rounded-full w-[3.3rem] h-[3.3rem]   flex justify-center items-center  border-2 border-solid border-[#00294c]"
       >
-        <i className="fa fa-headset text-[135%] pt-[1px]"></i>
+        <i className="fa fa-headset  text-[135%] pt-[1px]"></i>
       </button>
     </>
   );

@@ -4,6 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import { useCart } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
+import Back from "../../components/Back/Back";
 function ShoppingBag() {
   const {
     cartItems,
@@ -25,7 +26,7 @@ function ShoppingBag() {
   const handleColorSelect = (produkt, colorToSend) => {
     // حذف فقط آیتم بی‌رنگ
     const itemWithoutColor = cartItems.find(
-      item => item.id === produkt.id && !item.selectedColor
+      (item) => item.id === produkt.id && !item.selectedColor
     );
 
     if (itemWithoutColor) {
@@ -33,9 +34,9 @@ function ShoppingBag() {
     }
 
     // آیا آیتم با رنگ موردنظر قبلاً هست؟
-    const itemExists = cartItems.some(item =>
-      item.id === produkt.id &&
-      item.selectedColor?.code === colorToSend?.code
+    const itemExists = cartItems.some(
+      (item) =>
+        item.id === produkt.id && item.selectedColor?.code === colorToSend?.code
     );
 
     if (itemExists) {
@@ -48,9 +49,9 @@ function ShoppingBag() {
       });
     }
 
-    setColorPickerVisible(prev => ({
+    setColorPickerVisible((prev) => ({
       ...prev,
-      [produkt.id]: false
+      [produkt.id]: false,
     }));
   };
 
@@ -70,11 +71,11 @@ function ShoppingBag() {
       <div className="relative">
         <div className="ShoppingBag  ">
           <div
-            className={`fixed top-14 left-1/2 -translate-x-1/2 z-10 w-[85%] p-3 bg-gray-700 border-t-2 border-solid border-green-700 text-sm rounded-sm shadow-md transition-all duration-300 ${
+            className={`fixed bg-[white] top-14 left-1/2 -translate-x-1/2 z-10 w-[85%] p-3    border-t-2 border-solid border-[#0ba5ffed] text-sm rounded-sm shadow-md transition-all duration-300 ${
               deletedMessage ? "" : "hidden"
             }`}
           >
-            <i className="fa fa-check p-2"></i>
+            <i className="fa fa-check text-[#0ba5ffed] p-2"></i>
             {deletedMessage}
           </div>
 
@@ -82,9 +83,9 @@ function ShoppingBag() {
             <div
               className={`flex flex-col justify-center items-center mt-1 mb-3 p-1 `}
             >
-              <div className="w-[85%] p-3 bg-gray-700 border-t-2 border-solid border-red-600">
+              <div className="w-[85%] p-3  bg-[#00c8ec0f]  border-t-2 border-solid border-[#00c7eced]">
                 <p>
-                  <i className=" fa fa-times text-red-500 font-[600] p-2"></i>
+                  <i className=" fa fa-times text-[#00c7eced] font-[600] p-2"></i>
                   سبد خرید شما در حال حاضر خالی است.
                 </p>
               </div>
@@ -92,9 +93,9 @@ function ShoppingBag() {
           ) : (
             <div>
               {cartItems.map((item) => (
-                <div key={item.id} className="oneprodukt">
+                <div key={item.id} className="oneprodukt  bg-[#a8d2ff33] ">
                   <div
-                    className={` relative one flex flex-col bg-gray-700  p-2 rounded-md m-1 `}
+                    className={` relative one flex flex-col     p-2 rounded-md m-1 `}
                   >
                     <div>
                       <i
@@ -103,7 +104,7 @@ function ShoppingBag() {
                             "میخوای کالا رو از سبد خریدت حذف کنی؟"
                           );
                           if (confirmm) {
-                            removeFromCart(item.id);
+                            removeFromCart(item.id, item.selectedColor?.code);
                             setDeletedMessage(
                               `"${item.title}" با رنگ "${item.selectedColor?.name}" از سبد خرید حذف شد`
                             );
@@ -116,7 +117,7 @@ function ShoppingBag() {
                       ></i>
                     </div>
                     <div className="flex ">
-                      <div className="w-[120px] h-auto bg-gray-600 rounded-md ml-2">
+                      <div className="w-[120px] h-auto    rounded-md ml-2">
                         <img
                           src={item.img}
                           alt="محصول"
@@ -130,6 +131,7 @@ function ShoppingBag() {
                         </p>
                         <p className="flex">
                           <span className="font-[600]">رنگ انتخابی : </span>
+                          &nbsp;
                           {item.selectedColor?.name ? (
                             item.selectedColor.name
                           ) : (
@@ -137,7 +139,7 @@ function ShoppingBag() {
                               <button
                                 type="button"
                                 onClick={() => toggleColorPicker(item.id)}
-                                className="bg-blue-400 rounded-sm px-1 mx-1"
+                                className="bg-[#6faff9] rounded-sm px-1 mx-1"
                               >
                                 رنگ را انتخاب کنید
                               </button>
@@ -146,12 +148,9 @@ function ShoppingBag() {
                                   {item.colors.map((color) => (
                                     <button
                                       key={color.code}
+                                      className={` w-4 h-4 rounded-full border-solid border-1 border-black`}
                                       style={{
                                         backgroundColor: color.code,
-                                        width: "18px",
-                                        height: "18px",
-                                        borderRadius: "50%",
-                                        border: "1px solid #333",
                                       }}
                                       title={color.name}
                                       onClick={() =>
@@ -169,8 +168,10 @@ function ShoppingBag() {
                           <span className="font-[600]">قیمت : </span>
                           {item.price} تومان
                         </p>
-                        <Link to={`/bazrafkan-store/OneProduct/${item.id}`}
-                        className="text-[86%]">
+                        <Link
+                          to={`/bazrafkan-store/OneProduct/${item.id}`}
+                          className="text-[80%]"
+                        >
                           برای دیدن مشخصات محصول کلیک کن!
                         </Link>
                       </div>
@@ -179,10 +180,8 @@ function ShoppingBag() {
                     <div className=" flex justify-between py-3  ">
                       <div>
                         <p>
-                          <span className="">
-                            جمع جزء :
-                            {(item.price * item.quantity).toLocaleString()}
-                          </span>
+                          <span className="font-[600]">جمع جزء :</span>&nbsp;
+                          {(item.price * item.quantity).toLocaleString()}
                         </p>
                       </div>
                       <div className=" flex justify-center items-center border-[1px] border-solid border-black rounded-sm">
@@ -190,9 +189,9 @@ function ShoppingBag() {
                           onClick={() =>
                             increase(item.id, item.selectedColor?.code)
                           }
-                          className=" bg-gray-600 px-4 rounded-br-sm rounded-tr-sm"
+                          className="  bg-[#92999d2b]    px-4 rounded-br-sm rounded-tr-sm"
                         >
-                          <i className="fa fa-plus text-[60%]"></i>
+                          <i className="fa fa-plus text-[80%]"></i>
                         </button>
                         <p className=" px-4">{item.quantity}</p>
                         <button
@@ -217,9 +216,9 @@ function ShoppingBag() {
                               decrease(item.id, item.selectedColor?.code);
                             }
                           }}
-                          className=" bg-gray-600 px-4 rounded-bl-sm rounded-tl-sm"
+                          className=" bg-[#92999d2b]     px-4 rounded-bl-sm rounded-tl-sm"
                         >
-                          <i className="fa fa-minus text-[60%]"></i>
+                          <i className="fa fa-minus text-[80%]"></i>
                         </button>
                       </div>
                     </div>
@@ -227,9 +226,7 @@ function ShoppingBag() {
                 </div>
               ))}
 
-              <div
-                className={`flex justify-between p-2 bg-gray-600 rounded-sm m-1`}
-              >
+              <div className={`flex justify-between p-2    rounded-sm m-1`}>
                 <p className="font-[600]">جمع کل سبد خرید : </p>
                 <p className="font-[600]">
                   {total.toLocaleString()}
@@ -248,7 +245,7 @@ function ShoppingBag() {
                       }, 3000);
                     }
                   }}
-                  className="bg-red-900 text-white rounded-sm p-1 px-2 mt-2"
+                  className="bg-red-800 text-white rounded-sm p-1 px-2 mt-2"
                 >
                   پاک کردن سبد خرید
                 </button>
@@ -256,20 +253,13 @@ function ShoppingBag() {
               <div className={`flex justify-center`}>
                 <button
                   type="button"
-                  className="bg-blue-400 rounded-sm p-1 px-2 mt-2"
+                  className="bg-[#6faff9] rounded-sm p-1 px-2 mt-2"
                 >
                   ادامه جهت تسویه حساب
                 </button>
               </div>
-              <div className=" flex justify-end p-2">
-                <Link
-                  to="/bazrafkan-store/"
-                  className="text-blue-700 p-2 rounded-sm"
-                >
-                  بازگشت به فروشگاه
-                  <i className="fa fa-arrow-left pr-1 text-[78%]"></i>
-                </Link>
-              </div>
+
+              <Back />
             </div>
           )}
         </div>

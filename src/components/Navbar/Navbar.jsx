@@ -16,20 +16,20 @@ function Navbar() {
     <>
       {/* نوبار */}
       <div className={`Navbar w-[100%] fixed top-0 z-20 h-9`}>
-        <div className="Navbarchild p-1.5 bg-gray-800 gap-0.5 flex flex-row justify-center items-baseline w-[100%] ">
+        <div className="Navbarchild   flex items-center justify-between w-full p-2">
           <div
-            className={` justify-between w-[100%] ${
+            className={` justify-between w-[100%] gap-1 ${
               fSearch ? "hidden" : "flex"
-            } gap-1`}
+            } `}
           >
-            <div className="taskbar w-[95%] bg-gray-600 rounded">
+            <button
+              onClick={() => setMeno(true)}
+              className=" flex justify-center p-1 rounded-sm items-center"
+            >
+              <i className="font-bold fas fa-bars"></i>
+            </button>
+            <div className="taskbar w-[95%]   rounded-sm">
               <div className="w-[100%] gap-1 flex justify-evenly">
-                <button
-                  onClick={() => setMeno(true)}
-                  className="p-1 flex justify-center items-center"
-                >
-                  <i className="fas fa-bars px-1"></i>
-                </button>
                 <button
                   onFocus={() => setFSearch(true)}
                   className="p-1 flex justify-center items-center"
@@ -38,16 +38,16 @@ function Navbar() {
                 </button>
 
                 <div className="w-40 py-1">
-                  <h1 className=" text-center font-bold text-[120%] text-black bg-indigo-300">
+                  <h1 className=" text-center font-bold text-[120%]">
                     بوتیک شقایق
                   </h1>
                 </div>
                 <NavLink
                   to="/bazrafkan-store/ShoppingBag"
-                  className=" p-1 px-2 flex"
+                  className=" p-1 px-2 flex "
                 >
                   <i className="fa fa-shopping-cart self-center px-1 relative">
-                    <span className=" absolute bottom-0 right-[-7px] py-[3px] px-[4px] rounded-full text-[45%] bg-blue-500 ">
+                    <span className="absolute bottom-0 right-[-7px] py-[3px] px-[4px] rounded-full text-[45%] bg-blue-400 text-white shadow-sm">
                       {totalQuantity}
                     </span>
                   </i>
@@ -56,7 +56,7 @@ function Navbar() {
             </div>
             <NavLink
               to={`${account ? "/bazrafkan-store/Login" : "/bazrafkan-store/"}`}
-              className={`flex justify-center items-center p-1 w-[13%] `}
+              className={`flex justify-center user rounded-full items-center`}
               onClick={() => setAccount(!account)}
             >
               <i className="fa fa-user "></i>
@@ -64,18 +64,18 @@ function Navbar() {
           </div>
           {/* اگه روی فرم سرچ کلیک شد تمام نوبار به فرم سرچ تبدیل میشه */}
           <div
-            className={`w-[100%] rounded-sm bg-gray-700 border-2 border-gray-500 ${
+            className={`w-[100%] rounded-sm border-2 text-[#0b3a63] border-[#0b3a63] ${
               fSearch ? "" : "hidden"
             }`}
           >
             <form
               action="#"
-              className="p-1 flex  justify-between w-[100%] bg-gray-600"
+              className="p-1 flex  justify-between w-[100%]   "
               dir="ltr"
             >
               <input
                 dir="rtl"
-                className="pl-2 w-[87%] placeholder:text-gray-300"
+                className="pl-2 w-[87%] placeholder:text-[#0b3a63]"
                 type="text"
                 placeholder="جستجو"
                 onFocus={() => setFSearch(true)}
@@ -84,7 +84,7 @@ function Navbar() {
                 type="button"
                 className="w-6.5 h-6 flex justify-center items-center"
               >
-                <i className="fa fa-search"></i>
+                <i className="fa fa-search "></i>
               </button>
               <button
                 onClick={() => setFSearch(false)}
@@ -99,7 +99,7 @@ function Navbar() {
       </div>
       {/* منو باز بشه اگر روی ایکون منو کلیک بشه */}
       <div
-        className={`fixed z-20 top-0 h-[100vh] bg-[#0000005c]  ${
+        className={`fixed z-20 top-0 h-[100vh] bg-[#000000a6]  ${
           meno ? "w-[100vw]" : "w-[0]"
         }`}
       >
@@ -113,7 +113,7 @@ function Navbar() {
           onClick={() => setMeno(false)}
         >
           <button
-            className={`rounded-full w-6 h-6 m-1 shadow flex justify-center items-center bg-gray-600
+            className={`rounded-full w-6 h-6 m-1 shadow flex justify-center items-center bg-[#9fa8ba]
                         ${meno ? "" : "hidden"}`}
           >
             <i className="fa fa-times text-center"></i>

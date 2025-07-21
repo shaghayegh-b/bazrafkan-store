@@ -22,26 +22,26 @@ function FavProduct() {
       <Header>علاقه مندی ها</Header>
       <div className="FavProduct relative">
         <div
-          className={`fixed top-14 left-1/2 -translate-x-1/2 z-10 w-[85%] p-3 bg-gray-700 border-t-2 border-solid border-green-700 text-sm rounded-sm shadow-md transition-all duration-300 ${
+          className={`fixed bg-white border-[#0ba5ffed] top-14 left-1/2 -translate-x-1/2 z-20 w-[85%] p-3    border-t-2 border-solid text-sm rounded-sm shadow-md transition-all duration-300 ${
             deletedMessage ? "" : "hidden"
           }`}
         >
-          <i className="fa fa-check p-2"></i>
+          <i className="fa fa-check text-[#0ba5ffed] p-2"></i>
           {deletedMessage}
         </div>
         {favoriteItems.length === 0 ? (
           <div
             className={`flex flex-col justify-center items-center mt-2 p-1 pb-4`}
           >
-            <p className="w-[85%] p-3 bg-gray-700 border-t-2 border-solid border-red-600">
-              <i className=" fa fa-times text-red-500 font-[600] p-2"></i>
+            <p className="w-[85%] p-3   bg-[#00c8ec0f]  border-t-2 border-solid border-[#00c7eced]">
+              <i className=" fa fa-times text-[#00c7eced] font-[600] p-2"></i>
               هیچ کالایی در لیست علاقه‌مندی نیست!
             </p>
           </div>
         ) : (
-          <div className="p-1">
+          <div className="p-1 ">
             {favoriteItems.map((item) => (
-              <div className="px-1 mb-2 bg-gray-700 ">
+              <div className="px-1 mb-2  bg-[#a8d2ff33]   ">
                 <i
                   onClick={() => {
                     let confirmm = confirm(
@@ -65,7 +65,7 @@ function FavProduct() {
                   className="Products flex px-1 pb-1 rounded-md"
                 >
                   <div className="w-[40%]">
-                    <div className="w-[120px] h-auto bg-gray-600 rounded-md">
+                    <div className="w-[120px] h-auto    rounded-md">
                       <img
                         src={item.img}
                         alt="محصول"
@@ -92,7 +92,7 @@ function FavProduct() {
                   <div className="flex justify-between items-center p-2">
                     <button
                       type="button"
-                      className="rounded-sm bg-blue-400 px-2 py-1"
+                      className="rounded-sm bg-[#6faff9] px-2 py-1"
                     >
                       موجود شد خبرم کن
                     </button>
@@ -103,7 +103,7 @@ function FavProduct() {
                 ) : (
                   <div className="flex justify-between items-center p-2">
                     <Link
-                      className="rounded-sm bg-blue-400 px-2 py-1"
+                      className="rounded-sm bg-[#6faff9] px-2 py-1"
                       to={`/bazrafkan-store/OneProduct/${item.id}`}
                     >
                       افزودن به سبد خرید
@@ -134,7 +134,7 @@ function FavProduct() {
                     setDeletedMessage(false);
                   }, 3000);
                 }}
-                className="bg-red-900 text-white rounded-sm p-1 px-2 mt-2"
+                className="bg-red-800 text-white rounded-sm p-1 px-2 mt-2"
               >
                 پاک کردن همه علاقه مندی&zwnj;ها
               </button>
@@ -142,15 +142,14 @@ function FavProduct() {
                 onClick={() => {
                   favoriteItems.forEach((item) => {
                     if (item.remaining !== "اتمام موجودی") {
-                        const product = {
-                          ...item,
-                          quantity: item.totalFavorites || 1, // مقدار پیش‌فرض 1 اگر totalFavorites نبود
-                        };
-                        addToCart(product);
-                        removeFromFav(product);
-
-                      }
-                    });
+                      const product = {
+                        ...item,
+                        quantity: item.totalFavorites || 1, // مقدار پیش‌فرض 1 اگر totalFavorites نبود
+                      };
+                      addToCart(product);
+                      removeFromFav(product);
+                    }
+                  });
 
                   const confirmp = confirm(
                     "میخوای همه علاقه مندی ها رو به سبد خرید اضافه کنی؟"
@@ -163,7 +162,7 @@ function FavProduct() {
                     setDeletedMessage(false);
                   }, 3000);
                 }}
-                className="rounded-sm bg-blue-400 px-2 py-1"
+                className="rounded-sm bg-[#6faff9] px-2 py-1"
               >
                 افزودن علاقه مندی ها به سبد خرید
               </button>

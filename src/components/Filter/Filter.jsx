@@ -11,11 +11,9 @@ function Filter() {
     applyFilter(id);
   };
   return (
-    <div className="my-filter  flex gap-1 px-2 items-center text-[95%]">
-      <div className="">
+    <div className="my-filter h-10 flex gap-1 px-2 justify-right items-center text-[95%]">
         <CustomSelect applyFilter={applyFilter} />
-      </div>
-      <div className="flex gap-1 overflow-auto">
+      <div className="">
         <button
           onClick={() =>
             handleChange({
@@ -25,11 +23,11 @@ function Filter() {
             })
           }
           className={`
-            px-3 py-1 rounded-xl shadow transition min-w-31
+            px-3 py-1 rounded-xl shadow-sm transition min-w-32 focus:ring-1 focus:ring-white
           ${
             activeFilter === "available"
-              ? "bg-white text-gray-800"
-              : "bg-gray-800 text-white"
+              ? "bg-[#81bcf0] border-[3px] border-[#97a7b461]"
+              : ""
           }`}
         >
           محصولات موجود

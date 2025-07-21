@@ -8,7 +8,7 @@ import { useAxios } from "../../context/AxiosContaext";
 import Filter from "../../components/Filter/Filter";
 import Loading from "../../components/Loading/Loading";
 function Home() {
-  const { isAxios, funcAxios, loading ,filteredProducts} = useAxios();
+  const { isAxios, funcAxios, loading, filteredProducts } = useAxios();
   //   وقتی وارد صفحه محصول می‌شی، اگر صفحه پایین باشه، اسلایدر دیده نمی‌شه
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,23 +23,23 @@ function Home() {
     <>
       <Navbar />
       <Support />
-      <div className="relative bg-gray-900 text-gray-50">
+      <div className="relative">
         <div className="h-12"></div>
         <div className="grid grid-cols-3 grid-rows-2 gap-2 rounded-2 p-2 py-4">
           <Category></Category>
         </div>
         <div>
-            <Filter />
+          <Filter />
         </div>
         <div className="">
           {loading ? (
-          <Loading />
+            <Loading />
           ) : Array.isArray(isAxios) && isAxios.length > 0 ? (
             filteredProducts.map((oneProduct) => (
               <Products key={oneProduct.id} {...oneProduct} />
             ))
           ) : (
-            <p className="text-center py-10 text-gray-300">محصولی یافت نشد</p>
+            <p className="text-center py-10">محصولی یافت نشد</p>
           )}
         </div>
         <footer>

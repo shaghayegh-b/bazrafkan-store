@@ -13,6 +13,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./OneProduct.css";
 import { useFav } from "../../context/FavProvider";
 import { useAxios } from "../../context/AxiosContaext";
+import Back from "../../components/Back/Back";
 
 function OneProduct() {
   const { isAxios, funcAxios, loading } = useAxios();
@@ -139,11 +140,11 @@ function OneProduct() {
       {loading ? (
         <Loading />
       ) : !isAxios || !isAxios.id ? (
-        <p className="text-center py-10 text-gray-300">محصولی یافت نشد</p>
+        <p className="text-center py-10 ">محصولی یافت نشد</p>
       ) : (
         <div className="OneProduct p-2">
           {/* تصویر محصول با اسلایدر */}
-          <div className="bg-gray-700  p-3">
+          <div className="  bg-[#e4f0fded]  p-3">
             <Slider ref={sliderRef} {...settings}>
               {colors.map((color, idx) => (
                 <div key={idx} className="flex justify-center items-center">
@@ -185,14 +186,12 @@ function OneProduct() {
           </div>
 
           {/* مشخصات کلی محصول */}
-          <div className="bg-gray-700 p-3 my-2">
+          <div className=" bg-[#e4f0fded]  p-3 my-2">
             <div className="flex justify-between items-baseline">
               <h1 className="font-[600] text-[110%]">{produkt.title}</h1>
               <i
                 title={fav ? "حذف از علاقه‌مندی‌ها" : "افزودن به علاقه‌مندی‌ها"}
-                className={`fa fa-star ${
-                  fav ? "text-yellow-300" : "text-gray-50"
-                }`}
+                className={`fa fa-star ${fav ? "text-yellow-300" : ""}`}
                 onClick={favorite}
               ></i>
             </div>
@@ -205,7 +204,7 @@ function OneProduct() {
             </div>
             <div className="flex justify-between font-[500] px-1 py-3">
               <p className="">رنگ انتخابی:</p>{" "}
-              <span className="">{colors[selectedColorIndex].name}</span>
+              <span className="font-500">{colors[selectedColorIndex].name}</span>
             </div>
 
             {/* تعداد و افزودن به سبد */}
@@ -222,7 +221,7 @@ function OneProduct() {
                       onClick={() =>
                         increase(produkt.id, colors[selectedColorIndex]?.code)
                       }
-                      className="bg-gray-600 px-4 rounded-br-sm rounded-tr-sm"
+                      className=" bg-[#92999d2b]  px-4 rounded-br-sm rounded-tr-sm"
                     >
                       <i className="fa fa-plus text-[60%]"></i>
                     </button>
@@ -274,7 +273,7 @@ function OneProduct() {
                           }
                         }
                       }}
-                      className="bg-gray-600 px-4 rounded-bl-sm rounded-tl-sm"
+                      className=" bg-[#92999d2b]  px-4 rounded-bl-sm rounded-tl-sm"
                     >
                       <i className="fa fa-minus text-[60%]"></i>
                     </button>
@@ -288,12 +287,8 @@ function OneProduct() {
                       })
                     }
                     disabled={isOutOfStock}
-                    className={`rounded-sm bg-blue-400 px-2 py-1
-                  ${
-                    isOutOfStock
-                      ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-blue-400"
-                  }`}
+                    className={`rounded-sm bg-[#6faff9] px-2 py-1
+                  ${isOutOfStock ? "   cursor-not-allowed" : "bg-blue-400"}`}
                   >
                     افزودن به سبد خرید
                   </button>
@@ -317,13 +312,13 @@ function OneProduct() {
           </div>
 
           {/* پیام پردازش */}
-          <p className="py-1 px-2 bg-gray-800 border-t-4 border-solid border-red-900 text-[85%] text-center">
+          <p className="py-1 px-2     border-t-4 border-solid border-[#0ba5ffed] text-[85%] text-center">
             پردازش محصولات<span className="font-[600]"> 7 الی 10 </span>روزکاری
             زمان می‌برد!
           </p>
 
           {/* توضیحات محصول */}
-          <div className="bg-gray-700 p-1 py-2 my-2">
+          <div className="  bg-[#e4f0fded] p-1 py-2 my-2">
             <div
               className={`desc py-1 px-2 rounded-xl mb-1 transition-all duration-400 ${
                 desc ? "sizing" : ""
@@ -415,17 +410,7 @@ function OneProduct() {
           </div>
         </div>
       )}
-
-      <div className="flex justify-end p-2">
-        <NavLink
-          to="/bazrafkan-store/"
-          className="text-blue-700 p-2 rounded-sm"
-        >
-          بازگشت به فروشگاه
-          <i className="fa fa-arrow-left pr-1 text-[78%]" />
-        </NavLink>
-      </div>
-
+      <Back />
       <Footer />
     </>
   );
