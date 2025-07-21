@@ -1,6 +1,10 @@
 import { memo } from "react";
 import { useAxios } from "../../context/AxiosContaext";
-
+import { GiLipstick, GiPoloShirt, GiSkirt } from "react-icons/gi";
+import { PiDressBold } from "react-icons/pi";
+import { PiHandbagSimpleBold } from "react-icons/pi";
+import {  TbHomeHeart ,TbCategory } from "react-icons/tb";
+import { FaSnowflake, FaGlasses } from "react-icons/fa6";
 function Category() {
   const { funcAxios } = useAxios();
   return (
@@ -14,6 +18,7 @@ function Category() {
         }}
         className=" Category"
       >
+        <TbCategory size={20}/>
         <p  >همه‌محصولات</p>
       </button>
       <button
@@ -25,7 +30,7 @@ function Category() {
         }}
         className=" Category "
       >
-        <p  >مانتو</p>
+<GiPoloShirt size={20} />        <p  >مانتو</p>
       </button>
       <button
         type="button"
@@ -36,6 +41,7 @@ function Category() {
         }}
         className=" Category "
       >
+<GiSkirt size={20} />
         <p  >
           شلوار{"\u2009"}و{"\u2009"}دامن
         </p>
@@ -49,6 +55,7 @@ function Category() {
         }}
         className=" Category "
       >
+<PiDressBold size={20} />
         <p  >ست</p>
       </button>
       <button
@@ -60,7 +67,8 @@ function Category() {
         }}
         className=" Category "
       >
-        <p  >
+<TbHomeHeart size={20} />
+ <p  >
           تو{"\u2009"}خونه{"\u200A"}ای
         </p>
       </button>
@@ -73,6 +81,8 @@ function Category() {
         }}
         className=" Category "
       >
+<GiLipstick size={20} />
+
         <p  >ارایشی{"\u2009"}بهداشتی</p>
       </button>
       <button
@@ -84,6 +94,7 @@ function Category() {
         }}
         className=" Category "
       >
+<FaSnowflake size={20} />
         <p  >لباس{"\u200A"}گرم</p>
       </button>
       <button
@@ -95,7 +106,7 @@ function Category() {
         }}
         className=" Category "
       >
-        <p  >
+<PiHandbagSimpleBold size={20} />        <p  >
           کیف{"\u2009"}و{"\u2009"}کفش
         </p>
       </button>
@@ -108,6 +119,7 @@ function Category() {
         }}
         className=" Category "
       >
+ <FaGlasses size={20} />
         <p  >اکسسوری</p>
       </button>
     </>
