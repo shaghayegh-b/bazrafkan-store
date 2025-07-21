@@ -43,7 +43,6 @@ button {
   align-self: center;
 }
 .Category {
-  background-color: #e4f0fd;
   display: flex;
   padding: calc(var(--spacing) * 1);
   border-radius: var(--radius-sm);
@@ -55,4 +54,11 @@ button {
   padding-bottom: calc(var(--spacing) * 1);
   --tw-tracking: var(--tracking-tighter);
   letter-spacing: var(--tracking-tighter);
+}
+.fa ,.fas{
+    font-size:140%;
+}
+svg{
+width: 30%;
+height: 54%;
 }

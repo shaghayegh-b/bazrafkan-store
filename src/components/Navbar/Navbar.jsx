@@ -28,7 +28,7 @@ function Navbar() {
             >
               <i className="font-bold fas fa-bars"></i>
             </button>
-            <div className="taskbar w-[95%]   rounded-sm">
+            <div className="taskbar min-w-[80%] rounded-sm">
               <div className="w-[100%] gap-1 flex justify-evenly">
                 <button
                   onFocus={() => setFSearch(true)}
@@ -112,12 +112,11 @@ function Navbar() {
             `}
           onClick={() => setMeno(false)}
         >
-          <button
-            className={`rounded-full w-6 h-6 m-1 shadow flex justify-center items-center bg-[#9fa8ba]
+          <i
+            className={`fa fa-times text-center rounded-full w-6 h-6 m-1 shadow flex justify-center items-center bg-[#9fa8ba]
                         ${meno ? "" : "hidden"}`}
           >
-            <i className="fa fa-times text-center"></i>
-          </button>
+          </i>
         </div>
       </div>
     </>
