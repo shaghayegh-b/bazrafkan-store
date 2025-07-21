@@ -1,20 +1,18 @@
 import { Listbox } from "@headlessui/react";
-import { useState } from "react";
 import { memo } from "react";
+function CustomSelect({ applyFilter, activeFilter, setActiveFilter }) {
+  const filters = [
+    { id: "", label: "همه محصولات" },
+    { id: "cheapest", label: "ارزان‌ترین" },
+    { id: "mostExpensive", label: "گران‌ترین" },
+    { id: "mostDiscount", label: "بیشترین تخفیف" },
+    { id: "newest", label: "جدیدترین" },
+  ];
 
-const filters = [
-  { id: "", label: "همه محصولات" },
-  { id: "cheapest", label: "ارزان‌ترین" },
-  { id: "mostExpensive", label: "گران‌ترین" },
-  { id: "mostDiscount", label: "بیشترین تخفیف" },
-  { id: "newest", label: "جدیدترین" },
-];
-
-function CustomSelect({ applyFilter }) {
-  const [selected, setSelected] = useState(filters[0]);
+  const selected = filters.find((f) => f.id === activeFilter) || filters[0];
 
   const handleSelect = (value) => {
-    setSelected(value);
+    setActiveFilter(value.id);
     applyFilter(value.id);
   };
 

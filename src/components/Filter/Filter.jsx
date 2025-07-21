@@ -1,9 +1,8 @@
 import { useAxios } from "../../context/AxiosContaext";
 import CustomSelect from "./CustomSelect"; // ← مسیر درست به فایل
-import { memo, useState } from "react";
+import { memo } from "react";
 function Filter() {
-  const { applyFilter } = useAxios();
-  const [activeFilter, setActiveFilter] = useState("");
+  const { applyFilter, activeFilter, setActiveFilter } = useAxios();
 
   const handleChange = (e) => {
     const id = e.target.value;
@@ -12,7 +11,11 @@ function Filter() {
   };
   return (
     <div className="my-filter h-10 flex gap-1 px-2 justify-right items-center text-[95%]">
-        <CustomSelect applyFilter={applyFilter} />
+      <CustomSelect
+        applyFilter={applyFilter}
+        activeFilter={activeFilter}
+        setActiveFilter={setActiveFilter}
+      />
       <div className="">
         <button
           onClick={() =>

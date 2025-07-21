@@ -9,6 +9,9 @@ export function AxiosProvider({ children }) {
   const [isAxios, setIsAxios] = useState([]); // دیتای اصلی
   const [filteredProducts, setFilteredProducts] = useState([]); // دیتای فیلتر شده
   const [loading, setLoading] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
+const [activeFilter, setActiveFilter] = useState("");
+
   // تابع دریافت داده از API
   async function funcAxios(url) {
     try {
@@ -25,6 +28,7 @@ export function AxiosProvider({ children }) {
 
   // تابع فیلتر کردن داده‌ها
   function applyFilter(type) {
+  setActiveFilter(type);
     // اول محصولات موجود
     let sorted = isAxios.filter(item => item.remaining !== "اتمام موجودی");
 
@@ -64,6 +68,10 @@ export function AxiosProvider({ children }) {
         applyFilter,
         setFilteredProducts,
         setLoading,
+        selectedCategory,
+setSelectedCategory,
+activeFilter,
+setActiveFilter
       }}
     >
       {children}

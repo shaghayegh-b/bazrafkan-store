@@ -3,10 +3,11 @@ import { useAxios } from "../../context/AxiosContaext";
 import { GiLipstick, GiPoloShirt, GiSkirt } from "react-icons/gi";
 import { PiDressBold } from "react-icons/pi";
 import { PiHandbagSimpleBold } from "react-icons/pi";
-import {  TbHomeHeart ,TbCategory } from "react-icons/tb";
+import { TbHomeHeart, TbCategory } from "react-icons/tb";
 import { FaSnowflake, FaGlasses } from "react-icons/fa6";
 function Category() {
-  const { funcAxios } = useAxios();
+  const { funcAxios, setSelectedCategory, selectedCategory, setActiveFilter } =
+    useAxios();
   return (
     <>
       <button
@@ -15,11 +16,15 @@ function Category() {
           funcAxios(
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products"
           );
+          setSelectedCategory("همه");
+          setActiveFilter("");
         }}
-        className=" Category"
+        className={`Category   ${
+          selectedCategory === "همه" ? "bg-[#acd2f2]" : " bg-[#e4f0fd]"
+        }`}
       >
-        <TbCategory size={20}/>
-        <p  >همه‌محصولات</p>
+        <TbCategory  />
+        <p>همه‌محصولات</p>
       </button>
       <button
         type="button"
@@ -27,10 +32,14 @@ function Category() {
           funcAxios(
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=مانتو"
           );
+          setSelectedCategory("مانتو");
+          setActiveFilter("");
         }}
-        className=" Category "
+        className={`Category   ${
+          selectedCategory === "مانتو" ? "bg-[#acd2f2]" : " bg-[#e4f0fd]"
+        }`}
       >
-<GiPoloShirt size={20} />        <p  >مانتو</p>
+        <GiPoloShirt  /> <p>مانتو</p>
       </button>
       <button
         type="button"
@@ -38,11 +47,15 @@ function Category() {
           funcAxios(
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=شلوار"
           );
+          setSelectedCategory("دامن");
+          setActiveFilter("");
         }}
-        className=" Category "
+        className={`Category   ${
+          selectedCategory === "دامن" ? "bg-[#acd2f2]" : " bg-[#e4f0fd]"
+        }`}
       >
-<GiSkirt size={20} />
-        <p  >
+        <GiSkirt  />
+        <p>
           شلوار{"\u2009"}و{"\u2009"}دامن
         </p>
       </button>
@@ -52,11 +65,15 @@ function Category() {
           funcAxios(
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=ست"
           );
+          setSelectedCategory("ست");
+          setActiveFilter("");
         }}
-        className=" Category "
+        className={`Category   ${
+          selectedCategory === "ست" ? "bg-[#acd2f2]" : " bg-[#e4f0fd]"
+        }`}
       >
-<PiDressBold size={20} />
-        <p  >ست</p>
+        <PiDressBold  />
+        <p>ست</p>
       </button>
       <button
         type="button"
@@ -64,11 +81,15 @@ function Category() {
           funcAxios(
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=خونگی"
           );
+          setSelectedCategory("خونه ای");
+          setActiveFilter("");
         }}
-        className=" Category "
+        className={`Category   ${
+          selectedCategory === "خونه ای" ? "bg-[#acd2f2]" : " bg-[#e4f0fd]"
+        }`}
       >
-<TbHomeHeart size={20} />
- <p  >
+        <TbHomeHeart  />
+        <p>
           تو{"\u2009"}خونه{"\u200A"}ای
         </p>
       </button>
@@ -78,12 +99,16 @@ function Category() {
           funcAxios(
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=ارایشی"
           );
+          setSelectedCategory("ارایشی");
+          setActiveFilter("");
         }}
-        className=" Category "
+        className={`Category   ${
+          selectedCategory === "ارایشی" ? "bg-[#acd2f2]" : " bg-[#e4f0fd]"
+        }`}
       >
-<GiLipstick size={20} />
+        <GiLipstick  />
 
-        <p  >ارایشی{"\u2009"}بهداشتی</p>
+        <p>ارایشی{"\u2009"}بهداشتی</p>
       </button>
       <button
         type="button"
@@ -91,11 +116,15 @@ function Category() {
           funcAxios(
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=زمستونه"
           );
+          setSelectedCategory("زمستونه");
+          setActiveFilter("");
         }}
-        className=" Category "
+        className={`Category   ${
+          selectedCategory === "زمستونه" ? "bg-[#acd2f2]" : " bg-[#e4f0fd]"
+        }`}
       >
-<FaSnowflake size={20} />
-        <p  >لباس{"\u200A"}گرم</p>
+        <FaSnowflake  />
+        <p>لباس{"\u200A"}گرم</p>
       </button>
       <button
         type="button"
@@ -103,10 +132,15 @@ function Category() {
           funcAxios(
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=کیف"
           );
+          setSelectedCategory("کفش");
+          setActiveFilter("");
         }}
-        className=" Category "
+        className={`Category   ${
+          selectedCategory === "کفش" ? "bg-[#acd2f2]" : " bg-[#e4f0fd]"
+        }`}
       >
-<PiHandbagSimpleBold size={20} />        <p  >
+        <PiHandbagSimpleBold  />{" "}
+        <p>
           کیف{"\u2009"}و{"\u2009"}کفش
         </p>
       </button>
@@ -116,11 +150,15 @@ function Category() {
           funcAxios(
             "https://686b9bdee559eba90873470f.mockapi.io/ap/bazrafkan-store/products?category=اکسسوری"
           );
+          setSelectedCategory("اکسسوری");
+          setActiveFilter("");
         }}
-        className=" Category "
+        className={`Category   ${
+          selectedCategory === "اکسسوری" ? "bg-[#acd2f2]" : " bg-[#e4f0fd]"
+        }`}
       >
- <FaGlasses size={20} />
-        <p  >اکسسوری</p>
+        <FaGlasses  />
+        <p>اکسسوری</p>
       </button>
     </>
   );
