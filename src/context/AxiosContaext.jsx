@@ -9,8 +9,10 @@ export function AxiosProvider({ children }) {
   const [isAxios, setIsAxios] = useState([]); // دیتای اصلی
   const [filteredProducts, setFilteredProducts] = useState([]); // دیتای فیلتر شده
   const [loading, setLoading] = useState(false);
+
   const [selectedCategory, setSelectedCategory] = useState("");
-const [activeFilter, setActiveFilter] = useState("");
+  const [sortFilter, setSortFilter] = useState("");
+  const [onlyAvailable, setOnlyAvailable] = useState(false);
 
   // تابع دریافت داده از API
   async function funcAxios(url) {
@@ -27,33 +29,34 @@ const [activeFilter, setActiveFilter] = useState("");
   }
 
   // تابع فیلتر کردن داده‌ها
-  function applyFilter(type) {
-  setActiveFilter(type);
-    // اول محصولات موجود
-    let sorted = isAxios.filter(item => item.remaining !== "اتمام موجودی");
+function applyFilter(newSort = sortFilter, newAvailable = onlyAvailable) {
+    setSortFilter(newSort);
+    setOnlyAvailable(newAvailable);
 
-    switch (type) {
-      case "cheapest":
-        sorted.sort((a, b) => a.price - b.price);
-        break;
-      case "mostExpensive":
-        sorted.sort((a, b) => b.price - a.price);
-        break;
-      case "newest":
-        sorted.sort((a, b) => Number(b.id) - Number(a.id));
-        break;
-      case "mostDiscount":
-        sorted.sort((a, b) => (b.discount || 0) - (a.discount || 0));
-        break;
-      case "available":
-        // همین الان فیلتر شده، فقط لازم نیست کاری کنی
-        break;
-      default:
-        // اگر هیچ فیلتری انتخاب نشه، کل دیتا رو نشون بده
-        sorted = isAxios;
+    let result = [...isAxios];
+
+    if (newAvailable) {
+      result = result.filter(item => item.remaining !== "اتمام موجودی");
     }
 
-    setFilteredProducts(sorted);
+    switch (newSort) {
+      case "cheapest":
+        result.sort((a, b) => a.price - b.price);
+        break;
+      case "mostExpensive":
+        result.sort((a, b) => b.price - a.price);
+        break;
+      case "newest":
+        result.sort((a, b) => Number(b.id) - Number(a.id));
+        break;
+      case "mostDiscount":
+        result.sort((a, b) => (b.discount || 0) - (a.discount || 0));
+        break;
+      default:
+        break;
+    }
+
+    setFilteredProducts(result);
   }
 
 
@@ -62,16 +65,16 @@ const [activeFilter, setActiveFilter] = useState("");
       value={{
         isAxios,
         filteredProducts,
-        setIsAxios,
         funcAxios,
         loading,
-        applyFilter,
-        setFilteredProducts,
         setLoading,
         selectedCategory,
-setSelectedCategory,
-activeFilter,
-setActiveFilter
+        setSelectedCategory,
+        applyFilter,
+        sortFilter,
+        setSortFilter,
+        onlyAvailable,
+        setOnlyAvailable,
       }}
     >
       {children}
