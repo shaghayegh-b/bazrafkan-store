@@ -22,9 +22,11 @@ function Home() {
   return (
     <>
       <Navbar />
-      <Support />
-      <div className="relative">
-        <div className="h-12"></div>
+      <Support />        <div className="h-12"></div>
+
+      <div className="relative min-h-screen flex flex-col">
+
+<div className="Main flex-1">
         <div className="grid grid-cols-3 grid-rows-2 gap-2 rounded-2 p-2 py-4">
           <Category></Category>
         </div>
@@ -42,9 +44,8 @@ function Home() {
             <p className="text-center py-10">محصولی یافت نشد</p>
           )}
         </div>
-        <footer>
+</div>
           <Footer />
-        </footer>
       </div>
     </>
   );
