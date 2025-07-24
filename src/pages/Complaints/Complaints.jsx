@@ -1,6 +1,6 @@
 import { memo, useEffect } from "react";
 import Header from "../../components/Header/Header";
-import img from "../../assets/img/7.webp";
+import img from "../../assets/img/8.webp";
 import Footer from "../../components/Footer/Footer";
 function Complaints() {
   //   وقتی وارد صفحه محصول می‌شی، اگر صفحه پایین باشه، اسلایدر دیده نمی‌شه
@@ -10,7 +10,8 @@ function Complaints() {
   return (
     <>
       <Header>پیگیری شکایات</Header>
-      <div className="OrderTracking px-2 py-1">
+      <div className=" min-h-screen flex flex-col">
+      <div className="OrderTracking px-2 py-1 flex-1">
         <div className=" w-[100%] mt-2">
           <img src={img} alt="" className="" />
         </div>
@@ -26,6 +27,7 @@ function Complaints() {
         </p>
       </div>
       <Footer></Footer>
+      </div>
     </>
   );
 }
