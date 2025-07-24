@@ -113,7 +113,7 @@ function Navbar() {
           onClick={() => setMeno(false)}
         >
           <i
-            className={`fa fa-times text-center rounded-full w-6 h-6 m-1 shadow flex justify-center items-center bg-[#9fa8ba]
+            className={`fa fa-times text-[140%] text-center rounded-full w-6 h-6 m-1 shadow flex justify-center items-center bg-[#9fa8ba]
                         ${meno ? "" : "hidden"}`}
           >
           </i>
