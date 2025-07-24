@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <>
-      <div className="Footer bg-[#00182c] text-[white] p-3">
+      <div className="Footer flex flex-col justify-between  bg-[#00182c] text-[white] p-3">
         <div className=" pb-7 ">
           <h3 className="text-[120%] font-bold px-1 pt-3">دسترسی سریع</h3>
           <ul className="text-[90%] text-[#e2f1fd]">
@@ -40,7 +40,8 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className="grid grid-cols-3 grid-rows-1 text-[80%] text-center text-[#acbac5]">
+  <div>
+          <div className="grid  grid-cols-3 grid-rows-1 text-[80%] text-center text-[#acbac5]">
           <div>
             <p>
               تماس با فروشگاه
@@ -60,9 +61,10 @@ function Footer() {
           <div>
             <p>هفت روز هفته پاسخگوی شما هستیم</p>
           </div>
-        </div>
+        </div> <p className="font-bold mt-3 text-center">بوتیک شقایق</p>
 
-        <p className="font-bold mt-3 text-center">بوتیک شقایق</p>
+  </div>
+
       </div>
     </>
   );
