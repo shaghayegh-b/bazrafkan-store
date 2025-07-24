@@ -20,7 +20,8 @@ function FavProduct() {
   return (
     <>
       <Header>علاقه مندی ها</Header>
-      <div className="FavProduct relative">
+      <div className=" min-h-screen flex flex-col">
+      <div className="FavProduct relative flex-1">
         <div
           className={`fixed bg-white border-[#0ba5ffed] top-14 left-1/2 -translate-x-1/2 z-20 w-[85%] p-3    border-t-2 border-solid text-sm rounded-sm shadow-md transition-all duration-300 ${
             deletedMessage ? "" : "hidden"
@@ -30,6 +31,7 @@ function FavProduct() {
           {deletedMessage}
         </div>
         {favoriteItems.length === 0 ? (
+            <>
           <div
             className={`flex flex-col justify-center items-center mt-2 p-1 pb-4`}
           >
@@ -38,6 +40,8 @@ function FavProduct() {
               هیچ کالایی در لیست علاقه‌مندی نیست!
             </p>
           </div>
+          <Back></Back>
+          </>
         ) : (
           <div className="p-1 ">
             {favoriteItems.map((item) => (
@@ -50,7 +54,7 @@ function FavProduct() {
                     if (confirmm) {
                       removeFromFav(item.id);
                       setDeletedMessage(
-                        `"${item.title}" با رنگ "${item.selectedColor?.name}" از علاقه مندی ها حذف شد`
+                        `"${item.title}" از علاقه مندی ها حذف شد`
                       );
                       setTimeout(() => {
                         setDeletedMessage(false);
@@ -92,7 +96,7 @@ function FavProduct() {
                   <div className="flex justify-between items-center p-2">
                     <button
                       type="button"
-                      className="rounded-sm bg-[#6faff9] px-2 py-1"
+                      className="rounded-sm bg-[#76bcf8c4] px-2 py-1"
                     >
                       موجود شد خبرم کن
                     </button>
@@ -103,7 +107,7 @@ function FavProduct() {
                 ) : (
                   <div className="flex justify-between items-center p-2">
                     <Link
-                      className="rounded-sm bg-[#6faff9] px-2 py-1"
+                      className="rounded-sm bg-[#76bcf8c4] px-2 py-1"
                       to={`/bazrafkan-store/OneProduct/${item.id}`}
                     >
                       افزودن به سبد خرید
@@ -134,7 +138,7 @@ function FavProduct() {
                     setDeletedMessage(false);
                   }, 3000);
                 }}
-                className="bg-red-800 text-white rounded-sm p-1 px-2 mt-2"
+                className="bg-[#00abcbed] text-white rounded-sm p-1 px-2 mt-2"
               >
                 پاک کردن همه علاقه مندی&zwnj;ها
               </button>
@@ -162,7 +166,7 @@ function FavProduct() {
                     setDeletedMessage(false);
                   }, 3000);
                 }}
-                className="rounded-sm bg-[#6faff9] px-2 py-1"
+                className="rounded-sm bg-[#76bcf8c4] px-2 py-1"
               >
                 افزودن علاقه مندی ها به سبد خرید
               </button>
@@ -174,6 +178,7 @@ function FavProduct() {
       </div>
 
       <Footer></Footer>
+      </div>
     </>
   );
 }
