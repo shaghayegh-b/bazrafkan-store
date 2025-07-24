@@ -11,11 +11,8 @@ function OrderTracking() {
     <>
       <Header>پیگیری سفارشات</Header>
       <div className="OrderTracking px-2 py-1">
-        <div className="relative w-[100%] mt-2">
+        <div className="w-[100%] mt-2">
           <img src={img} alt="" className="" />
-          <h2 className=" absolute text-[170%] font-extrabold top-[35%] w-[100%] text-center ">
-            پیگیری سفارشات
-          </h2>
         </div>
         <h3 className="text-[130%] font-bold  px-1 pt-4">
           پیگیری سفارشات
@@ -39,7 +36,7 @@ function OrderTracking() {
         </p>
         <a
           href="https://tracking.post.ir/"
-          className=" flex justify-center text-[135%] font-bold text-red-500 mb-8"
+          className=" flex justify-center text-center text-[135%] font-bold text-red-500 mb-8"
         >
           ورود به سامانه رهگیری مرسولات اداره پست
         </a>

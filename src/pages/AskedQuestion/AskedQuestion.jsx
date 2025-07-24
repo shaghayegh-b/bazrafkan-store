@@ -11,11 +11,8 @@ function AskedQuestion() {
     <>
     <Header>سوالات متداول</Header>
     <div className="AskedQuestion p-2">
-        <div className="relative w-[100%] ">
+        <div className=" w-[100%] ">
           <img src={img} alt="" className="" />
-          <h2 className=" absolute text-[170%] font-extrabold   top-[35%] w-[100%] text-center ">
-            سوالات متداول و پر تکرار
-          </h2>
         </div>
         <h3 className="text-[130%] font-bold px-1 pt-4">
           شیوه ی خرید
