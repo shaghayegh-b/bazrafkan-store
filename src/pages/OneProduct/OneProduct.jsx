@@ -203,7 +203,7 @@ function OneProduct() {
               </p>
             </div>
             <div className="flex justify-between font-[500] px-1 py-3">
-              <p className="">رنگ انتخابی:</p>{" "}
+              <p className="">رنگ:</p>{" "}
               <span className="font-500">{colors[selectedColorIndex].name}</span>
             </div>
 
@@ -287,8 +287,8 @@ function OneProduct() {
                       })
                     }
                     disabled={isOutOfStock}
-                    className={`rounded-sm bg-[#6faff9] px-2 py-1
-                  ${isOutOfStock ? "   cursor-not-allowed" : "bg-blue-400"}`}
+                    className={`rounded-sm px-2 py-1
+                  ${isOutOfStock ? " bg-[#00000026]  cursor-not-allowed" : " bg-[#76bcf8]"}`}
                   >
                     افزودن به سبد خرید
                   </button>
@@ -303,7 +303,7 @@ function OneProduct() {
                     })
                   }
                   disabled={isOutOfStock}
-                  className="rounded-sm bg-blue-400 px-2 py-1"
+                  className="rounded-sm bg-[#76bcf8] px-2 py-1"
                 >
                   افزودن به سبد خرید
                 </button>
@@ -312,7 +312,7 @@ function OneProduct() {
           </div>
 
           {/* پیام پردازش */}
-          <p className="py-1 px-2     border-t-4 border-solid border-[#0ba5ffed] text-[85%] text-center">
+          <p className="py-1 px-2  bg-[#a8d2ff17]   border-t-4 border-solid border-[#0ba5ffed] text-[85%] text-center">
             پردازش محصولات<span className="font-[600]"> 7 الی 10 </span>روزکاری
             زمان می‌برد!
           </p>
