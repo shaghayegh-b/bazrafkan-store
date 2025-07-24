@@ -42,8 +42,8 @@ function Account() {
     <>
       <Header>حساب کاربری</Header>
 
-      <div className="Account flex justify-center items-center  ">
-        <div className="flex flex-col items-center p-2 mb-4 bg-[#e4f0fd] w-[80%]">
+      <div className="Account flex justify-center items-center min-h-screen flex-col">
+        <div className=" flex-1 flex flex-col justify-center items-center p-2 mb-4 bg-[#e4f0fd] w-[80%]">
           <div className="grid grid-cols-2 grid-rows-2 gap-x-1.5 gap-y-1.5 p-1 ">
             <button
               onClick={handleLogin}
@@ -144,8 +144,9 @@ function Account() {
             <span class=" text-[90%]  text-[#0a57b0]">ورود</span>
           </NavLink>
         </div>
+              <Footer></Footer>
       </div>
-      <Footer></Footer>
+
     </>
   );
 }

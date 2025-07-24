@@ -46,8 +46,8 @@ function Login() {
     <>
       <Header>حساب کاربری</Header>
 
-      <div className="Login flex justify-center items-center">
-        <div className="flex flex-col items-center  p-2 mb-4 bg-[#e4f0fd]   w-[80%] ">
+      <div className="Login flex justify-center items-center  min-h-screen  flex-col">
+        <div className="flex-1 flex flex-col justify-center items-center  p-2 mb-4 bg-[#e4f0fd]   w-[80%] ">
           <button
             onClick={handleLogin}
             className=" bg-white    rounded-sm flex justify-center items-center gap-1 px-5 py-.5 font-[600]"
@@ -108,10 +108,10 @@ function Login() {
             <p>قبلا حساب کاربری نداشته اید؟</p>
             <span className="text-[90%] px-1.5  text-[#0a57b0]">ساخت حساب</span>
           </NavLink>
-        </div>
+        </div>      <Footer></Footer>
       </div>
 
-      <Footer></Footer>
+
     </>
   );
 }
