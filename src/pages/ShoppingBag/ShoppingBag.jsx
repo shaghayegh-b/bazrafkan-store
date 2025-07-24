@@ -68,8 +68,8 @@ function ShoppingBag() {
   return (
     <>
       <Header>سبد خرید</Header>
-      <div className="relative">
-        <div className="ShoppingBag  ">
+      <div className="relative  min-h-screen flex flex-col">
+        <div className="ShoppingBag flex-1 ">
           <div
             className={`fixed bg-[white] top-14 left-1/2 -translate-x-1/2 z-10 w-[85%] p-3    border-t-2 border-solid border-[#0ba5ffed] text-sm rounded-sm shadow-md transition-all duration-300 ${
               deletedMessage ? "" : "hidden"
@@ -129,6 +129,8 @@ function ShoppingBag() {
                           <span className="font-[600]">محصول : </span>
                           {item.title}
                         </p>
+
+{/*  */}
                         <p className="flex">
                           <span className="font-[600]">رنگ انتخابی : </span>
                           &nbsp;
@@ -136,13 +138,15 @@ function ShoppingBag() {
                             item.selectedColor.name
                           ) : (
                             <>
-                              <button
+                          {!colorPickerVisible[item.id] &&
+                           ( <button
                                 type="button"
-                                onClick={() => toggleColorPicker(item.id)}
-                                className="bg-[#6faff9] rounded-sm px-1 mx-1"
+                                onClick={() =>toggleColorPicker(item.id)}
+                                className="bg-[#76bcf8c4] rounded-sm px-1 mx-1"
                               >
                                 رنگ را انتخاب کنید
-                              </button>
+                              </button>)
+                          }
                               {colorPickerVisible[item.id] && (
                                 <div className="flex items-center gap-1">
                                   {item.colors.map((color) => (
@@ -164,6 +168,8 @@ function ShoppingBag() {
                           )}
                         </p>
 
+
+{/*  */}
                         <p>
                           <span className="font-[600]">قیمت : </span>
                           {item.price} تومان
@@ -245,7 +251,7 @@ function ShoppingBag() {
                       }, 3000);
                     }
                   }}
-                  className="bg-red-800 text-white rounded-sm p-1 px-2 mt-2"
+                  className="bg-[#00abcbed] text-white rounded-sm p-1 px-2 mt-2"
                 >
                   پاک کردن سبد خرید
                 </button>
@@ -253,7 +259,7 @@ function ShoppingBag() {
               <div className={`flex justify-center`}>
                 <button
                   type="button"
-                  className="bg-[#6faff9] rounded-sm p-1 px-2 mt-2"
+                  className="bg-[#76bcf8c4] rounded-sm p-1 px-2 mt-2"
                 >
                   ادامه جهت تسویه حساب
                 </button>
@@ -262,9 +268,9 @@ function ShoppingBag() {
               <Back />
             </div>
           )}
-        </div>
+        </div>      <Footer />
       </div>
-      <Footer />
+
     </>
   );
 }
