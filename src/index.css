@@ -55,7 +55,7 @@ button {
   --tw-tracking: var(--tracking-tighter);
   letter-spacing: var(--tracking-tighter);
 }
-.fa ,.fas{
+.Navbar .fa , .Navbar .fas,.Meno .fa , .Meno .fas{
     font-size:140%;
 }
 svg{
