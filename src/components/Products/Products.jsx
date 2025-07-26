@@ -4,9 +4,8 @@ import { memo } from "react";
 function Products({ id, title, remaining, score, price, colors }) {
   return (
     <>
-      <div></div>
-      <NavLink to={`/bazrafkan-store/OneProduct/${id}`} className="Products">
-        <div className="flex bg-[#e4f0fd7a]    p-1 rounded-md m-1">
+      <NavLink to={`/bazrafkan-store/OneProduct/${id}`} className="Product">
+        <div className="flex p-1 rounded-md m-1">
           <div className="w-[40%]">
             <div className="w-[120px] h-auto    rounded-md">
               <img
@@ -39,6 +38,7 @@ function Products({ id, title, remaining, score, price, colors }) {
           </div>
         </div>
       </NavLink>
+      <hr className="mx-3 text-[#5194dd7a]"></hr>
     </>
   );
 }
