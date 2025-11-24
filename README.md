@@ -1,94 +1,114 @@
-# Bazrafkan STORE
+# #Bazrafkan STORE – Mobile-First Online Store
 
-This is a personal portfolio website built to showcase the work, skills, and contact information of Shaghayegh Bazrafkan, a front-end developer and UI/UX designer.
-
-🌐 Live Site: [https://shaghayegh-b.github.io/bazrafkan-store/](https://shaghayegh-b.github.io/bazrafkan-store/)
-
----
-
-## 🧩 Features
-
-- 💼 Project showcase with live links
-- 🧠 Skills and technologies section
-- 📝 Resume/CV download
-- 📱 Fully responsive design
-- 🎨 Smooth animations and clean UI
+Shaqayeq is a fully mobile-first online store built with React.  
+The entire UI is specially optimized for mobile and tablet devices.  
+The project includes complete e-commerce features such as a shopping cart, wishlist, advanced filters, product color selection system, informational pages, and more.
 
 ---
 
-## 🛠️ Tech Stack
+## ⭐ Features
 
-- HTML5
-- CSS3 (Flexbox & Grid)
-- JavaScript (Vanilla)
-- [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/)
-- GitHub Pages (for deployment)
+### 🛍️ Full Store System
+- Complete shopping cart (add/remove/manage items)  
+- Save selected color for each product  
+- Separate cart data for each product color  
+- Wishlist (Favorites)
+
+### 🔎 Filtering & Categories
+- Dynamic product filters with multi-selection  
+- Filters reset when switching categories  
+- Custom filter options  
+- Show only in-stock products  
+- Category icons added  
+- Pagination for product lists
+
+### 🎨 UI & Design
+- Fully optimized for mobile and tablet only  
+- New friendly blue theme  
+- Visual improvements in fonts and colors  
+- Adjusted icon sizes (navbar & menu)  
+- Improved product image slider  
+- Divider lines added between products on the homepage  
+- Removed unnecessary text overlays from images  
+- Sticky footer on devices with tall viewports
+
+### 📄 Pages & Features
+- Home page  
+- Product page + dedicated image slider  
+- About Us  
+- FAQ  
+- Order Tracking  
+- Complaint Tracking  
+- Contact page with fast-access email & phone links  
+- User logout system  
+- 404 Not Found page  
+
+### ⚙️ System Enhancements
+- Dark Mode / Light Mode  
+- Custom product API  
+- Loading component  
+- Image fixes and size improvements  
+- Removed unused CSS and overall code cleanup
 
 ---
 
-## 📁 Folder Structure
-
-vite-project/
-
-├── public/ # Public files
-
-├── src/ # The main codes of the project
-
-│     ├── assets/ #Fonts, images
-
-│     ├── components/ #Reusable components
-
-│     ├── locales/ # Translations (i18n)
-
-│     ├── pages/ # Main pages (home,etc.)
-
-│     ├── App.jsx
-
-│     ├── main.jsx
-
-│     ├── routes.jsx # React Router
-
-│     └── index.css
-
-├── index.html # Basic HTML
-
-├── tailwind.config.js
-
-├── vite.config.js
-
-└── README.md
-
-
+## 📦 Tech Stack
+- React  
+- Custom CSS (optimized for mobile/tablet)  
+- JavaScript  
+- Custom API  
 
 ---
 
-## 🚀 Getting Started (Local Development)
+## 🛠️ Installation & Run Guide
 
-To run this project locally:
-
-1. Clone the repository:
-
+### 1️⃣ Clone the repository
+`
 bash
-   git clone https://github.com/shaghayegh-b/bazrafkan-portfolio.git
+git clone git@github.com:shaghayegh-b/bazrafkan-store.git
+cd file
 
-2. Open index.html in your browser
-   or use a live server extension in your code editor (like Live Server in VS Code).
+2️⃣ Install dependencies
 
----
+npm install
 
-## 📬 Contact
+3️⃣ Run the development server
 
-If you’d like to get in touch:
+npm start
 
-- 📧 Email: bazrafkan.sh@gmail.com
-- 💼 LinkedIn: [linkedin.com/in/shaghayegh-bazrafkannjad](https://www.linkedin.com/in/shaghayegh-bazrafkannjad-523bb5301)
+4️⃣ Build for production
 
----
+npm run build
 
-## 📄 License
-
-This project is open-source and available under the MIT License.
 
 ---
 
-> Designed and developed with ❤️ by Shaghayegh Bazrafkan
+🌐 Live Demo
+
+You can view the live version on GitHub Pages:
+
+🔗 Demo:[https://shaghayegh-b.github.io/bazrafkan-store/](https://shaghayegh-b.github.io/bazrafkan-store/)
+
+
+
+---
+
+📅 Development Notes
+
+Shaqayeq has been developed and improved over dozens of commits, gradually adding new features, optimizing performance, fixing UI issues, enhancing responsiveness, and refining the overall experience for mobile and tablet users.
+
+
+---
+
+## 📜 License
+
+This project is released under the MIT License,
+meaning you are free to use, modify, and distribute the project
+without any warranty from the author.
+
+---
+
+## ⭐ Acknowledgments
+
+Thanks for checking out this project!
+If you liked it, consider giving the repository a ⭐ on GitHub.
